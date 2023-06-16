@@ -37,6 +37,7 @@ const Navbar = ({
     if (exempted.includes(router.pathname)) {
       setSidebar(false);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const ref = useRef();
   const toggleCart = () => {

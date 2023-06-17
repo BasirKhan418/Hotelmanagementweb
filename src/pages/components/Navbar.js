@@ -16,6 +16,8 @@ import {
 } from "react-icons/md";
 import { BiLogInCircle, BiLogOut } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+import { MdFoodBank } from "react-icons/md";
+import {RiHotelFill} from "react-icons/ri";
 
 const Navbar = ({
   logout,
@@ -57,38 +59,82 @@ const Navbar = ({
   return (
     <>
       {!sidebar && (
-        <span
-          onMouseOver={() => {
-            setDropdown(true);
-          }}
-          onMouseLeave={() => {
-            setDropdown(false);
-          }}
-        >
-          {dropdown && (
-            <div className="absolute right-14 bg-white shadow-lg top-9 rounded-md px-5 w-36 py-4 z-30">
-              <Link href={"/myaccount"}>
-                <li className="py-1 text-sm hover:text-pink-700 list-none font-bold">
-                  My Account
-                </li>
-              </Link>
-              <Link href={"/orders"}>
-                <li className="py-1 text-sm hover:text-pink-700 list-none font-bold">
-                  My Orders
-                </li>
-              </Link>
-              <li
-                onClick={logout}
-                className="py-1 text-sm hover:text-pink-700 list-none font-bold"
-              >
-                Logout
-              </li>
-            </div>
+            <span
+              onMouseOver={() => {
+                setDropdown(true);
+              }}
+              onMouseLeave={() => {
+                setDropdown(false);
+              }}
+            >
+              {dropdown && user && (
+                <div className="absolute right-16 bg-white shadow-lg top-16 rounded-md px-5 w-44 py-4 z-30">
+                  <span
+                    onClick={() => {
+                      setDropdown(false);
+                    }}
+                    className="absolute top-0 right-2 cursor-pointer text-2xl text-amber-500"
+                  >
+                    <>
+                      <AiFillCloseCircle />
+                    </>
+                  </span>
+                  <Link href={"/myaccount"}>
+                    <li className="py-1 text-base hover:text-pink-700 list-none font-bold flex">
+                      <MdManageAccounts className="mt-1 mx-2" />
+                      My Account
+                    </li>
+                  </Link>
+                  <Link href={"/orders"}>
+                    <li className="py-1 text-base hover:text-pink-700 list-none font-bold flex">
+                      <MdShoppingCart className="mt-1 mx-2" />
+                      My Orders
+                    </li>
+                  </Link>
+                  <li
+                    onClick={logout}
+                    className="py-1 text-base hover:text-pink-700 list-none font-bold flex"
+                  >
+                    <BiLogOut className="mt-1 mx-2" />
+                    Logout
+                  </li>
+                </div>
+              )}
+            </span>
           )}
-        </span>
-      )}
+          {!sidebar && (
+            <span
+              onMouseOver={() => {
+                setDropdown(true);
+              }}
+              onMouseLeave={() => {
+                setDropdown(false);
+              }}
+            >
+              {dropdown && !user && (
+                <div className="absolute right-16 bg-white shadow-lg top-16 rounded-md px-5 w-36 py-4 z-30 ">
+                  <span
+                    onClick={() => {
+                      setDropdown(false);
+                    }}
+                    className="absolute top-0 right-2 cursor-pointer text-2xl text-amber-500"
+                  >
+                    <>
+                      <AiFillCloseCircle />
+                    </>
+                  </span>
+                  <Link href={"/myaccount"}>
+                    <li className="py-1 hover:text-pink-700 list-none font-bold flex text-base">
+                      <BiLogInCircle className="mx-2 mt-1" />
+                      Login
+                    </li>
+                  </Link>
+                </div>
+              )}
+            </span>
+          )}
       <div
-        className={`flex flex-col xl:flex-row  justify-start md:justify-start items-center py-2 shadow-md bg-white dark:bg-black dark:text-white text-black sticky top-0 z-10 w-full ${
+        className={`flex flex-col md:flex-row  justify-start md:justify-start items-center py-2 shadow-md bg-white dark:bg-black dark:text-white text-black sticky top-0 z-10 ${!sidebarham?"h-20":""} w-full ${
           !sidebar && "overflow-hidden"
         }`}
       >
@@ -113,7 +159,7 @@ const Navbar = ({
         </div>
         <div className="flex flex-col justify-center items-center xl:flex-row">
           <Link href={"/"}>
-            <div className="logo ml-auto md:mx-5 flex flex-col justify-center items-center xl:flex-row">
+            <div className="logo ml-auto flex flex-col justify-center items-center xl:flex-row">
               <Image
                 alt="logo"
                 src="/cresentlogo.png"
@@ -124,30 +170,36 @@ const Navbar = ({
           </Link>
         </div>
         <div className="nav right hidden lg:flex">
-          <ul className="flex justify-center  space-x-2 2xl:space-x-3 items-center overflow-hidden whitespace-nowrap">
+          <ul className="flex justify-center mx-4 items-center overflow-hidden whitespace-nowrap space-x-4 ">
             <hr className="h-2 w-full" />
             <Link href={"/tshirts"}>
               {" "}
-              <li className="text-lg my-2 font-bold hover:text-pink-400 transition duration-150 ease-out hover:ease-in">
-                Tshirts
+              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in ">
+                Home
               </li>
             </Link>
             <Link href={"/hoodies"}>
               {" "}
-              <li className="text-lg my-2 font-bold hover:text-pink-400 transition duration-150 ease-out hover:ease-in">
-                Hoodies
+              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+                Rooms
               </li>
             </Link>
             <Link href={"/stickers"}>
               {" "}
-              <li className="text-lg my-2 font-bold hover:text-pink-400 transition duration-150 ease-out hover:ease-in">
-                Stickers
+              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+                Foods
               </li>
             </Link>
             <Link href={"/mugs"}>
               {" "}
-              <li className="text-lg my-2 font-bold hover:text-pink-400 transition duration-150 ease-out hover:ease-in">
-                Mugs
+              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+                About
+              </li>
+            </Link>
+            <Link href={"/mugs"}>
+              {" "}
+              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+               Contact Us
               </li>
             </Link>
             {/* <Link href={"/"}> <a><li>Tshirts</li></a></Link> */}
@@ -155,24 +207,14 @@ const Navbar = ({
         </div>
 
         {/* <AiOutlineShoppingCart className="text-3xl md:text-xl"/> */}
-        <div className="cart absolute right-0 top-8 mx-5 flex justify-center">
-          {user && (
+        <div className="cart absolute right-4 top-6 mx-5 flex justify-center">
+          <button className="text-white px-2 py-1 font-semibold bg-amber-500 rounded hover:bg-amber-600 hidden lg:block">BOOK A STAY</button>
             <MdAccountCircle
               onMouseOver={() => {
                 setDropdown(true);
               }}
-              className="text-xl md:text-3xl cursor-pointer mx-4"
+              className="text-xl md:text-3xl cursor-pointer mx-4 text-amber-500 hidden lg:block"
             />
-          )}
-          {!user && (
-            <Link href={"/Login"}>
-              <>
-                <button className="bg-amber-500 px-2 py-1 rounded-md text-sm text-white mx-2  hidden lg:block ">
-                  Login
-                </button>
-              </>
-            </Link>
-          )}
           <div className="hidden lg:block">
             <AiOutlineShoppingCart
               className="text-xl md:text-3xl cursor-pointer text-amber-500 "
@@ -202,18 +244,7 @@ const Navbar = ({
             </Link>
           </div>
           <div className="box flex justify-center items-center w-1/4 cursor-pointer">
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 1024 1024"
-              className="text-3xl dark:text-amber-500"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path>
-            </svg>
+            <MdFoodBank className="text-3xl dark:text-amber-500"/>
           </div>
           <div className="box flex justify-center items-center w-1/4 cursor-pointer">
             <span className="relative" onClick={toggleCart}>
@@ -235,7 +266,7 @@ const Navbar = ({
             </span>
           </div>
           <div className="box flex justify-center items-center w-1/4 cursor-pointer">
-            <svg
+            {/* <svg
               stroke="currentColor"
               fill="currentColor"
               strokeWidth="0"
@@ -247,7 +278,8 @@ const Navbar = ({
             >
               <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
               <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
-            </svg>
+            </svg> */}
+            <RiHotelFill className="text-3xl dark:text-amber-500"/>
           </div>
           <div className="box flex justify-center items-center w-1/4 cursor-pointer">
             <svg
@@ -344,34 +376,39 @@ const Navbar = ({
           )}
         </div>
         <div
-          className={`bg-white h-[50vh] px-8 py-10 transition-all ${
-            sidebarham ? "block" : "hidden"
+          className={`bg-white h-[40vh] px-8 py-10 transition-all z-50
           }`}
         >
-          <ul className="flex flex-col justify-center items-center">
+          <ul className="flex justify-center mx-4 items-center overflow-hidden whitespace-nowrap space-x-4 flex-col">
             <hr className="h-2 w-full" />
             <Link href={"/tshirts"}>
               {" "}
-              <li className="text-lg my-2 font-bold hover:text-amber-500 transition duration-150 ease-out hover:ease-in">
-                Tshirts
+              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in ">
+                Home
               </li>
             </Link>
             <Link href={"/hoodies"}>
               {" "}
-              <li className="text-lg my-2 font-bold hover:text-amber-500transition duration-150 ease-out hover:ease-in">
-                Hoodies
+              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+                Rooms
               </li>
             </Link>
             <Link href={"/stickers"}>
               {" "}
-              <li className="text-lg my-2 font-bold hover:text-amber-500 transition duration-150 ease-out hover:ease-in">
-                Stickers
+              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+                Foods
               </li>
             </Link>
             <Link href={"/mugs"}>
               {" "}
-              <li className="text-lg my-2 font-bold hover:text-amber-500 transition duration-150 ease-out hover:ease-in">
-                Mugs
+              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+                About
+              </li>
+            </Link>
+            <Link href={"/mugs"}>
+              {" "}
+              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+               Contact Us
               </li>
             </Link>
             {/* <Link href={"/"}> <a><li>Tshirts</li></a></Link> */}

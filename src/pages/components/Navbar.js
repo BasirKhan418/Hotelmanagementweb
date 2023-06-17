@@ -134,7 +134,7 @@ const Navbar = ({
             </span>
           )}
       <div
-        className={`flex flex-col md:flex-row  justify-start md:justify-start items-center py-2 shadow-md bg-white dark:bg-black dark:text-white text-black sticky top-0 z-10 ${!sidebarham?"h-20":""} w-full ${
+        className={`flex flex-col lg:flex-row  justify-start md:justify-start items-center py-2 shadow-md bg-white dark:bg-black dark:text-white text-black sticky top-0 z-10 ${!sidebarham?"h-20":""} w-full ${
           !sidebar && "overflow-hidden"
         }`}
       >
@@ -159,7 +159,7 @@ const Navbar = ({
         </div>
         <div className="flex flex-col justify-center items-center xl:flex-row">
           <Link href={"/"}>
-            <div className="logo ml-auto flex flex-col justify-center items-center xl:flex-row">
+            <div className="logo ml-auto flex flex-col md:justify-center justify-center items-center">
               <Image
                 alt="logo"
                 src="/cresentlogo.png"
@@ -376,7 +376,7 @@ const Navbar = ({
           )}
         </div>
         <div
-          className={`bg-white h-[40vh] px-8 py-10 transition-all z-50
+          className={`bg-white h-[40vh] px-8 py-10 transition-all
           }`}
         >
           <ul className="flex justify-center mx-4 items-center overflow-hidden whitespace-nowrap space-x-4 flex-col">
@@ -389,25 +389,25 @@ const Navbar = ({
             </Link>
             <Link href={"/hoodies"}>
               {" "}
-              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 Rooms
               </li>
             </Link>
             <Link href={"/stickers"}>
               {" "}
-              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 Foods
               </li>
             </Link>
             <Link href={"/mugs"}>
               {" "}
-              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 About
               </li>
             </Link>
             <Link href={"/mugs"}>
               {" "}
-              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                Contact Us
               </li>
             </Link>

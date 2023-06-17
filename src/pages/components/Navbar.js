@@ -375,7 +375,7 @@ const Navbar = ({
             </span>
           )}
         </div>
-        <div
+        {!sidebar&&<div
           className={`bg-white h-[40vh] px-8 py-10 transition-all
           }`}
         >
@@ -413,7 +413,7 @@ const Navbar = ({
             </Link>
             {/* <Link href={"/"}> <a><li>Tshirts</li></a></Link> */}
           </ul>
-        </div>
+        </div>}
         <div
           ref={ref}
           className={`w-80 h-[100vh] sideCart overflow-y-scroll absolute top-0 text-black bg-amber-100 px-8 py-10 transition-all ${

@@ -68,6 +68,7 @@ const Navbar = ({
               }}
             >
               {dropdown && user && (
+                <div className="sticky top-0 z-30">
                 <div className="absolute right-16 bg-white shadow-lg top-16 rounded-md px-5 w-44 py-4 z-30">
                   <span
                     onClick={() => {
@@ -99,6 +100,7 @@ const Navbar = ({
                     Logout
                   </li>
                 </div>
+                </div>
               )}
             </span>
           )}
@@ -112,6 +114,7 @@ const Navbar = ({
               }}
             >
               {dropdown && !user && (
+                <div className="sticky top-0 z-30">
                 <div className="absolute right-16 bg-white shadow-lg top-16 rounded-md px-5 w-36 py-4 z-30 ">
                   <span
                     onClick={() => {
@@ -129,6 +132,7 @@ const Navbar = ({
                       Login
                     </li>
                   </Link>
+                </div>
                 </div>
               )}
             </span>
@@ -169,7 +173,7 @@ const Navbar = ({
             </div>
           </Link>
         </div>
-        <div className="nav right hidden lg:flex">
+        <div className="nav right hidden lg:flex dark:text-white dark:bg-black">
           <ul className="flex justify-center mx-4 items-center overflow-hidden whitespace-nowrap space-x-4 ">
             <hr className="h-2 w-full" />
             <Link href={"/tshirts"}>

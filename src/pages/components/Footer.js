@@ -52,15 +52,14 @@ const Footer = () => {
   	 		</div>
   	 	</div>
   	 </div>
-     
-  </footer>
-  <div className="bg-amber-500 text-white overflow-hidden ">
+	   <div className="bg-amber-500 text-white">
     <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
       <p className="text-white text-sm text-center">© 2023 www.hotelcresent.in — All Rights Reserved
       </p>
     </div>
   </div> 
-  <div className='h-10'> </div>
+  </footer>
+ 
     </div>
   )
 }

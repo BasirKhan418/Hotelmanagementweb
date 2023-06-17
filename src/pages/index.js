@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
+import Hero from './components/Hero'
+import Sliderhome from './components/Sliderhome'
 export default function Home() {
   return (
    <div>
@@ -11,6 +13,8 @@ export default function Home() {
      </Head>
      {/* <img src="/home1.jpg" className="absolute block w-full h-full " alt="..."/> */}
     {/* Caraseoul starts from here */}
+    <Hero/>
+    <Sliderhome/>
     <section className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-wrap -m-4">

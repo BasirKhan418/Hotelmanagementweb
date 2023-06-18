@@ -126,7 +126,7 @@ const Navbar = ({
                       <AiFillCloseCircle />
                     </>
                   </span>
-                  <Link href={"/myaccount"}>
+                  <Link href={"/login"}>
                     <li className="py-1 hover:text-pink-700 list-none font-bold flex text-base">
                       <BiLogInCircle className="mx-2 mt-1" />
                       Login
@@ -176,7 +176,7 @@ const Navbar = ({
         <div className="nav right hidden lg:flex dark:text-white dark:bg-black">
           <ul className="flex justify-center mx-4 items-center overflow-hidden whitespace-nowrap space-x-4 ">
             <hr className="h-2 w-full" />
-            <Link href={"/tshirts"}>
+            <Link href={"/"}>
               {" "}
               <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in ">
                 Home
@@ -368,7 +368,7 @@ const Navbar = ({
                       <AiFillCloseCircle />
                     </>
                   </span>
-                  <Link href={"/myaccount"}>
+                  <Link href={"/login"}>
                     <li className="py-1 hover:text-pink-700 list-none font-bold flex text-base">
                       <BiLogInCircle className="mx-2 mt-1" />
                       Login

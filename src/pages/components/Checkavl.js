@@ -5,7 +5,7 @@ const Checkavl = () => {
     <div>
       <section >
 
-<form action="" className="flex items-center justify-center bg-gray-200 flex-wrap">
+<form action="" className="flex items-center justify-center bg-gray-200 flex-wrap ">
 
    <div className="font-semibold bg-gray-200 text-black p-4">
       <p className='text-amber-500'>Check in <span>*</span></p>
@@ -54,8 +54,8 @@ const Checkavl = () => {
    </div>
    
 </form>
-<div className='flex justify-center h-16 bg-gray-200'>
-   <button type="submit" className="bg-amber-500 rounded p-2 mx-2 lg:absolute left-32 text-white font-semibold ">Check Avaibility</button>
+<div className='flex justify-center bg-gray-200 h-10'>
+   <button type="submit" className="bg-amber-500 rounded p-2 mx-2 lg:absolute left-32 text-white font-semibold">Check Avaibility</button>
    </div>
 
 

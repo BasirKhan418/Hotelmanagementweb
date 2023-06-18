@@ -7,7 +7,7 @@ export default function Home() {
   return (
    <div className='bg-white'>
      <Head>
-      <title>Hotel Decenst -Book your dream destination now!</title>
+      <title>Hotel Cresent -Book your dream destination now!</title>
       <meta name="description" content='Specare is a online shopping website '/>
       <link rel='icon' href="/favicon.ico"/>
      </Head>

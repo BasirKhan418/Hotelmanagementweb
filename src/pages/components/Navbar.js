@@ -380,7 +380,7 @@ const Navbar = ({
           )}
         </div>
         {!sidebar&&<div
-          className={`bg-white h-[40vh] px-8 py-10 transition-all
+          className={`bg-white h-[50vh] px-8 py-10 transition-all
           }`}
         >
           <ul className="flex justify-center mx-4 items-center overflow-hidden whitespace-nowrap space-x-4 flex-col">

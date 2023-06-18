@@ -279,10 +279,12 @@ ul{
 		border-radius: 4px;
 		text-align: center;
 	  }
+	 
+	  
 	  @media(max-width: 767px){
 		.button {
 			position: absolute;
-			bottom: 150px;
+			bottom: 8px;
 			left: 50%;
 			transform: translateX(-50%);
 			color: #fff;
@@ -291,4 +293,32 @@ ul{
 			border-radius: 4px;
 			text-align: center;
 		  }
+		  .homesw{
+			width:auto;
+			height: auto;
+			object-fit: cover;
+		  }
 		}
+		@media(max-width: 400px){
+			.button {
+				position: absolute;
+				bottom: 2px;
+				left: 50%;
+				transform: translateX(-50%);
+				color: #fff;
+				padding: 10px 20px;
+				border: none;
+				border-radius: 4px;
+				text-align: center;
+			  }
+			  .homesw{
+				width:auto;
+				height: auto;
+				object-fit: cover;
+			  }
+		}
+			@media(min-width: 1196px){
+				.btnavl{
+					left: 92px;
+				}
+			}

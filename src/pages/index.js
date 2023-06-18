@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import Hero from './components/Hero'
 import Sliderhome from './components/Sliderhome'
+import Checkavl from './components/Checkavl'
 export default function Home() {
   return (
-   <div>
+   <div className='bg-white'>
      <Head>
       <title>Hotel Decenst -Book your dream destination now!</title>
       <meta name="description" content='Specare is a online shopping website '/>
@@ -14,7 +14,12 @@ export default function Home() {
      {/* <img src="/home1.jpg" className="absolute block w-full h-full " alt="..."/> */}
     {/* Caraseoul starts from here */}
     <Hero/>
+   <hr/>
+    <div className=' bg-white rounded text-center'>
+      <h1 className='text-black dark:text-white text-2xl font-semibold my-2 mx-2'>A Stunning Overview of Pure Luxury</h1>
+    </div>
     <Sliderhome/>
+    <Checkavl/>
     <section className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-wrap -m-4">

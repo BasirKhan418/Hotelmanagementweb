@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Sliderhome from './components/Sliderhome'
 import Checkavl from './components/Checkavl'
 import Room from './components/room'
+import Features from './components/Features'
 export default function Home() {
   return (
    <div className='bg-white'>
@@ -22,13 +23,19 @@ export default function Home() {
     </div>
     <Sliderhome/>
     <Checkavl/>
-    <div className='text-amber-500 bg-gray-100 h-10 flex justify-center items-center'>
-      <h1 className='sm:text-4xl text-xl font-bold'>Our Room</h1>
+    <div className='text-amber-500 bg-blue-50 h-16 flex justify-center items-center my-2'>
+      <h1 className='sm:text-4xl text-xl font-bold'>Our Rooms</h1>
      
     </div>
     <div className='h-2 w-40 bg-amber-500 rounded '></div>
     
     <Room/>
+    <div className='text-amber-500 bg-blue-50 h-16 flex justify-center items-center my-2'>
+      <h1 className='sm:text-4xl text-xl font-bold'>Features at Hotel Cresent</h1>
+     
+    </div>
+    <div className='h-2 w-40 bg-amber-500 rounded'></div>
+    <Features/>
     <section className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-wrap -m-4">

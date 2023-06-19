@@ -14,7 +14,7 @@ const Room = () => {
         // install Swiper modules
         modules={[Navigation, Pagination, A11y, Autoplay]}
         autoplay={{
-          delay: 30000, // 3 seconds delay between slides
+          delay: 3000, // 3 seconds delay between slides
           disableOnInteraction: false, // enable autoplay even when user interacts with the carousel
         }}
         breakpoints={{

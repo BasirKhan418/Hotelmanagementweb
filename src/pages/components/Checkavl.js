@@ -54,8 +54,8 @@ const Checkavl = () => {
    </div>
    
 </form>
-<div className='flex justify-center bg-gray-200 h-10'>
-   <button type="submit" className="bg-amber-500 rounded p-2 mx-2 lg:absolute left-32 text-white font-semibold">Check Avaibility</button>
+<div className='flex justify-center bg-gray-200 h-16'>
+   <button type="submit" className="bg-amber-500 rounded p-2 mx-2 lg:absolute left-32 text-white font-semibold h-10 w-52 ">Check Avaibility</button>
    </div>
 
 

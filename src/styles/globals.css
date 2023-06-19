@@ -284,7 +284,7 @@ ul{
 	  @media(max-width: 767px){
 		.button {
 			position: absolute;
-			bottom: 8px;
+			bottom: 28px;
 			left: 50%;
 			transform: translateX(-50%);
 			color: #fff;
@@ -299,10 +299,10 @@ ul{
 			object-fit: cover;
 		  }
 		}
-		@media(max-width: 400px){
+		@media(max-width: 500px){
 			.button {
 				position: absolute;
-				bottom: 2px;
+				bottom: 28px;
 				left: 50%;
 				transform: translateX(-50%);
 				color: #fff;

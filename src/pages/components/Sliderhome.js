@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
+import {  Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -12,14 +12,13 @@ const Sliderhome = () => {
     <div>
       <Swiper
         // install Swiper modules
-        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+        modules={[Pagination, Scrollbar, A11y, Autoplay]}
         autoplay={{
           delay: 3000, // 3 seconds delay between slides
           disableOnInteraction: false, // enable autoplay even when user interacts with the carousel
         }}
         spaceBetween={50}
         slidesPerView={1}
-        navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >

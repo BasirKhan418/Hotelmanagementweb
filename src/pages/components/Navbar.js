@@ -182,25 +182,25 @@ const Navbar = ({
                 Home
               </li>
             </Link>
-            <Link href={"/hoodies"}>
+            <Link href={"/rooms"}>
               {" "}
               <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
                 Rooms
               </li>
             </Link>
-            <Link href={"/stickers"}>
+            <Link href={"/foods"}>
               {" "}
               <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
                 Foods
               </li>
             </Link>
-            <Link href={"/mugs"}>
+            <Link href={"/about"}>
               {" "}
               <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
                 About
               </li>
             </Link>
-            <Link href={"/mugs"}>
+            <Link href={"/contactus"}>
               {" "}
               <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
                Contact Us
@@ -385,31 +385,31 @@ const Navbar = ({
         >
           <ul className="flex justify-center mx-4 items-center overflow-hidden whitespace-nowrap space-x-4 flex-col">
             <hr className="h-2 w-full" />
-            <Link href={"/tshirts"}>
+            <Link href={"/"}>
               {" "}
               <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in ">
                 Home
               </li>
             </Link>
-            <Link href={"/hoodies"}>
+            <Link href={"/rooms"}>
               {" "}
               <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 Rooms
               </li>
             </Link>
-            <Link href={"/stickers"}>
+            <Link href={"/foods"}>
               {" "}
               <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 Foods
               </li>
             </Link>
-            <Link href={"/mugs"}>
+            <Link href={"/about"}>
               {" "}
               <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 About
               </li>
             </Link>
-            <Link href={"/mugs"}>
+            <Link href={"/contactus"}>
               {" "}
               <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                Contact Us

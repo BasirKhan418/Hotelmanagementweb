@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigation, Pagination,A11y, Autoplay ,} from "swiper";
+import {  Pagination,A11y, Autoplay ,} from "swiper";
 
 import { Swiper, SwiperSlide} from "swiper/react";
 // Import Swiper styles
@@ -12,7 +12,7 @@ const Room = () => {
    <>
    <Swiper
         // install Swiper modules
-        modules={[Navigation, Pagination, A11y, Autoplay]}
+        modules={[ Pagination, A11y, Autoplay]}
         autoplay={{
           delay: 3000, // 3 seconds delay between slides
           disableOnInteraction: false, // enable autoplay even when user interacts with the carousel
@@ -33,19 +33,14 @@ const Room = () => {
           }}
         spaceBetween={20}
         slidesPerView={3}
-        navigation
         pagination={{ clickable: true }}
       >
                 <SwiperSlide>
-                <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-2">
-    <a href="#">
-        <img className="p-8 rounded-t-lg" src="/room-2.jpg" alt="product image" />
-    </a>
+                <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4 my-4">
+        <img className="p-8 rounded-t-lg h-72 w-96 object-cover" src="/room-2.jpg" alt="product image" />
     <div className="px-5 pb-5">
-        <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Executive Room</h5>
             <p className='my-2'>FREE BREAKFAST, LUNCH / DINNER, FREE WIFI & Guaranteed Early Check-in & Late Check-out!</p>
-        </a>
         <div className="flex items-center mt-2.5 mb-5">
             <svg aria-hidden="true" className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
             <svg aria-hidden="true" className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -65,15 +60,11 @@ const Room = () => {
 </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-2">
-    <a href="#">
-        <img className="p-8 rounded-t-lg" src="/room-2.jpg" alt="product image" />
-    </a>
+                <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4 my-4">
+        <img className="p-8 rounded-t-lg h-72 w-96 object-cover" src="/room-2.jpg" alt="product image" />
     <div className="px-5 pb-5">
-        <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Deluxe Room</h5>
             <p className='my-2'>FREE BREAKFAST, LUNCH / DINNER, FREE WIFI & Guaranteed Early Check-in & Late Check-out!</p>
-        </a>
         <div className="flex items-center mt-2.5 mb-5">
             <svg aria-hidden="true" className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
             <svg aria-hidden="true" className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -93,15 +84,11 @@ const Room = () => {
 </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-2">
-    <a href="#">
-        <img className="p-8 rounded-t-lg" src="/room-2.jpg" alt="product image" />
-    </a>
+                <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4 my-4">
+        <img className="p-8 rounded-t-lg h-72 w-96 object-cover" src="/room-2.jpg" alt="product image" />
     <div className="px-5 pb-5">
-        <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Family Room</h5>
             <p className='my-2'>FREE BREAKFAST, LUNCH / DINNER, FREE WIFI & Guaranteed Early Check-in & Late Check-out!</p>
-        </a>
         <div className="flex items-center mt-2.5 mb-5">
             <svg aria-hidden="true" className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
             <svg aria-hidden="true" className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -120,15 +107,12 @@ const Room = () => {
 </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-2">
-    <a href="#">
-        <img className="p-8 rounded-t-lg" src="/room-2.jpg" alt="product image" />
-    </a>
+                <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4 my-4">
+        <img className="p-8 rounded-t-lg h-72 w-96 object-cover" src="/room-2.jpg" alt="product image" />
+
     <div className="px-5 pb-5">
-        <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Single Room</h5>
             <p className='my-2'>FREE BREAKFAST, LUNCH / DINNER, FREE WIFI & Guaranteed Early Check-in & Late Check-out!</p>
-        </a>
         <div className="flex items-center mt-2.5 mb-5">
             <svg aria-hidden="true" className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
             <svg aria-hidden="true" className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>

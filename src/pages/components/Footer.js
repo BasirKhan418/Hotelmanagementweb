@@ -22,26 +22,26 @@ const Footer = () => {
   	 			</ul>
   	 		</div>
   	 		<div className="footer-col">
-  	 			<h4>get help</h4>
+  	 			<h4>Get help</h4>
   	 			<ul>
   	 				<li><a href="#">FAQ</a></li>
-  	 				<li><a href="#">shipping</a></li>
-  	 				<li><a href="#">returns</a></li>
+  	 				<li><a href="#">Booking status</a></li>
+  	 				<li><a href="#">Services</a></li>
   	 				<li><a href="#">order status</a></li>
   	 				<li><a href="#">payment options</a></li>
   	 			</ul>
   	 		</div>
   	 		<div className="footer-col">
-  	 			<h4>online shop</h4>
+  	 			<h4>Online shop</h4>
   	 			<ul>
-  	 				<li><a href="#">watch</a></li>
-  	 				<li><a href="#">bag</a></li>
-  	 				<li><a href="#">shoes</a></li>
-  	 				<li><a href="#">dress</a></li>
+  	 				<li><a href="#">Foods</a></li>
+  	 				<li><a href="#">Book a room</a></li>
+  	 				<li><a href="#">Book a table</a></li>
+  	 				<li><a href="#">Book a hall</a></li>
   	 			</ul>
   	 		</div>
   	 		<div className="footer-col">
-  	 			<h4>follow us</h4>
+  	 			<h4>Follow us</h4>
   	 			<div className="social-links">
   	 				<Link href="#"><BsFacebook className='text-4xl hover:text-blue-600  '/></Link>
   	 				<a href="#"><BsInstagram className='text-4xl hover:text-pink-600'/></a>

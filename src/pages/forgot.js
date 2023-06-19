@@ -130,8 +130,8 @@ if(localStorage.getItem('token')){
 
   }
   return (
-    <div>
-      <div className="flex min-h-full py-12 flex-col items-start justify-center sm:px-6 lg:px-8 bg-white">
+    <div className=' min-h-screen bg-white'>
+      <div className="flex py-12 flex-col items-center justify-center sm:px-6 lg:px-8 bg-white">
       <ToastContainer
 position="bottom-center"
 autoClose={5000}

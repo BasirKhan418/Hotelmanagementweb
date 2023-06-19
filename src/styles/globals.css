@@ -312,8 +312,8 @@ ul{
 				text-align: center;
 			  }
 			  .homesw{
-				width:auto;
-				height: auto;
+				width:100vw;
+				height: 50vh;
 				object-fit: cover;
 			  }
 		}
@@ -322,3 +322,4 @@ ul{
 					left: 92px;
 				}
 			}
+			

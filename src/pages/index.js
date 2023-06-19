@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Hero from './components/Hero'
 import Sliderhome from './components/Sliderhome'
 import Checkavl from './components/Checkavl'
+import Room from './components/room'
 export default function Home() {
   return (
    <div className='bg-white'>
@@ -13,13 +14,21 @@ export default function Home() {
      </Head>
      {/* <img src="/home1.jpg" className="absolute block w-full h-full " alt="..."/> */}
     {/* Caraseoul starts from here */}
+    
     <Hero/>
    <hr/>
     <div className=' bg-white rounded text-center'>
-      <h1 className='text-black dark:text-white text-2xl font-semibold my-2 mx-2'>A Stunning Overview of Pure Luxury</h1>
+      <h1 className='text-amber-500 dark:text-white sm:text-3xl text-xl font-semibold my-2 mx-2 '>A Stunning Overview of Pure Luxury</h1>
     </div>
     <Sliderhome/>
     <Checkavl/>
+    <div className='text-amber-500 bg-gray-100 h-10 flex justify-center items-center'>
+      <h1 className='sm:text-4xl text-xl font-bold'>Our Room</h1>
+     
+    </div>
+    <div className='h-2 w-40 bg-amber-500 rounded '></div>
+    
+    <Room/>
     <section className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-wrap -m-4">

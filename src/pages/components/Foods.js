@@ -1,6 +1,6 @@
 import React from 'react'
 import {  Pagination,A11y, Autoplay ,} from "swiper";
-
+import Link from 'next/link';
 import { Swiper, SwiperSlide} from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -53,7 +53,7 @@ const Food = () => {
         {/* <span className="text-3xl font-bold text-gray-400 dark:text-white line-through ">$599</span> */}
             <span className="sm:text-3xl text-xl font-bold text-gray-900 dark:text-white">₹99/starting</span>
             <div className='absolute right-60 sm:right-28 md:right-28 lg:right-28'>
-            <button href="#" className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold sm:font-medium rounded-lg text-sm px-5 py-2.5 text-center">Order Now</button>
+           <Link href={"/foods"}> <button className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold sm:font-medium rounded-lg text-sm px-5 py-2.5 text-center">Order Now</button></Link>
             </div>
         </div>
     </div>
@@ -77,7 +77,7 @@ const Food = () => {
         {/* <span className="text-3xl font-bold text-gray-400 dark:text-white line-through ">$599</span> */}
             <span className="sm:text-3xl text-xl font-bold text-gray-900 dark:text-white">₹199/starting</span>
             <div className='absolute right-60 sm:right-28 md:right-28 lg:right-28'>
-            <button href="#" className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold sm:font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Order Now</button>
+            <Link href={"/foods"}> <button className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold sm:font-medium rounded-lg text-sm px-5 py-2.5 text-center">Order Now</button></Link>
             </div>
         </div>
     </div>
@@ -101,7 +101,7 @@ const Food = () => {
         {/* <span className="text-3xl font-bold text-gray-400 dark:text-white line-through ">$599</span> */}
             <span className="sm:text-3xl text-xl font-bold text-gray-900 dark:text-white">₹99/starting</span>
             <div className='absolute right-60 sm:right-28 md:right-28 lg:right-28'>
-            <button href="#" className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold sm:font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Order Now</button></div>
+            <Link href={"/foods"}> <button className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold sm:font-medium rounded-lg text-sm px-5 py-2.5 text-center">Order Now</button></Link></div>
         </div>
     </div>
 </div>
@@ -125,7 +125,7 @@ const Food = () => {
         {/* <span className="text-3xl font-bold text-gray-400 dark:text-white line-through ">$599</span> */}
             <span className="sm:text-3xl text-xl font-bold text-gray-900 dark:text-white">₹199/starting</span>
             <div className='absolute right-60 sm:right-28 md:right-28 lg:right-28'>
-            <button href="#" className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold sm:font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Order Now</button></div>
+            <Link href={"/foods"}> <button className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold sm:font-medium rounded-lg text-sm px-5 py-2.5 text-center">Order Now</button></Link></div>
         </div>
     </div>
 </div>
@@ -149,7 +149,7 @@ const Food = () => {
         {/* <span className="text-3xl font-bold text-gray-400 dark:text-white line-through ">$599</span> */}
             <span className="sm:text-3xl text-xl font-bold text-gray-900 dark:text-white">₹99/starting</span>
             <div className='absolute right-60 sm:right-28 md:right-28 lg:right-28'>
-            <button href="#" className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold sm:font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Order Now</button></div>
+            <Link href={"/foods"}> <button className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold sm:font-medium rounded-lg text-sm px-5 py-2.5 text-center">Order Now</button></Link></div>
         </div>
     </div>
 </div>

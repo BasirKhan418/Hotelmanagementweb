@@ -1,5 +1,6 @@
 import React from "react";
 import {  Pagination, Scrollbar, A11y, Autoplay } from "swiper";
+import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -28,28 +29,28 @@ const Sliderhome = () => {
             <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold mx-4 my-4">
             Uncover the Best Deals: Your Ultimate Hotel Booking Platform
             </h1>
-            <button  className="button bg-amber-500 font-semibold">Explore Now</button>
+            <Link href={"/gallery"}><button  className="button bg-amber-500 font-semibold">Explore Now</button></Link>
           </div>{" "}
         </SwiperSlide>
         <SwiperSlide>
           <img src="/home-slide2.jpg" alt="ff" className="homesw" />
           <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold mx-4 my-4">
           Ultimate Comfort Awaits: Reserve Your Ideal Hotel Stay, </h1>
-            <button  className="button bg-amber-500 font-semibold">Explore Now</button>
+          <Link href={"/gallery"}><button  className="button bg-amber-500 font-semibold">Explore Now</button></Link>
         </SwiperSlide>
         <SwiperSlide>
           <img src="/home-slide3.jpg" alt="ff" className="homesw" />
           <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold mx-4 my-4">
           Stay in Style: Find the Perfect Hotel for a Memorable Travel Experience
             </h1>
-            <button  className="button bg-amber-500 font-semibold">Explore Now</button>
+            <Link href={"/gallery"}><button  className="button bg-amber-500 font-semibold">Explore Now</button></Link>
         </SwiperSlide>
         <SwiperSlide>
           <img src="/home-slide4.jpg" alt="ff" className="homesw" />
           <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold mx-4 my-4">
           Luxury Redefined: Experience Unmatched Elegance at Our Exclusive Hotels
             </h1>
-            <button  className="button bg-amber-500 font-semibold">Explore Now</button>
+            <Link href={"/gallery"}><button  className="button bg-amber-500 font-semibold">Explore Now</button></Link>
         </SwiperSlide>
       </Swiper>
     </div>

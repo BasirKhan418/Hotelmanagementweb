@@ -4,8 +4,8 @@ const contactus = () => {
   return (
     <div>
       <section className="text-gray-600 body-font relative  ">
-  <div className="absolute inset-0 bg-gray-300 z-10">
-    <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60956.04956548566!2d78.45358616032655!3d17.27917599873145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba3232169af17%3A0xcc0220401ad2cd07!2sHyderabad%2C%20Telangana%20500005!5e0!3m2!1sen!2sin!4v1687198297499!5m2!1sen!2sin" style={{filter: "grayscale(1) contrast(1.2) opacity(0.4)"}}></iframe>
+  <div className="absolute inset-0 bg-gray-300 overflow-hidden">
+    <iframe width="100%" height="100%" frameborder="0" marginHeight="0" marginwidth="0" title="map" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60956.04956548566!2d78.45358616032655!3d17.27917599873145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba3232169af17%3A0xcc0220401ad2cd07!2sHyderabad%2C%20Telangana%20500005!5e0!3m2!1sen!2sin!4v1687198297499!5m2!1sen!2sin" style={{filter: "grayscale(1) contrast(1.2) opacity(0.4)"}}></iframe>
   </div>
   <div className="container px-5 py-24 mx-auto flex">
     <div className="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">

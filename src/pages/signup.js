@@ -170,7 +170,7 @@ theme="light"
 
     <p className="mt-10 text-center text-sm text-gray-500">
       Already a member?
-      <Link href="/Login" className="font-semibold leading-6 text-amber-600 hover:text-pink-500"> Login</Link>
+      <Link href="/login" className="font-semibold leading-6 text-amber-600 hover:text-pink-500"> Login</Link>
     </p>
   </div>
 </div>

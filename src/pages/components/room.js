@@ -35,7 +35,7 @@ const Room = ({catroom}) => {
         slidesPerView={3}
         pagination={{ clickable: true }}
       >
-        {catroom.map((item)=>{
+        {catroom && catroom.map((item)=>{
 
 
               return <SwiperSlide key={item._id}>

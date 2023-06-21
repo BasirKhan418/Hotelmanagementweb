@@ -37,7 +37,7 @@ const Food = ({catfood}) => {
         slidesPerView={3}
         pagination={{ clickable: true }}
       >
-               { catfood.map((item)=>{ return <SwiperSlide key={item._id}>
+               { catfood&&catfood.map((item)=>{ return <SwiperSlide key={item._id}>
                 <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4 my-4">
         <img className="p-8 rounded-t-lg h-72 w-96 object-cover" src={item.img} alt="product image" />
     <div className="px-5 pb-5">

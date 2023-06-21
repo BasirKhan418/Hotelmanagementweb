@@ -457,7 +457,7 @@ const Navbar = ({
                   <div className="item flex flex-wrap my-5">
                     <img
                       src={cart[k].img}
-                      className="mx-4 mt-2 w-10 h-10 border-2 border-pink-300 rounded"
+                      className="mx-4 mt-2 w-10 h-10 border-2 border-pink-300 rounded object-cover"
                     />
                     <div className="w-2/3 font-semibold">{`${cart[k].name}(${cart[k].size}/${cart[k].variant}) `}</div>
                     <div className="flex items-center justify-center w-1/3 font-semibold text-xl">

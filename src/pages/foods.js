@@ -1,6 +1,7 @@
 import React from 'react'
 import mongoose from 'mongoose';
 import Product from '../../models/Product';
+import Link from 'next/link';
 const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
   return (
     <div>
@@ -11,15 +12,13 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
     <div className='h-1 w-60 bg-amber-500 rounded '></div>
     <div className='flex justify-center items-center flex-wrap'>
     { breakfast&&breakfast.map((item)=>{
-      return <div key ={item._id}className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-      <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
+      return <Link key = {item._id} href={`/${item.slug}`}> <div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+      <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
         <img className="object-cover" src={item.img} alt="product image" />
-        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">4% OFF</span>
-      </a>
+        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
+      </div>
       <div className="mt-4 px-5 pb-5">
-        <a href="#">
           <h5 className="text-xl tracking-tight text-slate-900">{item.title}</h5>
-        </a>
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>
             <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
@@ -46,7 +45,7 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
         </div>
       </div>
     </div>
-    })}
+    </Link>})}
     </div>
     <div className='text-black dark:text-white h-16 flex bg-white items-center'>
       <h1 className='sm:text-2xl text-xl font-bold mx-8'>Snacks</h1>
@@ -55,15 +54,14 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
     <div className='h-1 w-60 bg-amber-500 rounded '></div>
     <div className='flex justify-center items-center flex-wrap'>
     { snacks&&snacks.map((item)=>{
-      return <div key ={item._id}className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-      <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
+      return <Link key = {item._id} href={`/${item.slug}`}> <div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+      <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
         <img className="object-cover" src={item.img} alt="product image" />
-        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">4% OFF</span>
-      </a>
+        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
+      </div>
       <div className="mt-4 px-5 pb-5">
-        <a href="#">
+  
           <h5 className="text-xl tracking-tight text-slate-900">{item.title}</h5>
-        </a>
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>
             <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
@@ -90,7 +88,7 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
         </div>
       </div>
     </div>
-    })}
+    </Link>})}
     </div>
     <div className='text-black dark:text-white h-16 flex bg-white items-center'>
       <h1 className='sm:text-2xl text-xl font-bold mx-8'>Lunch</h1>
@@ -99,15 +97,13 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
     <div className='h-1 w-60 bg-amber-500 rounded '></div>
     <div className='flex justify-center items-center flex-wrap'>
     { lunch&&lunch.map((item)=>{
-      return <div key ={item._id}className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-      <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
+      return <Link key = {item._id} href={`/${item.slug}`}> <div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+      <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
         <img className="object-cover" src={item.img} alt="product image" />
-        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">4% OFF</span>
-      </a>
+        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
+      </div>
       <div className="mt-4 px-5 pb-5">
-        <a href="#">
           <h5 className="text-xl tracking-tight text-slate-900">{item.title}</h5>
-        </a>
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>
             <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
@@ -134,7 +130,7 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
         </div>
       </div>
     </div>
-    })}
+    </Link>})}
     </div>
     <div className='text-black dark:text-white h-16 flex bg-white items-center'>
       <h1 className='sm:text-2xl text-xl font-bold mx-8'>Fast Foods</h1>
@@ -143,15 +139,13 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
     <div className='h-1 w-60 bg-amber-500 rounded '></div>
     <div className='flex justify-center items-center flex-wrap'>
     { fastfood&&fastfood.map((item)=>{
-      return <div key ={item._id}className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-      <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
+      return <Link key = {item._id} href={`/${item.slug}`}> <div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+      <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
         <img className="object-cover" src={item.img} alt="product image" />
-        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">4% OFF</span>
-      </a>
+        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
+      </div>
       <div className="mt-4 px-5 pb-5">
-        <a href="#">
           <h5 className="text-xl tracking-tight text-slate-900">{item.title}</h5>
-        </a>
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>
             <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
@@ -178,7 +172,7 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
         </div>
       </div>
     </div>
-    })}
+    </Link>})}
 </div>
 <div className='text-black dark:text-white h-16 flex bg-white items-center'>
       <h1 className='sm:text-2xl text-xl font-bold mx-8'>Dinner</h1>
@@ -187,15 +181,13 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
     <div className='h-1 w-60 bg-amber-500 rounded '></div>
     <div className='flex justify-center items-center flex-wrap'>
     { dinner&&dinner.map((item)=>{
-      return <div key ={item._id}className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-      <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
+      return <Link key = {item._id} href={`/${item.slug}`}><div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+      <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
         <img className="object-cover" src={item.img} alt="product image" />
-        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">4% OFF</span>
-      </a>
+        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
+      </div>
       <div className="mt-4 px-5 pb-5">
-        <a href="#">
           <h5 className="text-xl tracking-tight text-slate-900">{item.title}</h5>
-        </a>
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>
             <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
@@ -222,7 +214,7 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
         </div>
       </div>
     </div>
-    })}
+    </Link>})}
 </div>
 <div className='text-black dark:text-white h-16 flex bg-white items-center'>
       <h1 className='sm:text-2xl text-xl font-bold mx-8'>Other</h1>
@@ -231,15 +223,13 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
     <div className='h-1 w-60 bg-amber-500 rounded '></div>
     <div className='flex justify-center items-center flex-wrap'>
     { other&&other.map((item)=>{
-      return <div key ={item._id}className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-      <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
+      return <Link key = {item._id} href={`/${item.slug}`}><div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+      <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" >
         <img className="object-cover" src={item.img} alt="product image" />
-        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">4% OFF</span>
-      </a>
+        <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
+      </div>
       <div className="mt-4 px-5 pb-5">
-        <a href="#">
           <h5 className="text-xl tracking-tight text-slate-900">{item.title}</h5>
-        </a>
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>
             <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
@@ -266,7 +256,7 @@ const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
         </div>
       </div>
     </div>
-    })}
+    </Link>})}
     </div>
     </div>
   )

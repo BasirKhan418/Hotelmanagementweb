@@ -2,9 +2,11 @@ import React, { useEffect,useState } from 'react'
 import { useRouter } from 'next/router'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Spinner from './components/Spinner';
 //refactor passsword toast[pending]
 //display valid reason why password failed to set[pending]
 const Myaccount = () => {
+  const[loading,setLoading]=useState(false);
   const router =useRouter();
   useEffect(()=>{
     const myuser = JSON.parse(localStorage.getItem('myUser'));
@@ -52,6 +54,7 @@ const Myaccount = () => {
      
      }
      const fetchdata=async(token)=>{
+      setLoading(true)
       const data ={token:token};
       const pr = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
         method: "POST", // or 'PUT'
@@ -62,6 +65,7 @@ const Myaccount = () => {
       });
   
       const res=await pr.json();
+      setLoading(false)
       console.log(res)
       console.log(res.name,res.address,res.phone,res.pincode);
       setName(res.name);
@@ -70,6 +74,7 @@ const Myaccount = () => {
       setPincode(res.pincode);
      }
      const handleSaveChange=async()=>{
+      setLoading(true)
       const data ={name,address,phone,pincode,email};
       const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updateuser`, {
         method: "POST", // or 'PUT'
@@ -80,6 +85,7 @@ const Myaccount = () => {
       });
   
       const response=await res.json();
+      setLoading(false)
       console.log(response);
       toast.success("Successfully updated your details", {
         position: "top-left",
@@ -94,6 +100,7 @@ const Myaccount = () => {
      
      }
      const handleSaveChangePassword=async()=>{
+      setLoading(true)
       const data ={token:user.token,password,cpassword,npassword};
       const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updatepassword`, {
         method: "POST", // or 'PUT'
@@ -104,6 +111,7 @@ const Myaccount = () => {
       });
   
       const response=await res.json();
+      setLoading(false)
       console.log(response);
       if(response.success){
         toast.success("Successfully updated your details", {
@@ -135,7 +143,8 @@ const Myaccount = () => {
      setPassword('');
      }
   return (
-    <div className='container mx-auto my-9 min-h-screen bg-white rounded'>
+    <>{
+    loading?<Spinner/>:<div className='container mx-auto my-9 min-h-screen bg-white rounded'>
          <ToastContainer
 position="top-left"
 autoClose={5000}
@@ -293,7 +302,8 @@ theme="light"
         >
           Save Changes
         </button>
-    </div>
+    </div>}
+    </>
   )
 }
 

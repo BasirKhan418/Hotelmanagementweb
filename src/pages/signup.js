@@ -6,7 +6,9 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/router';
 import Image
  from 'next/image';
+ import Spinner from './components/Spinner';
 const Signup = () => {
+  const[loading, setLoading]=useState(false);
   const router =useRouter();
   useEffect(()=>{
     if(localStorage.getItem('token')){
@@ -32,6 +34,7 @@ setnPassword(e.target.value)
   }
   }
   const handleSubmit=async(e)=>{
+    setLoading(true)
     e.preventDefault();
     try{
         const data ={name,email,password};
@@ -45,7 +48,7 @@ setnPassword(e.target.value)
     });
 
     const response=await res.json();
-    console.log(response);
+    setLoading(false)
     setName('');
     setEmail('');
     setPassword('');
@@ -108,7 +111,8 @@ setnPassword(e.target.value)
   }
   }
   return (
-    <div>
+    <>
+    {loading?<Spinner/>:<div>
       <ToastContainer
 position="top-left"
 autoClose={5000}
@@ -174,7 +178,8 @@ theme="light"
     </p>
   </div>
 </div>
-    </div>
+    </div>}
+    </>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import Product from '../../models/Product';
 import mongoose from 'mongoose';
+import Link from 'next/link';
 const Rooms = ({deluxe,exeucative,family,other}) => {
   console.log(other)
   return (
@@ -12,15 +13,14 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
     <div className='h-1 w-60 bg-amber-500 rounded '></div>
     <div className='flex justify-center items-center flex-wrap'>
 
-    {deluxe&&deluxe.map((item)=>{return <div key = {item._id}className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-  <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+    {deluxe&&deluxe.map((item)=>{return <Link key = {item._id} href={`/${item.slug}`}><div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+  <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
     <img className="object-cover" src={item.img} alt="product image" />
     <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
-  </a>
+  </div>
   <div className="mt-4 px-5 pb-5">
-    <a href="#">
       <h5 className="text-xl tracking-tight text-slate-900">{item.title}</h5>
-    </a>
+
     <div className="mt-2 mb-5 flex items-center justify-between">
       <p>
         <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
@@ -46,7 +46,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
       </div>
     </div>
   </div>
-</div>})}
+</div></Link>})}
     </div>
     <div className='text-black dark:text-white h-16 flex bg-white items-center'>
       <h1 className='sm:text-2xl text-xl font-bold mx-8'>Exeucative Rooms</h1>
@@ -54,15 +54,13 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
     </div>
     <div className='h-1 w-60 bg-amber-500 rounded '></div>
     <div className='flex justify-center items-center flex-wrap'>
-    {exeucative&&exeucative.map((item)=>{return <div key = {item._id}className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-  <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+    {exeucative&&exeucative.map((item)=>{return<Link key = {item._id} href={`/${item.slug}`}> <div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+  <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
     <img className="object-cover" src={item.img} alt="product image" />
     <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
-  </a>
+  </div>
   <div className="mt-4 px-5 pb-5">
-    <a href="#">
       <h5 className="text-xl tracking-tight text-slate-900">{item.title}</h5>
-    </a>
     <div className="mt-2 mb-5 flex items-center justify-between">
       <p>
         <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
@@ -88,7 +86,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
       </div>
     </div>
   </div>
-</div>})}
+</div></Link>})}
     </div>
     <div className='text-black dark:text-white h-16 flex bg-white items-center'>
       <h1 className='sm:text-2xl text-xl font-bold mx-8'>Family Rooms</h1>
@@ -96,15 +94,13 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
     </div>
     <div className='h-1 w-60 bg-amber-500 rounded '></div>
     <div className='flex justify-center items-center flex-wrap'>
-    {family&&family.map((item)=>{return <div key = {item._id}className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-  <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+    {family&&family.map((item)=>{return <Link key = {item._id} href={`/${item.slug}`}><div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+  <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
     <img className="object-cover" src={item.img} alt="product image" />
     <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
-  </a>
+  </div>
   <div className="mt-4 px-5 pb-5">
-    <a href="#">
       <h5 className="text-xl tracking-tight text-slate-900">{item.title}</h5>
-    </a>
     <div className="mt-2 mb-5 flex items-center justify-between">
       <p>
         <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
@@ -130,7 +126,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
       </div>
     </div>
   </div>
-</div>})}
+</div></Link>})}
 
     </div>
     <div className='text-black dark:text-white h-16 flex bg-white items-center'>
@@ -139,15 +135,13 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
     </div>
     <div className='h-1 w-60 bg-amber-500 rounded '></div>
     <div className='flex justify-center items-center flex-wrap'>
-    {other&&other.map((item)=>{return <div key = {item._id}className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-  <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+    {other&&other.map((item)=>{return <Link key = {item._id} href={`/${item.slug}`}><div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+  <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
     <img className="object-cover" src={item.img} alt="product image" />
     <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
-  </a>
+  </div>
   <div className="mt-4 px-5 pb-5">
-    <a href="#">
       <h5 className="text-xl tracking-tight text-slate-900">{item.title}</h5>
-    </a>
     <div className="mt-2 mb-5 flex items-center justify-between">
       <p>
         <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
@@ -173,7 +167,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
       </div>
     </div>
   </div>
-</div>})}
+</div> </Link>})}
 </div>
 
     </div>

@@ -3,8 +3,10 @@ import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/router';
+import Spinner from './components/Spinner';
 import Image from 'next/image';
 const Login = () => {
+  const[loading,setLoading]=useState(false);
   useEffect(()=>{
  if(localStorage.getItem('myUser')){
   router.push('/');
@@ -22,6 +24,7 @@ setPassword(e.target.value)
   }
   }
   const handleSubmit=async(e)=>{
+    setLoading(true)
     e.preventDefault();
     try{
         const data ={email,password};
@@ -32,9 +35,8 @@ setPassword(e.target.value)
       },
       body: JSON.stringify(data),
     });
-
     const response=await res.json();
-    console.log(response);
+   setLoading(false)
     setEmail('');
     setPassword('');
     if(response.success){
@@ -83,6 +85,7 @@ setPassword(e.target.value)
   }
   return (
     <>
+    {loading?<Spinner/>:
       <div className="flexl flex-col justify-center px-6 py-12 lg:px-8 bg-white min-h-screen">
       <ToastContainer
 position="top-left"
@@ -132,7 +135,7 @@ theme="light"
       <Link href="/signup" className="font-semibold leading-6 text-amber-600 hover:text-amber-500"> Create your account</Link>
     </p>
   </div>
-</div>
+</div>}
     </>
   )
 }

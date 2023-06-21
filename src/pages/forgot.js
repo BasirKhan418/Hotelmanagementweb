@@ -4,7 +4,9 @@ import Image from 'next/image'
 import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Spinner from './components/Spinner';
 const Forgot = () => {
+  const[loading,setLoading]=useState(false)
   const[password,setPassword]=useState('');
   const[email,setEmail]=useState('');
   const[cpassword,setcPassword]=useState('');
@@ -26,6 +28,7 @@ if(localStorage.getItem('token')){
 }
   },[])
   const sendEmailf=async()=>{
+    setLoading(true)
     if(email.length>4){
 
     const data = {email,sendMail:true};
@@ -42,6 +45,7 @@ if(localStorage.getItem('token')){
    
       const r = await response.json();
         setEmail("");
+        setLoading(false)
         router.push(`/forgot?token=${r.forgot.token}`);
       if(r.success){
         toast.success("Successfully email sent. Please check the email for reset password related instructions ", {
@@ -84,6 +88,7 @@ if(localStorage.getItem('token')){
 
 }
   const resetPassword=async()=>{
+    setLoading(true)
     if(password==cpassword){
  const token =router.query.token;
     const data = {password,cpassword,token,sendMail:false};
@@ -101,6 +106,7 @@ if(localStorage.getItem('token')){
       const r = await response.json();
       setPassword('');
       setcPassword('')
+      setLoading(false)
       if(r.success){
         toast.success("Successfully your password is reset please login with your new password.", {
           position: "top-left",
@@ -130,7 +136,8 @@ if(localStorage.getItem('token')){
 
   }
   return (
-    <div className=' min-h-screen bg-white'>
+    <>
+    {loading?<Spinner/>:<div className=' min-h-screen bg-white'>
       <div className="flex py-12 flex-col items-center justify-center sm:px-6 lg:px-8 bg-white">
       <ToastContainer
 position="bottom-center"
@@ -188,7 +195,8 @@ theme="light"
   </div>}
   
 </div>
-    </div>
+    </div>}
+    </>
   )
 }
 

@@ -71,6 +71,7 @@ setPassword(e.target.value)
          
   }
   catch(error){
+    setLoading(false)
     toast.error("Something went wrong ! Please try again after some time.", {
       position: "top-left",
       autoClose: 1000,

@@ -36,10 +36,14 @@ const handler = async (req, res) => {
         for (let slug in products){
           await Product.findOneAndUpdate({slug:slug},{$inc:{"availableQty":-products[slug].qty }})
         }
-        res.redirect(`/order?id=${order._id}&clearCart=1`,200);
+        // res.redirect(`/order?id=${order._id}&clearCart=1`,200);
+        res.status(200).json({order:order,success:true})
     }
     else{
        order =await Order.findOneAndUpdate({orderID:req.body.razorpay_order_id},{status:"Pending",payment_id:req.body.razorpay_payment_id,payment_signature:req.body.razorpay_signature});
     }
+    // const redirectUrl = `/order?id=${order._id}&clearCart=1`;
+    // res.writeHead(307, { Location: redirectUrl });
+    // res.end();
   }
   export default connectDb(handler)

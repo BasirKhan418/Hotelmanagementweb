@@ -45,7 +45,7 @@ if(localStorage.getItem("cart")){
   }
   setSubtotal(subt)
   }
-  const addToCart =(itemCode,qty,price,name,size,variant,img)=>{
+  const addToCart =(itemCode,qty,price,name,size,variant,img,category)=>{
     if(Object.keys(cart).length==0){
       setKey(Math.random());
     }
@@ -54,7 +54,7 @@ if(localStorage.getItem("cart")){
     newCart[itemCode].qty=cart[itemCode].qty+qty;
    }
    else{
-    newCart[itemCode]={qty:1,price,name,size,variant,img}
+    newCart[itemCode]={qty:1,price,name,size,variant,img,category}
    }
    setCart(newCart);
    saveCart(newCart);
@@ -90,9 +90,9 @@ if(localStorage.getItem("cart")){
     setCart(newCart);
     saveCart(newCart);
   }
-  const buyNow=(itemCode,qty,price,name,size,variant,img)=>{
+  const buyNow=(itemCode,qty,price,name,size,variant,img,category)=>{
     let newCart={}
-    newCart[itemCode]={qty:1,price,name,size,variant,img}
+    newCart[itemCode]={qty:1,price,name,size,variant,img,category}
     setCart(newCart);
     saveCart(newCart);
     router.push('/checkout');

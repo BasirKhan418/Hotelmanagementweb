@@ -273,7 +273,7 @@ const Navbar = ({
                 <path d="M922.9 701.9H327.4l29.9-60.9 496.8-.9c16.8 0 31.2-12 34.2-28.6l68.8-385.1c1.8-10.1-.9-20.5-7.5-28.4a34.99 34.99 0 0 0-26.6-12.5l-632-2.1-5.4-25.4c-3.4-16.2-18-28-34.6-28H96.5a35.3 35.3 0 1 0 0 70.6h125.9L246 312.8l58.1 281.3-74.8 122.1a34.96 34.96 0 0 0-3 36.8c6 11.9 18.1 19.4 31.5 19.4h62.8a102.43 102.43 0 0 0-20.6 61.7c0 56.6 46 102.6 102.6 102.6s102.6-46 102.6-102.6c0-22.3-7.4-44-20.6-61.7h161.1a102.43 102.43 0 0 0-20.6 61.7c0 56.6 46 102.6 102.6 102.6s102.6-46 102.6-102.6c0-22.3-7.4-44-20.6-61.7H923c19.4 0 35.3-15.8 35.3-35.3a35.42 35.42 0 0 0-35.4-35.2zM305.7 253l575.8 1.9-56.4 315.8-452.3.8L305.7 253zm96.9 612.7c-17.4 0-31.6-14.2-31.6-31.6 0-17.4 14.2-31.6 31.6-31.6s31.6 14.2 31.6 31.6a31.6 31.6 0 0 1-31.6 31.6zm325.1 0c-17.4 0-31.6-14.2-31.6-31.6 0-17.4 14.2-31.6 31.6-31.6s31.6 14.2 31.6 31.6a31.6 31.6 0 0 1-31.6 31.6z"></path>
               </svg>{" "}
               <span className="absolute -top-2 -right-2 h-5 w-5 text-sm rounded-full bg-amber-600 text-white flex justify-center items-center items cursor-pointer">
-                <span>0</span>
+                <span>{Object.keys(cart).length}</span>
               </span>
             </span>
           </div>
@@ -333,20 +333,20 @@ const Navbar = ({
                     </>
                   </span>
                   <Link href={"/myaccount"}>
-                    <li className="py-1 text-base hover:text-pink-700 list-none font-bold flex">
+                    <li className="py-1 text-base hover:text-amber-700 list-none font-bold flex">
                       <MdManageAccounts className="mt-1 mx-2" />
                       My Account
                     </li>
                   </Link>
                   <Link href={"/orders"}>
-                    <li className="py-1 text-base hover:text-pink-700 list-none font-bold flex">
+                    <li className="py-1 text-base hover:text-amber-700 list-none font-bold flex">
                       <MdShoppingCart className="mt-1 mx-2" />
                       My Orders
                     </li>
                   </Link>
                   <li
                     onClick={logout}
-                    className="py-1 text-base hover:text-pink-700 list-none font-bold flex"
+                    className="py-1 text-base hover:text-amber-700 list-none font-bold flex"
                   >
                     <BiLogOut className="mt-1 mx-2" />
                     Logout
@@ -459,7 +459,7 @@ const Navbar = ({
                       src={cart[k].img}
                       className="mx-4 mt-2 w-10 h-10 border-2 border-pink-300 rounded object-cover"
                     />
-                    <div className="w-2/3 font-semibold">{`${cart[k].name}(${cart[k].size}/${cart[k].variant}) `}</div>
+                    <div className="w-2/3 font-semibold">{`${cart[k].name} (${cart[k].category}) `}</div>
                     <div className="flex items-center justify-center w-1/3 font-semibold text-xl">
                       <>
                         <AiFillMinusCircle
@@ -515,7 +515,7 @@ const Navbar = ({
             <button
               disabled={Object.keys(cart).length == 0}
               onClick={clearCart}
-              className="disabled:bg-amber-200 flex mx-auto mr-2 text-black bg-amber-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm"
+              className="disabled:bg-amber-200 flex mx-auto mr-2 text-black bg-amber-500 border-0 py-2 px-2 focus:outline-none hover:bg-amber-600 rounded text-sm"
             >
               Clear cart
             </button>

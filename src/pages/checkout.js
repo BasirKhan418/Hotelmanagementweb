@@ -3,9 +3,10 @@ import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { BsFillBagCheckFill } from "react-icons/bs";;
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Spinner from './components/Spinner';
 // import Razorpay from "razorpay";
 const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
+  const [loading,setLoading]=useState(false)
   const[name,setName]=useState('');
   const[email,setEmail]=useState('');
   const[phone,setPhone]=useState('');
@@ -78,6 +79,7 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
 //       setCity(pinjson[pin][0]);
 //   }}
   const fetchdata=async(token)=>{
+    setLoading(true)
     const data ={token:token};
     const pr = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
       method: "POST", // or 'PUT'
@@ -88,6 +90,7 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
     });
 
     const res=await pr.json();
+    setLoading(false)
     console.log(res)
     console.log(res.name,res.address,res.phone,res.pincode);
     setName(res.name);
@@ -107,6 +110,7 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
   // let rand = Math.floor(Math.random() * 100000);
   const data = { subTotal, cart,email:email,name,address,pincode ,phone,city,state,checkin,checkout};
   const checkoutHandler = async (e) => {
+    setLoading(true)
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_HOST}/api/precheckout`,
       {
@@ -118,8 +122,10 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
       }
     );
     const r = await response.json();
+    setLoading(false)
     console.log(r)
  if(r!=null){
+  setLoading(true)
         const response2 = await fetch(
             `${process.env.NEXT_PUBLIC_HOST}/api/postcheckout`,
             {
@@ -130,7 +136,10 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
               body: JSON.stringify(r),
             }
           );
-          console.log(response2)
+          const ra = await response2.json();
+          console.log(ra.order._id);
+          setLoading(false)
+          window.location.href = `/order?id=${ra.order._id}&clearCart=1`;
  }
  else{
     toast.error("Some thing went wrong", {
@@ -189,9 +198,14 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
       });
 //   }
  };
-
+ let room;
+Object.keys(cart).map((item)=>{
+  room=cart[item].category;
+})
+console.log(room)
   return (
-    <div className="container px-2 sm:m-auto min-h-screen">
+    <>
+    {loading?<Spinner/>:<div className="container px-2 sm:m-auto min-h-screen">
        <ToastContainer
 position="bottom-center"
 autoClose={5000}
@@ -330,11 +344,11 @@ theme="light"
           </div>
         </div>
       </div>
-      <div className="m-auto flex my-2 mx-2">
+      {room=="room"?<div className="m-auto flex my-2 mx-2">
         <div className="px-2 w-1/2">
           <div className="mb-4">
             <label htmlFor="checkin" className="leading-7 text-sm text-gray-600">
-              Checkin
+              Checkin(date)
             </label>
             <input
             value={checkin}
@@ -349,7 +363,7 @@ theme="light"
         <div className="px-2 w-1/2">
           <div className="mb-4">
             <label htmlFor="checkout" className="leading-7 text-sm text-gray-600">
-              Checkout
+              Checkout(date)
             </label>
             <input
             value={checkout}
@@ -361,7 +375,7 @@ theme="light"
            />
           </div>
         </div>
-      </div>
+      </div>:""}
       <h2 className="font-bold text-xl mx-2">2.Review Cart Items & Pay</h2>
       <div className="sidebar bg-amber-100 p-6 m-2 z-20">
           {Object.keys(cart).length == 0 && (
@@ -369,7 +383,6 @@ theme="light"
           )}
           {Object.keys(cart).map((k) => {
             return (
-              <>
                 <div key={cart[k].slug}  className="item flex my-5 flex-wrap items-center">
                 <img src={cart[k].img} className='mt-2 mx-4 w-10 h-10 border-2 border-amber-300 rounded object-cover'/>
                   <div className="font-semibold text-center">{`${cart[k].name} `}</div>
@@ -406,9 +419,7 @@ theme="light"
                       />
                     </>
                   </div>
-                </div>
-              </>
-            );
+                </div>)
           })}
         <div className="font-bold ">SubTotal : ₹{subTotal}</div>
       </div>
@@ -421,10 +432,11 @@ theme="light"
             {" "}
             <BsFillBagCheckFill className="m-1" />{" "}
           </>
-          Pay ₹{subTotal}
+          Pay Offline₹{subTotal}
         </button>
       </div>
-    </div>
+    </div>}
+    </>
   );
 };
 export default Checkout;

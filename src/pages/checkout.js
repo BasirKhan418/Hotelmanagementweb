@@ -78,6 +78,7 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
 //       setState(pinjson[pin][1]);
 //       setCity(pinjson[pin][0]);
 //   }}
+
   const fetchdata=async(token)=>{
     setLoading(true)
     const data ={token:token};
@@ -97,9 +98,10 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
     setAddress(res.address);
     setPhone(res.phone);
     setPincode(res.pincode);
-   }
+  }
+
  useEffect(()=>{
-  if(name.length>3 && email.length>3 && phone.length>3 && address.length>3 && pincode.length>3){
+  if(name.length>3 && email.length>3 && phone.length==10 && address.length>3 && pincode.length>=6 &&state.length>2&& city.length>2){
     setDisabled(false);
    }
    else{
@@ -124,6 +126,7 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
     const r = await response.json();
     setLoading(false)
     console.log(r)
+   
  if(r!=null){
   setLoading(true)
         const response2 = await fetch(
@@ -140,8 +143,10 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
           console.log(ra.order._id);
           setLoading(false)
           window.location.href = `/order?id=${ra.order._id}&clearCart=1`;
+       
  }
  else{
+  setLoading(false)
     toast.error("Some thing went wrong", {
         position: "top-left",
         autoClose: 3000,

@@ -83,6 +83,7 @@ try{
 
 catch{
 alert("some error occured");
+res.status(400).json({success:false,"error":"Please give your details correctly",clearCart:false})
 }
 }   
 }

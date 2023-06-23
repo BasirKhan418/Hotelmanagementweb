@@ -1,25 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import mongoose from 'mongoose';
-
+import Link from 'next/link';
 import Order from '../../models/Order';
 const MyOrder = ({order,clearCart}) => {
   
   const [date,setDate]=useState()
+  const [checkin,setCheckin]=useState()
+  const [checkout,setCheckout]=useState()
+  const[trackorder,setTrackorder]=useState(false)
   useEffect(()=>{
     const d =new Date(order.createdAt);
+    const e =new Date(order.checkin);
+    const f =new Date(order.checkout);
     setDate(d);
+    setCheckin(e)
+    setCheckout(f)
    if(router.query.clearCart==1){
     clearCart();
    }
   },[])
+  const toggletrack=()=>{
+    setTrackorder(!trackorder);
+  }
   const router =useRouter();
   const products =order.products;
 console.log(products)
   return (
     <div>
       <section className="text-gray-600 body-font overflow-hidden bg-white min-h-screen">
-  <div className="container px-5 py-12 mx-auto">
+  <div className="container px-5 py-6 mx-auto ">
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
       <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
         <h2 className="text-sm title-font text-gray-500 tracking-widest"><span className='font-bold text-amber-700'>Hotelcresent.com</span></h2>
@@ -45,12 +55,28 @@ console.log(products)
          
         </div>
         <div className="flex ">
-          <button className="flex text-white bg-amber-500 border-0 py-2 px-6 focus:outline-none hover:bg-amber-600 rounded my-4">Track Your Order</button>
+       <button onClick={toggletrack} className="flex text-white bg-amber-500 border-0 py-2 px-6 focus:outline-none hover:bg-amber-600 rounded my-4">Track Your Order</button>
           </div>
       </div>
       <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={'/orderconfirm.jpg'}/>
     </div>
   </div>
+  {trackorder&&<div className=' mx-8 lg:mx-60 text-xl flex justify-center flex-col mb-10 bg-blue-100 rounded p-2'>
+  <h1 className='font-bold text-2xl text-center bg-white text-amber-500 p-4'>Track Your Order</h1>
+    <div className='h-2 w-40 bg-amber-500 rounded '></div>
+    <h5 className='font-bold '>Delivery Status :- 
+{order.deliveryStatus}</h5>
+<h5 className='font-bold  my-2'>Payment Status:- 
+{order.status}</h5>
+<h5 className='font-bold my-2'>Room Status/No.:- 
+{order.room_no}</h5>
+<h5 className='font-bold my-2'>Check in date :- 
+
+{checkin && checkin.toLocaleDateString("en-IN",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h5>
+<h5 className='font-bold my-2'>Check out date :- 
+
+{checkout && checkout.toLocaleDateString("en-IN",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h5>
+</div>}
 </section>
     </div>
   )

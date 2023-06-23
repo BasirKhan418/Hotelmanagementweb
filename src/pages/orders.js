@@ -28,7 +28,7 @@ const Myorders = () => {
     console.log(orders)
   return (
     <>
-     <h1 className='font-semibold text-2xl text-center bg-white p-4'>My Orders</h1>
+     <h1 className='font-semibold text-2xl text-center bg-white p-4'>My Orders({orders.length})</h1>
     <div className='h-2 w-40 bg-amber-500 rounded '></div>
     <div className=' flex justify-center items-center'>
    
@@ -56,6 +56,7 @@ const Myorders = () => {
                     </div>
                 </div>
             </li>})}
+            <h1>Track your order</h1>
           
         </ul>
    </div>

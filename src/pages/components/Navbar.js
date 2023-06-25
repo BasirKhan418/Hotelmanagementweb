@@ -56,6 +56,7 @@ const Navbar = ({
   const toggleCartham = () => {
     setSidebarham(!sidebarham);
   };
+  console.log(cart)
   return (
     <>
       {!sidebar && (
@@ -138,7 +139,7 @@ const Navbar = ({
             </span>
           )}
       <div
-        className={`flex flex-col lg:flex-row  justify-start md:justify-start items-center py-2 shadow-md bg-white dark:bg-black dark:text-white text-black sticky top-0 z-10 ${!sidebarham?"h-20":""} w-full ${
+        className={` Navbar flex flex-col lg:flex-row  justify-start md:justify-start items-center py-2 shadow-md bg-white dark:bg-black dark:text-white text-black sticky top-0 z-10 ${!sidebarham?"h-20":""} w-full ${
           !sidebar && "overflow-hidden"
         }`}
       >
@@ -456,7 +457,7 @@ const Navbar = ({
                 <li key={k}>
                   <div className="item flex flex-wrap my-5">
                     <img
-                      src={cart[k].img}
+                      src={cart[k].img1}
                       className="mx-4 mt-2 w-10 h-10 border-2 border-pink-300 rounded object-cover"
                     />
                     <div className="w-2/3 font-semibold">{`${cart[k].name} (${cart[k].category}) `}</div>

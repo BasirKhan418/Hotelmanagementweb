@@ -15,7 +15,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
 
     {deluxe&&deluxe.map((item)=>{return <Link key = {item._id} href={`/${item.slug}`}><div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
   <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
-    <img className="object-cover" src={item.img} alt="product image" />
+    <img className="object-cover" src={item.img1} alt="product image" />
     <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
   </div>
   <div className="mt-4 px-5 pb-5">
@@ -24,7 +24,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
     <div className="mt-2 mb-5 flex items-center justify-between">
       <p>
         <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
-        <span className="text-sm text-slate-900 line-through">₹699</span>
+        <span className="text-sm text-slate-900 line-through">₹{item.mrp}</span>
       </p>
       <div className="flex items-center">
         <svg aria-hidden="true" className="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
     <div className='flex justify-center items-center flex-wrap'>
     {exeucative&&exeucative.map((item)=>{return<Link key = {item._id} href={`/${item.slug}`}> <div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
   <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
-    <img className="object-cover" src={item.img} alt="product image" />
+    <img className="object-cover" src={item.img1} alt="product image" />
     <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
   </div>
   <div className="mt-4 px-5 pb-5">
@@ -64,7 +64,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
     <div className="mt-2 mb-5 flex items-center justify-between">
       <p>
         <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
-        <span className="text-sm text-slate-900 line-through">₹699</span>
+        <span className="text-sm text-slate-900 line-through">₹{item.mrp}</span>
       </p>
       <div className="flex items-center">
         <svg aria-hidden="true" className="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +96,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
     <div className='flex justify-center items-center flex-wrap'>
     {family&&family.map((item)=>{return <Link key = {item._id} href={`/${item.slug}`}><div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
   <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
-    <img className="object-cover" src={item.img} alt="product image" />
+    <img className="object-cover" src={item.img1} alt="product image" />
     <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
   </div>
   <div className="mt-4 px-5 pb-5">
@@ -104,7 +104,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
     <div className="mt-2 mb-5 flex items-center justify-between">
       <p>
         <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
-        <span className="text-sm text-slate-900 line-through">₹699</span>
+        <span className="text-sm text-slate-900 line-through">₹{item.mrp}</span>
       </p>
       <div className="flex items-center">
         <svg aria-hidden="true" className="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -137,7 +137,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
     <div className='flex justify-center items-center flex-wrap'>
     {other&&other.map((item)=>{return <Link key = {item._id} href={`/${item.slug}`}><div className="relative m-4 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
   <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
-    <img className="object-cover" src={item.img} alt="product image" />
+    <img className="object-cover" src={item.img1} alt="product image" />
     <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">{item.discountp}% OFF</span>
   </div>
   <div className="mt-4 px-5 pb-5">
@@ -145,7 +145,7 @@ const Rooms = ({deluxe,exeucative,family,other}) => {
     <div className="mt-2 mb-5 flex items-center justify-between">
       <p>
         <span className="text-3xl font-bold text-slate-900">₹{item.price}</span>
-        <span className="text-sm text-slate-900 line-through">₹699</span>
+        <span className="text-sm text-slate-900 line-through">₹{item.mrp}</span>
       </p>
       <div className="flex items-center">
         <svg aria-hidden="true" className="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

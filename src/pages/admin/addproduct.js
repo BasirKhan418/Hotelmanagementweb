@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../../trc/theme/theme";
 import FullLayout from "../../../trc/layouts/FullLayout";
+import { ToastContainer, toast } from 'react-toastify';
+import Spinner from '../components/Spinner';
+import 'react-toastify/dist/ReactToastify.css'
 import {
     Grid,
     Stack,
@@ -16,103 +19,500 @@ import {
     Button,
   } from "@mui/material";
   import BaseCard from "../../../trc/components/baseCard/BaseCard";
+import { set } from 'mongoose';
 const Addproduct = () => {
+  const[loading,setLoading]=useState(false)
+  const[title,setTitle]=useState("");
+  const[slug,setSlug]=useState("");
+  const[desc,setDesc]=useState("");
+  const[category,setCategory]=useState("");
+  const[subcategory,setSubcategory]=useState("");
+  const[size,setSize]=useState("");
+  const[price,setPrice]=useState("");
+  const[discount,setDiscount]=useState("");
+  const[availableQty,setAvailableqty]=useState("");
+  const[mrp,setMrp]=useState("");
+  const[image1,setImage1]=useState("");
+  const[image2,setImage2]=useState("");
+  const[image3,setImage3]=useState("");
+  const[image4,setImage4]=useState("");
+  const[image5,setImage5]=useState("");
+  const [ url1, setUrl1 ] = useState("");
+  const [ url2, setUrl2 ] = useState("");
+  const [ url3, setUrl3 ] = useState("");
+  const [ url4, setUrl4 ] = useState("");
+  const [ url5, setUrl5 ] = useState("");
+  const handleChange = (e) => {
+    if (e.target.name === "title") {
+      setTitle(e.target.value);
+    }
+    else if (e.target.name === "slug") {
+      setSlug(e.target.value);
+    }
+    else if (e.target.name === "desc") {
+      setDesc(e.target.value);
+    }
+    else if (e.target.name === "category") {
+      setCategory(e.target.value);
+    }
+    else if (e.target.name === "subcategory") {
+      setSubcategory(e.target.value);
+    }
+    else if (e.target.name === "size") {
+      setSize(e.target.value);
+    }
+    else if (e.target.name === "price") {
+      setPrice(e.target.value);
+    }
+    else if (e.target.name === "mrp") {
+      setMrp(e.target.value);
+    }
+    else if (e.target.name === "discount") {
+      setDiscount(e.target.value);
+    }
+    else if (e.target.name === "availableQty") {
+      setAvailableqty(e.target.value);
+    }
+    else if (e.target.name === "image1") {
+      setImage1(e.target.files[0]);
+    }
+    else if (e.target.name === "image2") {
+      setImage2(e.target.files[0]);
+    }
+    else if (e.target.name === "image3") {
+      setImage3(e.target.files[0]);
+    }
+    else if (e.target.name === "image4") {
+      setImage4(e.target.files[0]);
+    }
+    else if (e.target.name === "image5") {
+      setImage5(e.target.files[0]);
+    }
+    // Handle other state updates for different fields
+  };
+
+const uploadImage1 = () => {
+const data = new FormData()
+data.append("file", image1)
+data.append("upload_preset", "dgdea2n8")
+data.append("cloud_name","dawzncoau")
+fetch("https://api.cloudinary.com/v1_1/dawzncoau/image/upload",{
+method:"post",
+body: data
+})
+.then(resp => resp.json())
+.then(data => {
+  toast.success("Successfully Upload Your Image", {
+    position: "top-left",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+//  console.log(data)
+setUrl1(data.url)
+})
+.catch(err => {
+toast.error("Sorry some error occured please try again after some time", {
+  position: "top-left",
+  autoClose: 3000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+  });
+})
+}
+const uploadImage2 = () => {
+
+  const data = new FormData()
+  data.append("file", image2)
+  data.append("upload_preset", "dgdea2n8")
+  data.append("cloud_name","dawzncoau")
+  fetch("https://api.cloudinary.com/v1_1/dawzncoau/image/upload",{
+  method:"post",
+  body: data
+  })
+  .then(resp => resp.json())
+  .then(data => {
+    
+    toast.success("Successfully Upload Your Image", {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  //  console.log(data)
+  setUrl2(data.url)
+  })
+  .catch(err => {
+  
+  toast.error("Sorry some error occured please try again after some time", {
+    position: "top-left",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+  })
+  }
+  const uploadImage3 = () => {
+    const data = new FormData()
+    data.append("file", image3)
+    data.append("upload_preset", "dgdea2n8")
+    data.append("cloud_name","dawzncoau")
+    fetch("https://api.cloudinary.com/v1_1/dawzncoau/image/upload",{
+    method:"post",
+    body: data
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      toast.success("Successfully Upload Your Image", {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    //  console.log(data)
+    setUrl3(data.url)
+    })
+    .catch(err => {
+    toast.error("Sorry some error occured please try again after some time", {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+    })
+    }
+    const uploadImage4 = () => {
+      const data = new FormData()
+      data.append("file", image4)
+      data.append("upload_preset", "dgdea2n8")
+      data.append("cloud_name","dawzncoau")
+      fetch("https://api.cloudinary.com/v1_1/dawzncoau/image/upload",{
+      method:"post",
+      body: data
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        toast.success("Successfully Upload Your Image", {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      //  console.log(data)
+      setUrl4(data.url)
+      })
+      .catch(err => {
+      toast.error("Sorry some error occured please try again after some time", {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+      })
+      }
+      const uploadImage5 = () => {
+        const data = new FormData()
+        data.append("file", image5)
+        data.append("upload_preset", "dgdea2n8")
+        data.append("cloud_name","dawzncoau")
+        fetch("https://api.cloudinary.com/v1_1/dawzncoau/image/upload",{
+        method:"post",
+        body: data
+        })
+        .then(resp => resp.json())
+        .then(data => {
+          toast.success("Successfully Upload Your Image", {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+        //  console.log(data)
+        setUrl5(data.url)
+        })
+        .catch(err => {
+        toast.error("Sorry some error occured please try again after some time", {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+        })
+        }
+        console.log(url1,url2,url3,url4,url5)
+//add product request
+  const data = {title,slug,desc,category,subcategory,size,mrp,price,discountp:discount,availableQty,img1:url1,img2:url2,img3:url3,img4:url4,img5:url5};
+  const Handlesubmit = async (e) => {
+    setLoading(true)
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_HOST}/api/addproduct`,
+      {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    const r = await response.json();
+    setLoading(false)
+    if(r.success){
+      setTitle("")
+      setSlug("")
+      setDesc("")
+      setCategory("")
+      setSize("")
+      setPrice("")
+      setSubcategory("")
+      setDiscount("")
+      setAvailableqty("")
+      setMrp("")
+      setImage1("")
+      setImage2("")
+      setImage3("")
+      setImage4("")
+      setImage4("")
+      setImage5("")
+      setUrl1("")
+      setUrl2("")
+      setUrl3("")
+      setUrl4("")
+      setUrl5("")
+
+      toast.success("Successfully Product Added", {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
+    else{
+      toast.error("Sorry some error occured please try again after some time", {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
+  }
   return (
     <>
-     <ThemeProvider theme={theme}>
+   <ThemeProvider theme={theme}>
         <FullLayout>
-        <Grid container spacing={0}>
+        <style jsx global>{`
+        footer {
+          display:none;
+        }
+        .Navbar{
+          display:none
+        }
+      `}</style>
+        <ToastContainer
+position="bottom-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{loading?<Spinner/>: <Grid container spacing={0}>
       <Grid item xs={12} lg={12}>
         <BaseCard title="Add a Product ">
           <Stack spacing={3}>
+          <TextField
+  onChange={handleChange}
+  id="name-basic"
+  label="Title"
+  name="title" // Add the name attribute
+  value={title}
+  variant="outlined"
+/>
+            <TextField onChange={handleChange} id="email-basic" label="slug" name="slug" variant="outlined" value={slug}  />
+            <label htmlFor="category"  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select your category</label>
+<select id="category" name="category" onChange={handleChange} value={category} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<option>select</option>
+  <option>room</option>
+  <option>food</option>
+  <option>other</option>
+</select>
+<label htmlFor="subcategory"  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select your subcategory</label>
+<select id="subcategory" name="subcategory" onChange={handleChange} value={subcategory} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<option>select</option>
+  <option>deluxe</option>
+  <option>exeucative</option>
+  <option>family</option>
+  <option>breakfast</option>
+  <option>lunch</option>
+  <option>dinner</option>
+  <option>snacks</option>
+  <option>fastfood</option>
+  <option>other</option>
+</select>
             <TextField
-              id="name-basic"
-              label="Name"
-              variant="outlined"
-              defaultValue="Nirav Joshi"
-            />
-            <TextField id="email-basic" label="Email" variant="outlined" />
-            <TextField
-              id="pass-basic"
-              label="Password"
-              type="password"
-              variant="outlined"
-            />
-            <TextField
+            value={desc}
+            onChange={handleChange}
               id="outlined-multiline-static"
-              label="Text Area"
+              label="Product Description"
+              name='desc'
+              variant="outlined"
               multiline
               rows={4}
-              defaultValue="Default Value"
             />
             <TextField
-              error
-              id="er-basic"
-              label="Error"
-              defaultValue="ad1avi"
+            onChange={handleChange}
+            value={size}
+              id="pass-basic"
+              label="Size (if applicable)"
+              name="size"
+              type="text"
               variant="outlined"
             />
-            <FormGroup>
-              <FormControlLabel
-                control={<Checkbox defaultChecked />}
-                label="Terms & Condition"
-              />
-              <FormControlLabel
-                disabled
-                control={<Checkbox />}
-                label="Disabled"
-              />
-            </FormGroup>
-            <FormControl>
-              <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-              <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
-                name="radio-buttons-group"
-              >
-                <FormControlLabel
-                  value="female"
-                  control={<Radio />}
-                  label="Female"
-                />
-                <FormControlLabel
-                  value="male"
-                  control={<Radio />}
-                  label="Male"
-                />
-                <FormControlLabel
-                  value="other"
-                  control={<Radio />}
-                  label="Other"
-                />
-              </RadioGroup>
-            </FormControl>
+            <TextField
+            onChange={handleChange}
+            value={price}
+              id="pass-basic"
+              label="Price"
+              name="price"
+              type="number"
+              variant="outlined"
+            />
+              <TextField
+            onChange={handleChange}
+            value={discount}
+              id="pass-basic"
+              label="Discount in percentage"
+              name="discount"
+              type="number"
+              variant="outlined"
+            />
+             <TextField
+            onChange={handleChange}
+            value={availableQty}
+              id="pass-basic"
+              label="Available Quantity"
+              name="availableQty"
+              type="number"
+              variant="outlined"
+            />
+             <TextField
+            onChange={handleChange}
+            value={mrp}
+              id="pass-basic"
+              label="MRP(Should be less than price)"
+              name="mrp"
+              type="number"
+              variant="outlined"
+            />
+            <label htmlFor='pass-basic1' className='font-bold'>Image 1</label>
+            <TextField
+            onChange={handleChange}
+              id="pass-basic1"
+              name="image1"
+              type="file"
+            />
+            <Button mt={2} onClick={uploadImage1} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
+            Upload Now
+          </Button>
+          <label htmlFor='pass-basic2' className='font-bold'>Image 2</label>
+             <TextField
+            onChange={handleChange}
+              id="pass-basic2"
+              name="image2"
+              type="file"
+            />
+              <Button mt={2} onClick={uploadImage2} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
+            Upload Now
+          </Button>
+          <label htmlFor='pass-basic3' className='font-bold'>Image 3</label>
+             <TextField
+            onChange={handleChange}
+              id="pass-basic3"
+              name="image3"
+              type="file"
+            />
+             <Button mt={2} onClick={uploadImage3} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
+            Upload Now
+          </Button>
+          <label htmlFor='pass-basic4' className='font-bold'>Image 4</label>
+             <TextField
+            onChange={handleChange}
+              id="pass-basic4"
+              name="image4"
+              type="file"
+            />
+               <Button mt={2} onClick={uploadImage4} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
+            Upload Now
+          </Button>
+          <label htmlFor='pass-basic5' className='font-bold'>Image 5</label>
+             <TextField
+            onChange={handleChange}
+              id="pass-basic5"
+              name="image5"
+              type="file"
+            />
+            <Button mt={2} onClick={uploadImage5} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
+            Upload Now
+          </Button>
           </Stack>
           <br />
-          <Button variant="contained outline" mt={2}>
-            Submit
+          <Button className='bg-amber-500 text-white hover:text-black w-32' mt={2} onClick={Handlesubmit}>
+            Add Now
           </Button>
         </BaseCard>
       </Grid>
-
-      <Grid item xs={12} lg={12}>
-        <BaseCard title="Form Design Type">
-          <Stack spacing={3} direction="row">
-            <TextField
-              id="outlined-basic"
-              label="Outlined"
-              variant="outlined"
-            />
-            <TextField id="filled-basic" label="Filled" variant="filled" />
-            <TextField
-              id="standard-basic"
-              label="Standard"
-              variant="standard"
-            />
-          </Stack>
-        </BaseCard>
-      </Grid>
-    </Grid>
+    </Grid>}
     </FullLayout>
     </ThemeProvider>
     </>

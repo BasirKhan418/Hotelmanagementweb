@@ -14,6 +14,9 @@ export default function Index() {
         footer {
           display:none;
         }
+        .Navbar{
+          display:none;
+        }
       `}</style>
         <FullLayout>
     <Grid container spacing={0}>

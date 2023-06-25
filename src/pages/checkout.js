@@ -389,7 +389,7 @@ theme="light"
           {Object.keys(cart).map((k) => {
             return (
                 <div key={cart[k].slug}  className="item flex my-5 flex-wrap items-center">
-                <img src={cart[k].img} className='mt-2 mx-4 w-10 h-10 border-2 border-amber-300 rounded object-cover'/>
+                <img src={cart[k].img1} className='mt-2 mx-4 w-10 h-10 border-2 border-amber-300 rounded object-cover'/>
                   <div className="font-semibold text-center">{`${cart[k].name} `}</div>
                   <div className="flex items-center justify-center w-1/3 font-semibold text-xl">
                     <>

@@ -56,7 +56,6 @@ const Navbar = ({
   const toggleCartham = () => {
     setSidebarham(!sidebarham);
   };
-  console.log(cart)
   return (
     <>
       {!sidebar && (

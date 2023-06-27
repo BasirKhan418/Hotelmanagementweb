@@ -8,7 +8,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-const Sliderhome = () => {
+const Sliderhome = ({slider}) => {
+  console.log(slider)
   return (
     <div>
       <Swiper
@@ -23,35 +24,16 @@ const Sliderhome = () => {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >
-        <SwiperSlide>
+        {slider.map((item)=>{return <SwiperSlide key={item._id}>
           <div className="flex object-cover">
-            <img src="/home-slide1.jpg" alt="ff" className="homesw opacity-90" />{" "}
+            <img src={item.img} alt="slider-home-img" className="homesw opacity-90" />{" "}
             <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold mx-4 my-4">
-            Uncover the Best Deals: Your Ultimate Hotel Booking Platform
+            {item.title}
             </h1>
-            <Link href={"/gallery"}><button  className="button bg-amber-500 font-semibold">Explore Now</button></Link>
+            <Link href={"/rooms"}><button  className="button bg-amber-500 font-semibold">Explore More</button></Link>
           </div>{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/home-slide2.jpg" alt="ff" className="homesw" />
-          <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold mx-4 my-4">
-          Ultimate Comfort Awaits: Reserve Your Ideal Hotel Stay, </h1>
-          <Link href={"/gallery"}><button  className="button bg-amber-500 font-semibold">Explore Now</button></Link>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/home-slide3.jpg" alt="ff" className="homesw" />
-          <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold mx-4 my-4">
-          Stay in Style: Find the Perfect Hotel for a Memorable Travel Experience
-            </h1>
-            <Link href={"/gallery"}><button  className="button bg-amber-500 font-semibold">Explore Now</button></Link>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/home-slide4.jpg" alt="ff" className="homesw" />
-          <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold mx-4 my-4">
-          Luxury Redefined: Experience Unmatched Elegance at Our Exclusive Hotels
-            </h1>
-            <Link href={"/gallery"}><button  className="button bg-amber-500 font-semibold">Explore Now</button></Link>
-        </SwiperSlide>
+        </SwiperSlide>})}
+        
       </Swiper>
     </div>
   );

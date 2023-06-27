@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import Link from 'next/link';
 import Order from '../../models/Order';
 const MyOrder = ({order,clearCart}) => {
-  
+  console.log(order);
   const [date,setDate]=useState()
   const [checkin,setCheckin]=useState()
   const [checkout,setCheckout]=useState()

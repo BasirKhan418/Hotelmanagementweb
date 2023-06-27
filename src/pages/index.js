@@ -10,8 +10,9 @@ import Food from './components/Food'
 import Faq from './components/Faq'
 import Categoryrooms from '../../models/Categoryrooms'
 import Categoryfood from '../../models/Categoryfood'
+import Slider from '../../models/Slider'
 import mongoose from 'mongoose'
-export default function Home({catroom,catfood}) {
+export default function Home({catroom,catfood,slider}) {
   return (
    <div className='bg-white'>
      <Head>
@@ -28,7 +29,7 @@ export default function Home({catroom,catfood}) {
       <h1 className='text-amber-500 dark:text-white sm:text-3xl text-xl font-bold my-2 mx-2'>A Stunning Overview of Pure Luxury</h1>
     </div>
     <hr/>
-    <Sliderhome/>
+    <Sliderhome slider={slider}/>
     <Checkavl/>
     <div className='text-amber-500 bg-blue-50 h-16 flex justify-center items-center my-2'>
       <h1 className='sm:text-4xl text-xl font-bold'>Our Rooms</h1>
@@ -69,7 +70,8 @@ export async function getServerSideProps () {
 }
 let catroom= await Categoryrooms.find();
 let catfood = await Categoryfood.find();
+let slider=await Slider.find();
   return {
-      props: {catroom:JSON.parse(JSON.stringify(catroom)),catfood:JSON.parse(JSON.stringify(catfood))},
+      props: {catroom:JSON.parse(JSON.stringify(catroom)),catfood:JSON.parse(JSON.stringify(catfood)),slider:JSON.parse(JSON.stringify(slider))},
   };
 }

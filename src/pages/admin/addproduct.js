@@ -19,7 +19,6 @@ import {
     Button,
   } from "@mui/material";
   import BaseCard from "../../../trc/components/baseCard/BaseCard";
-import { set } from 'mongoose';
 const Addproduct = () => {
   const[loading,setLoading]=useState(false)
   const[title,setTitle]=useState("");
@@ -112,7 +111,6 @@ body: data
     progress: undefined,
     theme: "light",
     });
-//  console.log(data)
 setUrl1(data.url)
 })
 .catch(err => {
@@ -151,7 +149,6 @@ const uploadImage2 = () => {
       progress: undefined,
       theme: "light",
       });
-  //  console.log(data)
   setUrl2(data.url)
   })
   .catch(err => {
@@ -189,7 +186,6 @@ const uploadImage2 = () => {
         progress: undefined,
         theme: "light",
         });
-    //  console.log(data)
     setUrl3(data.url)
     })
     .catch(err => {
@@ -226,7 +222,7 @@ const uploadImage2 = () => {
           progress: undefined,
           theme: "light",
           });
-      //  console.log(data)
+
       setUrl4(data.url)
       })
       .catch(err => {
@@ -263,7 +259,6 @@ const uploadImage2 = () => {
             progress: undefined,
             theme: "light",
             });
-        //  console.log(data)
         setUrl5(data.url)
         })
         .catch(err => {
@@ -279,23 +274,24 @@ const uploadImage2 = () => {
           });
         })
         }
-        console.log(url1,url2,url3,url4,url5)
 //add product request
   const data = {title,slug,desc,category,subcategory,size,mrp,price,discountp:discount,availableQty,img1:url1,img2:url2,img3:url3,img4:url4,img5:url5};
   const Handlesubmit = async (e) => {
+if(title.length!=""&&slug.length!=""&&desc.length!=null&&category.length!=""&&price.length!=""&&discount.length!=""&&mrp.length!=""&&url1.length!=null&&image1.length!=""){
     setLoading(true)
-    const response = await fetch(
+   const response = await fetch(
       `${process.env.NEXT_PUBLIC_HOST}/api/addproduct`,
       {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
-        },
+         },
         body: JSON.stringify(data),
       }
     );
     const r = await response.json();
     setLoading(false)
+
     if(r.success){
       setTitle("")
       setSlug("")
@@ -343,6 +339,20 @@ const uploadImage2 = () => {
         });
     }
   }
+  else{
+    toast.error("Please fill up all required field", {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  }
+    setLoading(false)
+  }
   return (
     <>
    <ThemeProvider theme={theme}>
@@ -374,20 +384,20 @@ theme="light"
           <TextField
   onChange={handleChange}
   id="name-basic"
-  label="Title"
+  label="Title(Required)"
   name="title" // Add the name attribute
   value={title}
   variant="outlined"
 />
-            <TextField onChange={handleChange} id="email-basic" label="slug" name="slug" variant="outlined" value={slug}  />
-            <label htmlFor="category"  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select your category</label>
+            <TextField onChange={handleChange} id="email-basic" label="slug(Required)" name="slug" variant="outlined" value={slug}  />
+            <label htmlFor="category"  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select your category(Required)</label>
 <select id="category" name="category" onChange={handleChange} value={category} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 <option>select</option>
   <option>room</option>
   <option>food</option>
   <option>other</option>
 </select>
-<label htmlFor="subcategory"  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select your subcategory</label>
+<label htmlFor="subcategory"  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select your subcategory(Required)</label>
 <select id="subcategory" name="subcategory" onChange={handleChange} value={subcategory} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 <option>select</option>
   <option>deluxe</option>
@@ -404,7 +414,7 @@ theme="light"
             value={desc}
             onChange={handleChange}
               id="outlined-multiline-static"
-              label="Product Description"
+              label="Product Description(Required)"
               name='desc'
               variant="outlined"
               multiline
@@ -423,7 +433,7 @@ theme="light"
             onChange={handleChange}
             value={price}
               id="pass-basic"
-              label="Price"
+              label="Price(Required)"
               name="price"
               type="number"
               variant="outlined"
@@ -432,7 +442,7 @@ theme="light"
             onChange={handleChange}
             value={discount}
               id="pass-basic"
-              label="Discount in percentage"
+              label="Discount in percentage(Required)"
               name="discount"
               type="number"
               variant="outlined"
@@ -441,7 +451,7 @@ theme="light"
             onChange={handleChange}
             value={availableQty}
               id="pass-basic"
-              label="Available Quantity"
+              label="Available Quantity(Required)"
               name="availableQty"
               type="number"
               variant="outlined"
@@ -450,18 +460,19 @@ theme="light"
             onChange={handleChange}
             value={mrp}
               id="pass-basic"
-              label="MRP(Should be less than price)"
+              label="MRP(Should be less than price)(Required)"
               name="mrp"
               type="number"
               variant="outlined"
             />
-            <label htmlFor='pass-basic1' className='font-bold'>Image 1</label>
+            <label htmlFor='pass-basic1' className='font-bold'>Image 1(Required)(If image preview appears then only hit the add product button )</label>
             <TextField
             onChange={handleChange}
               id="pass-basic1"
               name="image1"
               type="file"
             />
+            {url1.length==""?"":<><h4 className='font-bold'>Preview Image 1</h4><img src={url1} alt="preview" className='w-20 h-20 object-cover border-amber-500 rounded' /></>}
             <Button mt={2} onClick={uploadImage1} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
             Upload Now
           </Button>
@@ -472,6 +483,7 @@ theme="light"
               name="image2"
               type="file"
             />
+            {url2.length==""?"":<><h4 className='font-bold'>Preview Image 2</h4><img src={url2} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded'/></>}
               <Button mt={2} onClick={uploadImage2} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
             Upload Now
           </Button>
@@ -482,6 +494,7 @@ theme="light"
               name="image3"
               type="file"
             />
+            {url3.length==""?"":<><h4 className='font-bold'>Preview Image 3</h4><img src={url3} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded'/></>}
              <Button mt={2} onClick={uploadImage3} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
             Upload Now
           </Button>
@@ -492,6 +505,7 @@ theme="light"
               name="image4"
               type="file"
             />
+            {url4.length==""?"":<><h4 className='font-bold'>Preview Image 4</h4><img src={url4} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded'/></>}
                <Button mt={2} onClick={uploadImage4} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
             Upload Now
           </Button>
@@ -502,6 +516,7 @@ theme="light"
               name="image5"
               type="file"
             />
+            {url5.length==""?"":<><h4 className='font-bold'>Preview Image 5</h4><img src={url5} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded'/></>}
             <Button mt={2} onClick={uploadImage5} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
             Upload Now
           </Button>

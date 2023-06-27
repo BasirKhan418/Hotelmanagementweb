@@ -70,7 +70,6 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
         setCity('')
       }
     }
-    
 //   const getPincode=async(pin)=>{
 //     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/Pincodes`);
 //     let pinjson= await pins.json()
@@ -108,7 +107,6 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
     setDisabled(true)
    }
  },[name,email,phone,address,pincode])
-
   // let rand = Math.floor(Math.random() * 100000);
   const data = { subTotal, cart,email:email,name,address,pincode ,phone,city,state,checkin,checkout};
   const checkoutHandler = async (e) => {
@@ -207,7 +205,6 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
 Object.keys(cart).map((item)=>{
   room=cart[item].category;
 })
-console.log(room)
   return (
     <>
     {loading?<Spinner/>:<div className="container px-2 sm:m-auto min-h-screen">

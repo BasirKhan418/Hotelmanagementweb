@@ -6,8 +6,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import User from '../../../models/User';
 import mongoose from 'mongoose';
+import { useRouter } from 'next/router';
 const Users = ({user}) => {
-
+  const router =useRouter()
+useEffect(()=>{
+  const myAdmin = localStorage.getItem('myAdmin')
+  if(!myAdmin){
+    router.push('/admin/adminlogin');
+   }
+},[])
   return (
     <>
     <ThemeProvider theme={theme}>

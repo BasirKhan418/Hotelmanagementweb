@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../../trc/theme/theme";
 import FullLayout from "../../../trc/layouts/FullLayout";
 import { ToastContainer, toast } from 'react-toastify';
 import Spinner from '../components/Spinner';
 import 'react-toastify/dist/ReactToastify.css'
+import { useRouter } from 'next/router';
 import {
     Grid,
     Stack,
@@ -20,6 +21,13 @@ import {
   } from "@mui/material";
   import BaseCard from "../../../trc/components/baseCard/BaseCard";
 const Addproduct = () => {
+  const router=useRouter();
+  useEffect(()=>{
+    const myAdmin = localStorage.getItem('myAdmin')
+    if(!myAdmin){
+      router.push('/admin/adminlogin');
+     }
+  },[])
   const[loading,setLoading]=useState(false)
   const[title,setTitle]=useState("");
   const[slug,setSlug]=useState("");

@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../../trc/theme/theme";
 import FullLayout from "../../../trc/layouts/FullLayout";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
 const Searchorder = () => {
+  useEffect(()=>{
+    const myAdmin = localStorage.getItem('myAdmin')
+    if(!myAdmin){
+      router.push('/admin/adminlogin');
+     }
+  },[])
   const [sid,setsId]=useState("")
   const shandlechange=(e)=>{
     if(e.target.name=="id"){
@@ -72,6 +79,7 @@ setCheckout(b)
   });
   const res=await pr.json();
   if(res.success){
+    handleSearch();
     Setmodal(false)
     toast.success("Successfully Update Your Order", {
       position: "top-left",

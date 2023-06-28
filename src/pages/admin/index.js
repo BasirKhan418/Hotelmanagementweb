@@ -6,8 +6,16 @@ import ProductPerfomance from "../../../trc/components/dashboard/ProductPerfoman
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../../trc/theme/theme";
 import FullLayout from "../../../trc/layouts/FullLayout";
-
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 export default function Index() {
+  const router= useRouter();
+  useEffect(()=>{
+    const myAdmin = localStorage.getItem('myAdmin')
+    if(!myAdmin){
+      router.push('/admin/adminlogin');
+     }
+  },[])
   return (
     <ThemeProvider theme={theme}>
        <style jsx global>{`

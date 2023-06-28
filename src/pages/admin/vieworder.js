@@ -6,11 +6,15 @@ import mongoose from 'mongoose';
 import Order from '../../../models/Order';
 import { useRouter } from 'next/router';
 const  Vieworder = ({order}) => {
-    console.log(order);
+  const router = useRouter();
   const [date,setDate]=useState()
   const [checkin,setCheckin]=useState()
   const [checkout,setCheckout]=useState()
   useEffect(()=>{
+    const myAdmin = localStorage.getItem('myAdmin')
+    if(!myAdmin){
+      router.push('/admin/adminlogin');
+     }
     const d =new Date(order.createdAt);
     const e =new Date(order.checkin);
     const f =new Date(order.checkout);
@@ -21,7 +25,6 @@ const  Vieworder = ({order}) => {
   const toggletrack=()=>{
     setTrackorder(!trackorder);
   }
-  const router =useRouter();
   const products =order.products;
 console.log(products)
   return (

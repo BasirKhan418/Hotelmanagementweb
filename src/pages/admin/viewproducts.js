@@ -4,8 +4,10 @@ import theme from "../../../trc/theme/theme";
 import FullLayout from "../../../trc/layouts/FullLayout";
 import { ToastContainer, toast } from "react-toastify";
 import Spinner from "../components/Spinner";
+import { useRouter } from 'next/router'
 import "react-toastify/dist/ReactToastify.css";
 const Viewproducts = () => {
+  const router =useRouter();
   const [title, setTitle] = useState("");
   const [id, setId] = useState("");
   const [desc, setDesc] = useState("");
@@ -18,14 +20,24 @@ const Viewproducts = () => {
   const [mrp, setMrp] = useState("");
   const [product, setProduct] = useState("");
   const [modal, Setmodal] = useState(false);
+
 useEffect(()=>{
-  fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getproduct`)
+  const myAdmin = localStorage.getItem('myAdmin')
+    if(!myAdmin){
+      router.push('/admin/adminlogin');
+     }
+    const intervalId = setInterval(() => {
+      fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getproduct`)
     .then((data) => {
       return data.json();
     })
     .then((data) => {
       setProduct(data);
     });
+       // Fetch data every 2 minutes
+    }, 2000);
+
+    return () => clearInterval(intervalId);
 },[])
   const handledelete = async (_id) => {
     let confirm1 = confirm(

@@ -7,7 +7,9 @@ import Order from "../../../models/Order";
 import mongoose from "mongoose";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
 const Orders = ({ orderss }) => {
+  const router =useRouter();
   const [order, SetOrder] = useState([]);
   const [modal, Setmodal] = useState(false);
   const [room,setRoom]=useState("")
@@ -21,8 +23,17 @@ const Orders = ({ orderss }) => {
       let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getallorders`);
       const resp = await a.json();
       SetOrder(resp);
+      const myAdmin = localStorage.getItem('myAdmin')
+    if(!myAdmin){
+      router.push('/admin/adminlogin');
+     }
     };
-    ref();
+   
+    const intervalId = setInterval(() => {
+      ref(); // Fetch data every 2 minutes
+    }, 2000);
+
+    return () => clearInterval(intervalId);
   },[])
   const handlechange=(e)=>{
     if(e.target.name=="roomno"){

@@ -17,19 +17,29 @@ import {
   FormControl,
   Button,
 } from "@mui/material";
+import { useRouter } from 'next/router';
 import BaseCard from "../../../trc/components/baseCard/BaseCard";
 const Sliderimage = () => {
+  const router = useRouter();
   const[title,setTitle]=useState("");
   const[image1,setImage1]=useState("");
   const [ url1, setUrl1 ] = useState("");
   const [ slider, setSlider ] = useState("");
  useEffect(()=>{
-  fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getslider`).then((resp)=>{
-    return resp.json();
-    }).then((data)=>{
-      console.log(data)
-      setSlider(data)
-    })
+  const myAdmin = localStorage.getItem('myAdmin')
+    if(!myAdmin){
+      router.push('/admin/adminlogin');
+     }
+    const intervalId = setInterval(() => {
+      fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getslider`).then((resp)=>{
+        return resp.json();
+        }).then((data)=>{
+          console.log(data)
+          setSlider(data)
+        })
+    }, 2000);
+
+    return () => clearInterval(intervalId);
  },[])
   const handleChange = (e) => {
     if (e.target.name === "title") {

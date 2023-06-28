@@ -4,6 +4,7 @@ import theme from "../../../trc/theme/theme";
 import FullLayout from "../../../trc/layouts/FullLayout";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import { useRouter } from 'next/router';
 import {
   Grid,
   Stack,
@@ -19,18 +20,27 @@ import {
 } from "@mui/material";
 import BaseCard from "../../../trc/components/baseCard/BaseCard";
 const Gallerys = () => {
+  const router =useRouter();
   const[title,setTitle]=useState("");
   const[image1,setImage1]=useState("");
   const [ url1, setUrl1 ] = useState("");
   const [ gallery, setgallery] = useState("");
  useEffect(()=>{
-  fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getgallery`).then((resp)=>{
-    return resp.json();
-    }).then((data)=>{
-      console.log(data)
-      setgallery(data)
-    },[])
- })
+  const myAdmin = localStorage.getItem('myAdmin')
+    if(!myAdmin){
+      router.push('/admin/adminlogin');
+     }
+    const intervalId = setInterval(() => {
+      fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getgallery`).then((resp)=>{
+        return resp.json();
+        }).then((data)=>{
+          console.log(data)
+          setgallery(data)
+        })
+    }, 2000);
+
+    return () => clearInterval(intervalId);
+ },[])
   const handleChange = (e) => {
     if (e.target.name === "title") {
       setTitle(e.target.value);

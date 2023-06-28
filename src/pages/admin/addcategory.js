@@ -5,6 +5,7 @@ import FullLayout from "../../../trc/layouts/FullLayout";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Category from "../../../models/Category";
+import { useRouter } from 'next/router'
 import mongoose from "mongoose";
 import {
   Grid,
@@ -21,6 +22,14 @@ import {
 } from "@mui/material";
 import BaseCard from "../../../trc/components/baseCard/BaseCard";
 const Addcategory = ({ catroom, catfood }) => {
+  const router=useRouter();
+  
+  useEffect(()=>{
+    const myAdmin = localStorage.getItem('myAdmin')
+    if(!myAdmin){
+      router.push('/admin/adminlogin');
+     }
+  },[])
   const [modal, Setmodal] = useState(false);
 
   const [title, setTitle] = useState("");

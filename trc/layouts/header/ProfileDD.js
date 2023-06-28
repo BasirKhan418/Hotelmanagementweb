@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FeatherIcon from "feather-icons-react";
 import Image from "next/image";
 import userimg from "../../../assets/images/users/user2.jpg";
+import { useRouter } from "next/router";
 import {
   Box,
   Menu,
@@ -14,6 +15,34 @@ import {
   Divider,
 } from "@mui/material";
 const ProfileDD = () => {
+  const router =useRouter();
+  const[name,setName]=useState("");
+  useEffect(()=>{
+    const myAdmin = JSON.parse(localStorage.getItem('myAdmin'));
+    if(myAdmin && myAdmin.token){
+     fetchdata(myAdmin.token);
+    }
+   
+     },[])
+  const fetchdata=async(token)=>{
+    const data ={token:token};
+    const pr = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/myadmin`, {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const res=await pr.json();
+    // setLoading(false)
+    // console.log(res)
+    // console.log(res.name,res.address,res.phone,res.pincode);
+    setName(res.name);
+    // setAddress(res.address);
+    // setPhone(res.phone);
+    // setPincode(res.pincode);
+   }
   const [anchorEl4, setAnchorEl4] = React.useState(null);
 
   const handleClick4 = (event) => {
@@ -23,6 +52,10 @@ const ProfileDD = () => {
   const handleClose4 = () => {
     setAnchorEl4(null);
   };
+  const logout=()=>{
+    localStorage.removeItem("myAdmin");
+    router.push("/admin/adminlogin")
+  }
   return (
     <>
       <Button
@@ -34,7 +67,7 @@ const ProfileDD = () => {
       >
         <Box display="flex" alignItems="center">
           <Image
-            src={userimg}
+            src={"/cresentlogo.jpg"}
             alt={userimg}
             width="30"
             height="30"
@@ -64,7 +97,7 @@ const ProfileDD = () => {
                 ml: 1,
               }}
             >
-              Julia
+              {name}
             </Typography>
             <FeatherIcon icon="chevron-down" width="20" height="20" />
           </Box>
@@ -89,24 +122,15 @@ const ProfileDD = () => {
               aria-label="secondary mailbox folder"
               onClick={handleClose4}
             >
-              <ListItemButton>
-                <ListItemText primary="Edit Profile" />
-              </ListItemButton>
-              <ListItemButton>
-                <ListItemText primary="Account" />
-              </ListItemButton>
-              <ListItemButton>
-                <ListItemText primary="Change Password" />
-              </ListItemButton>
-              <ListItemButton>
-                <ListItemText primary="My Settings" />
+              <ListItemButton className="bg-blue-100 font-bold no-underline">
+               <Link href={"/admin/myaccount"} className="no-underline"> <ListItemText primary="My Account" /></Link>
               </ListItemButton>
             </List>
           </Box>
           <Divider />
           <Box p={2}>
             <Link to="/">
-              <Button fullWidth variant="contained" color="primary">
+              <Button fullWidth variant="outlined" color="primary" onClick={logout} className="bg-blue-500 text-white hover:text-black font-semibold">
                 Logout
               </Button>
             </Link>

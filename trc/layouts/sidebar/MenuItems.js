@@ -47,7 +47,7 @@ const Menuitems = [
   {
     title: "Make a new Admin",
     icon: "users",
-    href: "/admin/newadmin",
+    href: "/admin/adminsignup",
   },
 ];
 

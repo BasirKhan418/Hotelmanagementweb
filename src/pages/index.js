@@ -8,8 +8,7 @@ import Features from './components/Features'
 import Ourgallery from './components/Ourgallery'
 import Food from './components/Food'
 import Faq from './components/Faq'
-import Categoryrooms from '../../models/Categoryrooms'
-import Categoryfood from '../../models/Categoryfood'
+import Category from '../../models/Category'
 import Slider from '../../models/Slider'
 import mongoose from 'mongoose'
 export default function Home({catroom,catfood,slider}) {
@@ -68,8 +67,8 @@ export async function getServerSideProps () {
   if(!mongoose.connections[0].readyState){
     await mongoose.connect(process.env.MONGO_URI);
 }
-let catroom= await Categoryrooms.find();
-let catfood = await Categoryfood.find();
+let catroom= await Category.find({category:"room"});
+let catfood = await Category.find({category:"food"});
 let slider=await Slider.find();
   return {
       props: {catroom:JSON.parse(JSON.stringify(catroom)),catfood:JSON.parse(JSON.stringify(catfood)),slider:JSON.parse(JSON.stringify(slider))},

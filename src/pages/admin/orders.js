@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Order from "../../../models/Order";
 import mongoose from "mongoose";
 import "react-toastify/dist/ReactToastify.css";
+import Link from "next/link";
 const Orders = ({ orderss }) => {
   const [order, SetOrder] = useState([]);
   const [modal, Setmodal] = useState(false);
@@ -22,7 +23,7 @@ const Orders = ({ orderss }) => {
   };
   ref();
   const handlechange=(e)=>{
-    if(e.target.name=="room"){
+    if(e.target.name=="roomno"){
       setRoom(e.target.value)
     }
     else if(e.target.name=="checkin"){
@@ -35,7 +36,7 @@ const Orders = ({ orderss }) => {
       setStatus(e.target.value)
     }
     else if(e.target.name=="dlstatus"){
-      setStatus(e.target.value)
+      setDlstatus(e.target.value)
     } 
   }
   const updateorder=(id,room,checkin,checkout,status,dlstatus)=>{
@@ -50,8 +51,41 @@ setCheckout(b)
   setStatus(status)
   setDlstatus(dlstatus)
   }
-  const handleUpdate=()=>{
-
+  const handleUpdate=async()=>{
+  const data={id,room,checkin,checkout,status,deliveryStatus:dlstatus}
+  const pr = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updateorder`, {
+    method: "POST", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  const res=await pr.json();
+  if(res.success){
+    Setmodal(false)
+    toast.success("Successfully Update Your Order", {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  }
+  else{
+    toast.error("Something went wrong please try again after some time", {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  }
   }
   return (
     <>
@@ -88,28 +122,28 @@ setCheckout(b)
                   <th scope="col" className="px-6 py-3">
                     Product Name (Qty)
                   </th> */}
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 rounded text-center">
                     Order Id
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 rounded text-center">
                     Payment Id
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 rounded text-center">
                     Status
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 rounded text-center">
                     Delivery Status
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 rounded text-center">
                     Customer Name
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-3 rounded text-center">
                     Customer Email
                   </th>
-                  <th scope="col" className="px-6 py-3">
-                    Customer Address
-                  </th>
-                  <th scope="col" className="px-6 py-3">
+                  {/* <th scope="col" className="px-6 py-3">
+                    {/* Customer Address
+                  </th> */} 
+                  <th scope="col" className="px-6 py-3 rounded text-center">
                     Action
                   </th>
                 </tr>
@@ -136,16 +170,16 @@ setCheckout(b)
                       >
                         
                       </th> */}
-                      <td className="px-6 py-4 font-semibold">{item.orderID}</td>
-                      <td className="px-6 py-4 font-semibold">{item.payment_id}</td>
-                      <td className="px-6 py-4 font-semibold">{item.status}</td>
-                      <td className="px-6 py-4 font-semibold">{item.deliveryStatus}</td>
-                      <td className="px-6 py-4 font-semibold">{item.name}</td>
-                      <td className="px-6 py-4 font-semibold">{item.email}</td>
-                      <td className="px-6 py-4 font-semibold">{item.address}/ (District:-{item.city} Pin:-{item.pincode})<br/>Phone:-{item.phone}</td>
+                      <td className="px-6 py-4 font-semibold rounded text-center">{item.orderID}</td>
+                      <td className="px-6 py-4 font-semibold rounded text-center">{item.payment_id}</td>
+                      <td className={`px-6 py-4 font-semibold rounded text-center text-black ${item.status=="pending"?"text-red-500":""}${item.status=="paid"?"text-green-500":""} `}>{item.status}</td>
+                      <td className={`px-6 py-4 font-semibold rounded text-center bg-blue-50 ${item.deliveryStatus=="unshipped"?"text-green-500":"text-white"} ${item.deliveryStatus=="delivered"?"bg-green-500":""}${item.deliveryStatus=="cancelled"?"bg-red-500":""}${item.deliveryStatus=="packed"?"bg-blue-500":""} ${item.deliveryStatus=="room alorted"?"bg-blue-500":""}`}>{item.deliveryStatus}</td>
+                      <td className="px-6 py-4 font-semibold rounded text-center">{item.name}</td>
+                      <td className="px-6 py-4 font-semibold rounded text-center">{item.email}</td>
+                      {/* <td className="px-6 py-4 font-semibold">{item.address}/ (District:-{item.city} Pin:-{item.pincode})<br/>Phone:-{item.phone}</td> */}
                       <td className="px-6 py-4">
                         <button
-                          className="font-medium bg-blue-600 dark:bg-blue-500 hover:bg-amber-800 text-white rounded p-2 my-2"
+                          className="font-medium bg-blue-600 dark:bg-blue-500 hover:bg-amber-800 text-white rounded p-2 m-2"
                           data-modal-target="popup-modal"
                           onClick={() => {
                             Setmodal(!modal);
@@ -161,11 +195,11 @@ setCheckout(b)
                         >
                           Edit
                         </button>
-                        <button
+                       <Link href={`/admin/vieworder?id=${item._id}`}> <button
                           className="font-medium bg-blue-600 dark:bg-blue-500 hover:bg-blue-800 text-white rounded p-2 my-2"
                         >
                           View
-                        </button>
+                        </button></Link>
                       </td>
                     </tr>
                   );
@@ -221,9 +255,9 @@ setCheckout(b)
                     </label>
                     <input
                       type="text"
-                      name="title"
+                      name="roomno"
                       id="roomno"
-                      value={room==""?"":room}
+                      value={room}
                       onChange={handlechange}
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder="Ex. Room no:-101"
@@ -238,8 +272,8 @@ setCheckout(b)
                     </label>
                     <input
                       type="text"
-                      name="title"
-                      id="roomno"
+                      name="checkin"
+                      id="checkin"
                       value={checkin}
                       onChange={handlechange}
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"

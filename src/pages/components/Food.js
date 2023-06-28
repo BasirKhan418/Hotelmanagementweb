@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { Swiper, SwiperSlide} from "swiper/react";
 // Import Swiper styles
 import mongoose from 'mongoose';
-import Categoryfood from '../../../models/Categoryfood';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

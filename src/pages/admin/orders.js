@@ -150,7 +150,7 @@ setCheckout(b)
                
               </thead>
               <tbody>
-                {order.map((item) => {
+                {order.slice(0).reverse().map((item) => {
                   return (
                     <tr
                       key={item._id}

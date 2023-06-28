@@ -40,11 +40,6 @@ const Menuitems = [
     href: "/admin/galleryimage",
   },
   {
-    title: "Create Order",
-    icon: "plus",
-    href: "/admin/createorder",
-  },
-  {
     title: "Serach a Order/Bookings",
     icon: "search",
     href: "/admin/searchorder",

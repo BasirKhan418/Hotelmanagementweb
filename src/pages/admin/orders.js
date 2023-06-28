@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../../trc/theme/theme";
 import FullLayout from "../../../trc/layouts/FullLayout";
@@ -16,12 +16,14 @@ const Orders = ({ orderss }) => {
   const [status,setStatus]=useState("")
   const [dlstatus,setDlstatus]=useState("")
   const [id,setID]=useState("")
-  const ref = async () => {
-    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getallorders`);
-    const resp = await a.json();
-    SetOrder(resp);
-  };
-  ref();
+  useEffect(()=>{
+    const ref = async () => {
+      let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getallorders`);
+      const resp = await a.json();
+      SetOrder(resp);
+    };
+    ref();
+  },[])
   const handlechange=(e)=>{
     if(e.target.name=="roomno"){
       setRoom(e.target.value)

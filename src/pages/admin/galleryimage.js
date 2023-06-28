@@ -23,12 +23,14 @@ const Gallerys = () => {
   const[image1,setImage1]=useState("");
   const [ url1, setUrl1 ] = useState("");
   const [ gallery, setgallery] = useState("");
+ useEffect(()=>{
   fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getgallery`).then((resp)=>{
     return resp.json();
     }).then((data)=>{
       console.log(data)
       setgallery(data)
-    })
+    },[])
+ })
   const handleChange = (e) => {
     if (e.target.name === "title") {
       setTitle(e.target.value);

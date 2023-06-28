@@ -23,12 +23,14 @@ const Sliderimage = () => {
   const[image1,setImage1]=useState("");
   const [ url1, setUrl1 ] = useState("");
   const [ slider, setSlider ] = useState("");
+ useEffect(()=>{
   fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getslider`).then((resp)=>{
     return resp.json();
     }).then((data)=>{
       console.log(data)
       setSlider(data)
     })
+ },[])
   const handleChange = (e) => {
     if (e.target.name === "title") {
       setTitle(e.target.value);

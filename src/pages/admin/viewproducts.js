@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../../trc/theme/theme";
 import FullLayout from "../../../trc/layouts/FullLayout";
@@ -18,6 +18,7 @@ const Viewproducts = () => {
   const [mrp, setMrp] = useState("");
   const [product, setProduct] = useState("");
   const [modal, Setmodal] = useState(false);
+useEffect(()=>{
   fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getproduct`)
     .then((data) => {
       return data.json();
@@ -25,6 +26,7 @@ const Viewproducts = () => {
     .then((data) => {
       setProduct(data);
     });
+},[])
   const handledelete = async (_id) => {
     let confirm1 = confirm(
       "Are You Sure To Delete This Product! Please Check it ?"

@@ -9,7 +9,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 const Sliderhome = ({slider}) => {
-  console.log(slider)
   return (
     <div>
       <Swiper
@@ -24,7 +23,7 @@ const Sliderhome = ({slider}) => {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >
-        {slider.map((item)=>{return <SwiperSlide key={item._id}>
+        {slider&&slider.map((item)=>{return <SwiperSlide key={item._id}>
           <div className="flex object-cover">
             <img src={item.img} alt="slider-home-img" className="homesw opacity-90" />{" "}
             <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold mx-4 my-4">

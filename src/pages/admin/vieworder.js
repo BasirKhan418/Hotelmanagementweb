@@ -58,7 +58,7 @@ console.log(products)
        
         {Object.keys(products).map((item)=>{
           return <div key={item} className="flex border-t border-gray-200 py-2">
-            <img alt="ecommerce" className="w-20  h-20 object-cover object-center rounded" src={products[item].img}/>
+            <img alt="ecommerce" className="w-20  h-20 object-cover object-center rounded" src={products[item].img1}/>
           <span className="text-gray-500 m-auto mx-2">{products[item].name}</span>
           <span className="m-auto text-gray-900 mx-2">{products[item].qty}</span>
           <span className="m-auto text-gray-900 mx-2 ">₹{products[item].price}X {products[item].qty}=₹{products[item].price*products[item].qty}</span>

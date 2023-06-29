@@ -7,7 +7,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps,jun }) {
+  console.log("jun is "+jun)
 const router = useRouter();
   const[cart,setCart]=useState({})
   const[subTotal,setSubtotal]=useState(0)
@@ -115,4 +116,5 @@ if(localStorage.getItem("cart")){
   theme="light"
   /><Component buyNow={buyNow} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps}/><Footer/></>
 }
+
 

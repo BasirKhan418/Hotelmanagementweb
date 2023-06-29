@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, Typography, Box } from "@mui/material";
 import dynamic from "next/dynamic";
 import BaseCard from "../baseCard/BaseCard";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const SalesOverview = () => {
+  const [month, setMonth] = useState({});
+
+  useEffect(() => {
+    const fetchMonthData = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getmonthdata`);
+        const data = await response.json();
+        setMonth(data);
+      } catch (error) {
+        console.error("Error fetching month data:", error);
+      }
+    };
+
+    fetchMonthData();
+  }, []);
+
   const optionssalesoverview = {
     grid: {
       show: true,
@@ -24,7 +40,7 @@ const SalesOverview = () => {
         borderRadius: 5,
       },
     },
-
+  
     colors: ["#fb9678", "#03c9d7"],
     fill: {
       type: "solid",
@@ -74,9 +90,9 @@ const SalesOverview = () => {
     },
     yaxis: {
       show: true,
-      min: 100,
-      max: 400,
-      tickAmount: 3,
+      min: 1,
+      max: 100,
+      tickAmount: 10,
       labels: {
         style: {
           cssClass: "grey--text lighten-2--text fill-color",
@@ -93,24 +109,52 @@ const SalesOverview = () => {
       theme: "dark",
     },
   };
+  
+
   const seriessalesoverview = [
     {
-      name: "Ample Admin",
-      data: [355, 390, 300, 350, 390, 180, 355, 390, 300, 350, 390, 180],
+      name: "Order Month wise",
+      data: [
+        month.jan?.length,
+        month.feb?.length,
+        month.mar?.length,
+        month.apr?.length,
+        month.may?.length,
+        month.jun?.length,
+        month.jul?.length,
+        month.aug?.length,
+        month.sept?.length,
+        month.oct?.length,
+        month.nov?.length,
+        month.dec?.length,
+      ],
     },
     {
-      name: "Pixel Admin",
-      data: [280, 250, 325, 215, 250, 310, 280, 250, 325, 215, 250, 310],
+      name: "Confirm Order month wise",
+      data: [
+        month.jan?.length,
+        month.feb?.length,
+        month.mar?.length,
+        month.apr?.length,
+        month.may?.length,
+        month.jun?.length,
+        month.jul?.length,
+        month.aug?.length,
+        month.sept?.length,
+        month.oct?.length,
+        month.nov?.length,
+        month.dec?.length,
+      ],
     },
   ];
+
   return (
     <BaseCard title="Sales Overview">
-      <Chart
-        options={optionssalesoverview}
-        series={seriessalesoverview}
-        type="bar"
-        height="295px"
-      />
+      {Object.keys(month).length > 0 ? (
+        <Chart options={optionssalesoverview} series={seriessalesoverview} type="bar" height="295px" />
+      ) : (
+        <p>Loading month data...</p>
+      )}
     </BaseCard>
   );
 };

@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-const Ourgallery = () => {
+const Ourgallery = ({gallery}) => {
   return (
    <>
    <Swiper
@@ -35,27 +35,9 @@ const Ourgallery = () => {
         slidesPerView={3}
         pagination={{ clickable: true }}
       >
-                <SwiperSlide className='my-4'>
-                    <img src="/dinner.jpg" alt="gimage" className='h-80 w-96 mb-4 mx-2 object-cover'/>
-            </SwiperSlide>
-                <SwiperSlide className='my-4'>
-                    <img src="/lunch.jpg" alt="gimage" className='h-80 w-96 mb-4 mx-2 object-cover'/>
-            </SwiperSlide>
-                <SwiperSlide className='my-4'>
-                    <img src="/breakfast.jpg" alt="gimage" className='h-80 w-96 mb-4 mx-2 object-cover'/>
-            </SwiperSlide>
-                <SwiperSlide className='my-4'>
-                    <img src="/snacks.jpg" alt="gimage" className='h-80 w-96 mb-4 mx-2 object-cover'/>
-            </SwiperSlide>
-                <SwiperSlide className='my-4'>
-                    <img src="/fastfood.jpg" alt="gimage" className='h-80 w-96 mb-4 mx-2'/>
-            </SwiperSlide>
-                <SwiperSlide className='my-4'>
-                    <img src="/hotelbook.jpg" alt="gimage" className='h-80 w-96 mb-4 mx-2 object-cover'/>
-            </SwiperSlide>
-                <SwiperSlide className='my-4'>
-                    <img src="/hotelbook1.jpg" alt="gimage" className='h-80 w-96 mb-4 mx-2'/>
-            </SwiperSlide>
+                {gallery&& gallery.map((item)=>{return <SwiperSlide key={item._id} className='my-4'>
+                    <img src={item.img} alt="gimage" className='h-80 w-96 mb-4 mx-2 object-cover'/>
+            </SwiperSlide>})}
       </Swiper>
       
 

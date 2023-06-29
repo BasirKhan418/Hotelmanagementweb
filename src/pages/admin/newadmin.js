@@ -9,7 +9,7 @@ const Newadmin = () => {
     <ThemeProvider theme={theme}>
        <FullLayout>
     <div>
-      <adminsignup/>
+      
     </div>
     </FullLayout>
     </ThemeProvider>

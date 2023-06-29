@@ -23,7 +23,11 @@ import {
 import BaseCard from "../../../trc/components/baseCard/BaseCard";
 const Addcategory = ({ catroom, catfood }) => {
   const router=useRouter();
-  
+  const ref = async () => {
+    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/ordergraph`);
+    const resp = await a.json();
+   console.log(resp.length())
+  }
   useEffect(()=>{
     const myAdmin = localStorage.getItem('myAdmin')
     if(!myAdmin){

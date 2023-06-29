@@ -157,6 +157,7 @@ theme="light"
           </span>
         </div> 
         <p className="leading-relaxed mx-2">{product.desc}</p>
+        <p className="leading-relaxed mx-2">Size:-{product.size}</p>
         <div className="flex mx-2 my-8">
         {product.availableQty>0 &&<span className="title-font font-medium text-2xl text-gray-900">₹{product.price}</span>}
         {product.availableQty<=0 &&<span className="title-font font-medium text-2xl text-gray-900">Out Of Stock!</span>}

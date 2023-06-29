@@ -14,7 +14,7 @@ const AdminSignup = () => {
   const[loading, setLoading]=useState(false);
   const router =useRouter();
   useEffect(()=>{
-    if(localStorage.getItem(!'myAdmin')){
+    if(!localStorage.getItem('myAdmin')){
     router.push('/admin/adminlogin');
     }
   })

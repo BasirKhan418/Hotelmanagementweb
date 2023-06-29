@@ -61,6 +61,7 @@ const handler = async (req, res) => {
   } 
  else {
   try{
+    console.log(req.body.token)
     let tokenn = await Forgot.findOne({ token: req.body.token });
     if (req.body.cpassword == req.body.password) {
       await Admin.findOneAndUpdate(

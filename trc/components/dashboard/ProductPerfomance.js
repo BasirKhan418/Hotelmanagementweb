@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Typography,
   Box,
@@ -9,48 +9,20 @@ import {
   TableRow,
   Chip,
 } from "@mui/material";
+
 import BaseCard from "../baseCard/BaseCard";
 
-const products = [
-  {
-    id: "1",
-    name: "Sunil Joshi",
-    post: "Web Designer",
-    pname: "Elite Admin",
-    priority: "Low",
-    pbg: "primary.main",
-    budget: "3.9",
-  },
-  {
-    id: "2",
-    name: "Andrew McDownland",
-    post: "Project Manager",
-    pname: "Real Homes WP Theme",
-    priority: "Medium",
-    pbg: "secondary.main",
-    budget: "24.5",
-  },
-  {
-    id: "3",
-    name: "Christopher Jamil",
-    post: "Project Manager",
-    pname: "MedicalPro WP Theme",
-    priority: "High",
-    pbg: "error.main",
-    budget: "12.8",
-  },
-  {
-    id: "4",
-    name: "Nirav Joshi",
-    post: "Frontend Engineer",
-    pname: "Hosting Press HTML",
-    priority: "Critical",
-    pbg: "success.main",
-    budget: "2.4",
-  },
-];
-
 const ProductPerfomance = () => {
+  const [products,setProducts]=useState([])
+  useEffect(()=>{
+    fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getproduct`)
+    .then((data) => {
+      return data.json();
+    })
+    .then((data) => {
+      setProducts(data);
+    });
+  },[])
   return (
     <BaseCard title="Product Perfomance">
       <Table
@@ -69,29 +41,29 @@ const ProductPerfomance = () => {
             </TableCell>
             <TableCell>
               <Typography color="textSecondary" variant="h6">
-                Assigned
+                name
               </Typography>
             </TableCell>
             <TableCell>
               <Typography color="textSecondary" variant="h6">
-                Name
+                Category
               </Typography>
             </TableCell>
             <TableCell>
               <Typography color="textSecondary" variant="h6">
-                Priority
+                Price
               </Typography>
             </TableCell>
             <TableCell align="right">
               <Typography color="textSecondary" variant="h6">
-                Budget
+                SubCategory
               </Typography>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {products.map((product) => (
-            <TableRow key={product.name}>
+            <TableRow key={product._id}>
               <TableCell>
                 <Typography
                   sx={{
@@ -99,7 +71,7 @@ const ProductPerfomance = () => {
                     fontWeight: "500",
                   }}
                 >
-                  {product.id}
+                  {product._id}
                 </Typography>
               </TableCell>
               <TableCell>
@@ -116,7 +88,7 @@ const ProductPerfomance = () => {
                         fontWeight: "600",
                       }}
                     >
-                      {product.name}
+                      {product.title}
                     </Typography>
                     <Typography
                       color="textSecondary"
@@ -124,14 +96,14 @@ const ProductPerfomance = () => {
                         fontSize: "13px",
                       }}
                     >
-                      {product.post}
+                      {product.size}
                     </Typography>
                   </Box>
                 </Box>
               </TableCell>
               <TableCell>
                 <Typography color="textSecondary" variant="h6">
-                  {product.pname}
+                  {product.category}
                 </Typography>
               </TableCell>
               <TableCell>
@@ -139,15 +111,15 @@ const ProductPerfomance = () => {
                   sx={{
                     pl: "4px",
                     pr: "4px",
-                    backgroundColor: product.pbg,
+                    backgroundColor: "blue",
                     color: "#fff",
                   }}
                   size="small"
-                  label={product.priority}
+                  label={product.price}
                 ></Chip>
               </TableCell>
               <TableCell align="right">
-                <Typography variant="h6">${product.budget}k</Typography>
+                <Typography variant="h6">{product.subcategory}</Typography>
               </TableCell>
             </TableRow>
           ))}

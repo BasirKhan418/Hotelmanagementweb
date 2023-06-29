@@ -23,8 +23,8 @@ const Forgot = () => {
   }
   const router=useRouter();
   useEffect(()=>{
-if(localStorage.getItem('token')){
-  router.push('/');
+if(localStorage.getItem('myAdmin')){
+  router.push('/admin');
 }
   },[])
   const sendEmailf=async()=>{
@@ -46,7 +46,7 @@ if(localStorage.getItem('token')){
       const r = await response.json();
         setEmail("");
         setLoading(false)
-        router.push(`/forgot?token=${r.forgot.token}`);
+        router.push(`/admin/adminforgot?token=${r.forgot.token}`);
       if(r.success){
         toast.success("Successfully email sent. Please check the email for reset password related instructions ", {
           position: "top-left",
@@ -91,6 +91,7 @@ if(localStorage.getItem('token')){
     setLoading(true)
     if(password==cpassword){
  const token =router.query.token;
+ console.log(token)
     const data = {password,cpassword,token,sendMail:false};
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_HOST}/api/adminforgot`,

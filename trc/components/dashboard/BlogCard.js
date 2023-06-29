@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, Typography, Button, Grid } from "@mui/material";
 import Image from "next/image";
 import user1 from "../../../assets/images/backgrounds/u2.jpg";
@@ -30,11 +30,20 @@ const blogs = [
 ];
 
 const BlogCard = () => {
+  const [ slider, setSlider ] = useState("");
+  useEffect(()=>{
+    fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getslider`).then((resp)=>{
+      return resp.json();
+      }).then((data)=>{
+        console.log(data)
+        setSlider(data)
+      })
+  },[])
   return (
     <Grid container>
-      {blogs.map((blog, index) => (
+      {slider&&slider.map((item) => (
         <Grid
-          key={index}
+          key={item._id}
           item
           xs={12}
           lg={4}
@@ -49,7 +58,7 @@ const BlogCard = () => {
               width: "100%",
             }}
           >
-            <Image src={blog.img} alt="img" />
+            <img src={item.img} alt="img" />
             <CardContent
               sx={{
                 paddingLeft: "30px",
@@ -62,27 +71,9 @@ const BlogCard = () => {
                   fontWeight: "500",
                 }}
               >
-                {blog.title}
+                {item.title}
               </Typography>
-              <Typography
-                color="textSecondary"
-                sx={{
-                  fontSize: "14px",
-                  fontWeight: "400",
-                  mt: 1,
-                }}
-              >
-                {blog.subtitle}
-              </Typography>
-              <Button
-                variant="contained"
-                sx={{
-                  mt: "15px",
-                }}
-                color={blog.btncolor}
-              >
-                Learn More
-              </Button>
+
             </CardContent>
           </Card>
         </Grid>
@@ -92,3 +83,6 @@ const BlogCard = () => {
 };
 
 export default BlogCard;
+
+
+

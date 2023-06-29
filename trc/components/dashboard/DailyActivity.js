@@ -12,27 +12,32 @@ const activities = [
   {
     time: "09.50",
     color: "success.main",
-    text: "Meeting with John",
+    text: "Add A Category",
   },
   {
     time: "09.46",
     color: "secondary.main",
-    text: "Payment received from John Doe of $385.90",
+    text: "Add A Product",
   },
   {
     time: "09.47",
     color: "primary.main",
-    text: "Project Meeting",
+    text: "Add Amazing Offer In Slider Image",
   },
   {
     time: "09.48",
     color: "warning.main",
-    text: "New Sale recorded #ML-3467",
+    text: "Get Your First Order",
   },
   {
     time: "09.49",
     color: "error.main",
-    text: "Payment was made of $64.95 to Michael Anderson",
+    text: "Donot Fail to confirm order and mark as delivered!",
+  },
+  {
+    time: "04.49",
+    color: "success.main",
+    text: "Enjoy Your Day!",
   },
 ];
 

@@ -4,7 +4,6 @@ import mongoose from 'mongoose';
 import Link from 'next/link';
 import Order from '../../models/Order';
 const MyOrder = ({order,clearCart}) => {
-  console.log(order);
   const [date,setDate]=useState()
   const [checkin,setCheckin]=useState()
   const [checkout,setCheckout]=useState()
@@ -25,7 +24,6 @@ const MyOrder = ({order,clearCart}) => {
   }
   const router =useRouter();
   const products =order.products;
-console.log(products)
   return (
     <div>
       <section className="text-gray-600 body-font overflow-hidden bg-white min-h-screen">

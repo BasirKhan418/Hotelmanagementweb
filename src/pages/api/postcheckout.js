@@ -4,7 +4,6 @@ import Order from "../../../models/Order";
 import Product from "../../../models/Product";
 const handler = async (req, res) => {
     let order;
-  console.log(req.body);
 //   //validate payment using razorpay
 //     const {razorpay_order_id, razorpay_payment_id,razorpay_signature} = req.body;
 //     // Pass yours key_secret here

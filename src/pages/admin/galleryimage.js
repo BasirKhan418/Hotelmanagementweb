@@ -34,7 +34,6 @@ const Gallerys = () => {
       fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getgallery`).then((resp)=>{
         return resp.json();
         }).then((data)=>{
-          console.log(data)
           setgallery(data)
         })
     }, 2000);

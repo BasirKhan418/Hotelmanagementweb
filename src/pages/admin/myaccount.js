@@ -69,8 +69,6 @@ const Myaccount = () => {
   
       const res=await pr.json();
       setLoading(false)
-      console.log(res)
-      console.log(res.name,res.address,res.phone,res.pincode);
       setName(res.name);
       setAddress(res.address);
       setPhone(res.phone);
@@ -89,7 +87,6 @@ const Myaccount = () => {
   
       const response=await res.json();
       setLoading(false)
-      console.log(response);
       toast.success("Successfully updated your details", {
         position: "top-left",
         autoClose: 3000,
@@ -115,7 +112,6 @@ const Myaccount = () => {
   
       const response=await res.json();
       setLoading(false)
-      console.log(response);
       if(response.success){
         toast.success("Successfully updated your details", {
           position: "top-left",

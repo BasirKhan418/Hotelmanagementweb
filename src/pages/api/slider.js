@@ -2,7 +2,6 @@ import Slider from "../../../models/Slider";
 import connectDb from "../middleware/mongoose";
 const handler = async (req, res) => {
   if (req.method == "POST") {
-    console.log(req.body);
       let p = new Slider({
         title: req.body.title,
         img:req.body.img

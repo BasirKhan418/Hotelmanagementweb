@@ -395,37 +395,37 @@ const Navbar = ({
             <hr className="h-2 w-full" />
             <Link href={"/"}>
               {" "}
-              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in ">
+              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in dark:text-white">
                 Home
               </li>
             </Link>
             <Link href={"/rooms"}>
               {" "}
-              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
+              <li className=" dark:text-white text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 Rooms
               </li>
             </Link>
             <Link href={"/foods"}>
               {" "}
-              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
+              <li className=" dark:text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 Foods
               </li>
             </Link>
             <Link href={"/gallery"}>
               {" "}
-              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
+              <li className=" dark:text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 Gallery
               </li>
             </Link>
             <Link href={"/about"}>
               {" "}
-              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
+              <li className="dark:text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 About
               </li>
             </Link>
             <Link href={"/contactus"}>
               {" "}
-              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
+              <li className="dark:text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                Contact Us
               </li>
             </Link>

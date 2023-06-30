@@ -9,7 +9,6 @@ const handler = async (req, res) => {
     try{
       let token = `tprint${Math.floor(Math.random()*1000000000)}in`;
       let f = await Forgot.findOne({ email: req.body.email });
-      console.log(f);
       if (f != null) {
         if (f.email == req.body.email) {
           await Forgot.deleteOne({_id:f._id});
@@ -61,7 +60,6 @@ const handler = async (req, res) => {
   } 
  else {
   try{
-    console.log(req.body.token)
     let tokenn = await Forgot.findOne({ token: req.body.token });
     if (req.body.cpassword == req.body.password) {
       await Admin.findOneAndUpdate(

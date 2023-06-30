@@ -7,8 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-export default function App({ Component, pageProps,jun }) {
-  console.log("jun is "+jun)
+export default function App({ Component, pageProps}) {
 const router = useRouter();
   const[cart,setCart]=useState({})
   const[subTotal,setSubtotal]=useState(0)
@@ -28,7 +27,6 @@ if(localStorage.getItem("cart")){
   saveCart(JSON.parse(localStorage.getItem("cart")))
 }
     }catch(error){
-    console.log(error)
     localStorage.clear()
     }
     const myUser = JSON.parse(localStorage.getItem('myUser'));

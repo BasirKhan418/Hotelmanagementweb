@@ -30,7 +30,6 @@ const Slug = ({addToCart,product,variants,buyNow,error,topselling}) => {
     const checkService= async()=>{
     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/Pincodes`);
     let pinjson= await pins.json()
-    // console.log(pinjson)
     if(Object.keys(pinjson).includes(pin)){
       setService(true)
       toast.success('Yah! Your Pin Code is Serviceable', {
@@ -57,19 +56,11 @@ const Slug = ({addToCart,product,variants,buyNow,error,topselling}) => {
         theme: "light",
         });
     }
-    console.log(service)
     }
     const onChange=(e)=>{
       Setpin(e.target.value);
     }
 
-    const refreshVariants=(newsize,newcolor)=>{
-      console.log("color is",newcolor,"size",newsize);
-      console.log("variants is",variants)
-     let url=`${process.env.NEXT_PUBLIC_HOST}/products/${variants[newcolor][newsize]['slug']}`;
-    //  window.location=url;
-    router.push(url)
-    }
     if (error==404) {
       return <Error statusCode={404} />
     }
@@ -97,7 +88,7 @@ theme="light"
       slidesPerView={1}
       pagination={{ clickable: true }}
       onSwiper={(swiper) => {}}
-      onSlideChange={() => console.log('slide change')}
+      onSlideChange={() =>{}}
       className='flex justify-center items-center'
     >
       <SwiperSlide>

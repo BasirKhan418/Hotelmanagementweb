@@ -2,7 +2,6 @@ import Gallery from "../../../models/Gallery";
 import connectDb from "../middleware/mongoose";
 const handler = async (req, res) => {
   if (req.method == "POST") {
-    console.log(req.body);
       let p = new Gallery({
         title: req.body.title,
         img:req.body.img

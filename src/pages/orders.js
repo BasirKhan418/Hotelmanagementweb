@@ -25,7 +25,6 @@ const Myorders = () => {
       fetchorders();
     }
      },[])
-    console.log(orders)
   return (
     <>
      <h1 className='font-semibold text-2xl text-center bg-white p-4'>My Orders({orders.length})</h1>
@@ -56,7 +55,6 @@ const Myorders = () => {
                     </div>
                 </div>
             </li>})}
-            <h1>Track your order</h1>
           
         </ul>
    </div>

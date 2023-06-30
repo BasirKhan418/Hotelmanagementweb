@@ -105,7 +105,6 @@ setCheckout(b)
       });
   }
   }
-  console.log(order)
   return (
     <>
     <ThemeProvider theme={theme}>

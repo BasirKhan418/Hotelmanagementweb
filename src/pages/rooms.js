@@ -3,7 +3,6 @@ import Product from '../../models/Product';
 import mongoose from 'mongoose';
 import Link from 'next/link';
 const Rooms = ({deluxe,exeucative,family,other}) => {
-  console.log(other)
   return (
     <div>
        <div className='text-black dark:text-white h-16 flex bg-white items-center'>

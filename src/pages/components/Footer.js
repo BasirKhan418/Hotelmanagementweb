@@ -24,20 +24,20 @@ const Footer = () => {
   	 		<div className="footer-col">
   	 			<h4>Get help</h4>
   	 			<ul>
-  	 				<li><a href="#">FAQ</a></li>
-  	 				<li><a href="#">Booking status</a></li>
-  	 				<li><a href="#">Services</a></li>
-  	 				<li><a href="#">order status</a></li>
-  	 				<li><a href="#">payment options</a></li>
+  	 				<li><Link href={"#Faq"}>FAQ</Link></li>
+  	 				<li><Link href={"/orders"}>Booking status</Link></li>
+  	 				<li><Link href={"/rooms"}>Services</Link></li>
+  	 				<li><Link href={"/orders"}>order status</Link></li>
+  	 				<li><Link href="/admin/adminlogin">Admin Login</Link></li>
   	 			</ul>
   	 		</div>
   	 		<div className="footer-col">
   	 			<h4>Online shop</h4>
   	 			<ul>
-  	 				<li><a href="#">Foods</a></li>
-  	 				<li><a href="#">Book a room</a></li>
-  	 				<li><a href="#">Book a table</a></li>
-  	 				<li><a href="#">Book a hall</a></li>
+  	 				<li><Link href={"/foods"}>Foods</Link></li>
+  	 				<li><Link href={"/contactus"}>Book a room</Link></li>
+  	 				<li><Link href={"/contactus"}>Book a table</Link></li>
+  	 				<li><Link href={"/contactus"}>Book a hall</Link></li>
   	 			</ul>
   	 		</div>
   	 		<div className="footer-col">
@@ -48,7 +48,7 @@ const Footer = () => {
   	 				<a href="#"><BsTwitter className='text-4xl hover:text-blue-600'/></a>
   	 				<a href="#"><BsYoutube className='text-4xl hover:text-red-600'/></a>
   	 			</div>
-          <Image src={'/wp.png'} alt='img' height={300} width={300}/>
+          <a href='https://wa.me/9666252227?text=I%20need%20some%20help' target='_blank'><Image src={'/wp.png'} alt='img' height={300} width={300}/></a>
   	 		</div>
   	 	</div>
   	 </div>

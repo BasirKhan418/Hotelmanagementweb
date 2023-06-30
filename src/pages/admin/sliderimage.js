@@ -34,7 +34,6 @@ const Sliderimage = () => {
       fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getslider`).then((resp)=>{
         return resp.json();
         }).then((data)=>{
-          console.log(data)
           setSlider(data)
         })
     }, 2000);

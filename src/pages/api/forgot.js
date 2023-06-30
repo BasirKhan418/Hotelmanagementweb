@@ -4,13 +4,11 @@ var CryptoJS = require("crypto-js");
 import connectDb from "../middleware/mongoose";
 import Jwt from "jsonwebtoken";
 const handler = async (req, res) => {
-  console.log(process.env.AUTH_KEY);
   //check if the customer exists in the database or not
   if (req.body.sendMail == true) {
     try{
       let token = `tprint${Math.floor(Math.random()*1000000000)}in`;
       let f = await Forgot.findOne({ email: req.body.email });
-      console.log(f);
       if (f != null) {
         if (f.email == req.body.email) {
           await Forgot.deleteOne({_id:f._id});

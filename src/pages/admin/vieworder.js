@@ -26,7 +26,6 @@ const  Vieworder = ({order}) => {
     setTrackorder(!trackorder);
   }
   const products =order.products;
-console.log(products)
   return (
     <>
     <ThemeProvider theme={theme}>

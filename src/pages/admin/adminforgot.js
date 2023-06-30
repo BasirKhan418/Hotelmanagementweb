@@ -91,7 +91,6 @@ if(localStorage.getItem('myAdmin')){
     setLoading(true)
     if(password==cpassword){
  const token =router.query.token;
- console.log(token)
     const data = {password,cpassword,token,sendMail:false};
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_HOST}/api/adminforgot`,

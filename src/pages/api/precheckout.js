@@ -58,7 +58,6 @@ const handler = async (req, res) => {
 // };
 // try{
 // instance.orders.create(options, async function(err, order) {
-//   console.log(order);
 //   res.status(200).json({order,success:true});
 try{
   let ordersd=new Order({

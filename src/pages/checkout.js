@@ -4,8 +4,10 @@ import { BsFillBagCheckFill } from "react-icons/bs";;
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinner from './components/Spinner';
+import { useRouter } from "next/router";
 // import Razorpay from "razorpay";
 const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
+  const router= useRouter();
   const [loading,setLoading]=useState(false)
   const[name,setName]=useState('');
   const[email,setEmail]=useState('');
@@ -91,8 +93,6 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
 
     const res=await pr.json();
     setLoading(false)
-    console.log(res)
-    console.log(res.name,res.address,res.phone,res.pincode);
     setName(res.name);
     setAddress(res.address);
     setPhone(res.phone);
@@ -123,7 +123,6 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
     );
     const r = await response.json();
     setLoading(false)
-    console.log(r)
    
  if(r!=null){
   setLoading(true)
@@ -138,9 +137,8 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
             }
           );
           const ra = await response2.json();
-          console.log(ra.order._id);
           setLoading(false)
-          window.location.href = `/order?id=${ra.order._id}&clearCart=1`;
+          router.push(`/order?id=${ra.order._id}&clearCart=1`);
        
  }
  else{
@@ -384,8 +382,7 @@ theme="light"
             <div className="my-4 font-semibold">Your Cart is Empty!</div>
           )}
           {Object.keys(cart).map((k) => {
-            return (
-                <div key={cart[k].slug}  className="item flex my-5 flex-wrap items-center">
+            return <div key={cart[k].img1} className="item flex my-5 flex-wrap items-center">
                 <img src={cart[k].img1} className='mt-2 mx-4 w-10 h-10 border-2 border-amber-300 rounded object-cover'/>
                   <div className="font-semibold text-center">{`${cart[k].name} `}</div>
                   <div className="flex items-center justify-center w-1/3 font-semibold text-xl">
@@ -421,7 +418,7 @@ theme="light"
                       />
                     </>
                   </div>
-                </div>)
+                </div>
           })}
         <div className="font-bold ">SubTotal : ₹{subTotal}</div>
       </div>

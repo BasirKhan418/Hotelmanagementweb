@@ -43,7 +43,6 @@ useEffect(()=>{
     let confirm1 = confirm(
       "Are You Sure To Delete This Product! Please Check it ?"
     );
-    console.log(confirm1);
     if (confirm1) {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_HOST}/api/deleteproduct`,
@@ -124,7 +123,6 @@ useEffect(()=>{
     setAvailableqty(availableqty);
     setDesc(desc);
     setId(id);
-    console.log(discount)
   };
   const handleUpdate = async () => {
     Setmodal(false);
@@ -140,7 +138,6 @@ useEffect(()=>{
        discount,
       desc,
     };
-    console.log(data)
     const resp = await fetch(
       `${process.env.NEXT_PUBLIC_HOST}/api/updateproduct`,
       {

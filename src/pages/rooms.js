@@ -2,9 +2,15 @@ import React from 'react'
 import Product from '../../models/Product';
 import mongoose from 'mongoose';
 import Link from 'next/link';
+import Head from 'next/head';
 const Rooms = ({deluxe,exeucative,family,other}) => {
   return (
     <div>
+      <Head>
+      <title>Luxurious Rooms for Unforgettable Stays | Hotel DCrescent</title>
+      <meta name="description" content='Discover our exquisite selection of luxurious rooms designed for unparalleled comfort and relaxation. Book your dream accommodation and experience exceptional hospitality, combined with the convenience of our seamless food delivery service. Start your memorable stay today'/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
        <div className='text-black dark:text-white h-16 flex bg-white items-center'>
       <h1 className='sm:text-2xl text-xl font-bold mx-8'>Deluxe Rooms</h1>
      

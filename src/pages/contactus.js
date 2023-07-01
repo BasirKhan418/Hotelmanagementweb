@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import Head from 'next/head';
 const Contactus = () => {
   const [email,setEmail]=useState("");
   const [Message,setMessage]=useState("");
@@ -28,6 +29,11 @@ const Contactus = () => {
   }
   return (
     <div>
+      <Head>
+      <title>Contact Us - Reach Out for Hotel Booking and Food Delivery Inquiries</title>
+      <meta name="description" content='Get in touch with us for any questions or inquiries regarding hotel bookings and food delivery services. Our dedicated team is here to assist you with seamless reservations and delicious cuisine. Contact us today and experience exceptional hospitality and convenience.'/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
           <ToastContainer
 position="top-left"
 autoClose={5000}

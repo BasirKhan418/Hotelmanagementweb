@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinner from './components/Spinner';
+import Head from 'next/head';
 //refactor passsword toast[pending]
 //display valid reason why password failed to set[pending]
 const Myaccount = () => {
@@ -153,6 +154,11 @@ draggable
 pauseOnHover
 theme="light"
 />
+<Head>
+      <title>Hotel DCrescent -My Account Page</title>
+      <meta name="description" content='Update Your Details and Change Your Password In My Account Page'/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
       <h1 className='md:text-3xl text-xl font-bold text-center my-4 bg-white'>Update Your Account </h1>
       <h2 className="font-bold md:text-xl text-lg mx-2">1.Booking and delivery details</h2>
       <div className="m-auto flex my-2 mx-2">

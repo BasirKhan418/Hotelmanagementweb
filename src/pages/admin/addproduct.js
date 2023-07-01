@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import Spinner from '../components/Spinner';
 import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import {
     Grid,
     Stack,
@@ -363,6 +364,11 @@ if(title.length!=""&&slug.length!=""&&desc.length!=null&&category.length!=""&&pr
   }
   return (
     <>
+     <Head>
+      <title>Add Product | Manage Reservations and Culinary Services</title>
+      <meta name="description" content="Effortlessly manage reservations and streamline culinary services with our Hotel Booking and Food Delivery Admin Panel. Take control of bookings, track orders, and ensure seamless operations for your hotel and food delivery services. Simplify your administrative tasks and optimize your hospitality and dining experiences with our comprehensive admin panel."/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
    <ThemeProvider theme={theme}>
         <FullLayout>
         <style jsx global>{`
@@ -481,9 +487,9 @@ theme="light"
               type="file"
             />
             {url1.length==""?"":<><h4 className='font-bold'>Preview Image 1</h4><img src={url1} alt="preview" className='w-20 h-20 object-cover border-amber-500 rounded' /></>}
-            <Button mt={2} onClick={uploadImage1} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
+            <button  onClick={uploadImage1} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500 p-2 rounded'>
             Upload Now
-          </Button>
+          </button>
           <label htmlFor='pass-basic2' className='font-bold'>Image 2</label>
              <TextField
             onChange={handleChange}
@@ -492,9 +498,10 @@ theme="light"
               type="file"
             />
             {url2.length==""?"":<><h4 className='font-bold'>Preview Image 2</h4><img src={url2} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded'/></>}
-              <Button mt={2} onClick={uploadImage2} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
+              <button onClick={uploadImage2} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500
+              p-2 rounded'>
             Upload Now
-          </Button>
+          </button>
           <label htmlFor='pass-basic3' className='font-bold'>Image 3</label>
              <TextField
             onChange={handleChange}
@@ -503,9 +510,9 @@ theme="light"
               type="file"
             />
             {url3.length==""?"":<><h4 className='font-bold'>Preview Image 3</h4><img src={url3} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded'/></>}
-             <Button mt={2} onClick={uploadImage3} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
+             <button  onClick={uploadImage3} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500 p-2 rounded'>
             Upload Now
-          </Button>
+          </button>
           <label htmlFor='pass-basic4' className='font-bold'>Image 4</label>
              <TextField
             onChange={handleChange}
@@ -514,9 +521,9 @@ theme="light"
               type="file"
             />
             {url4.length==""?"":<><h4 className='font-bold'>Preview Image 4</h4><img src={url4} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded'/></>}
-               <Button mt={2} onClick={uploadImage4} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
+               <button onClick={uploadImage4} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500 p-2 rounded'>
             Upload Now
-          </Button>
+          </button>
           <label htmlFor='pass-basic5' className='font-bold'>Image 5</label>
              <TextField
             onChange={handleChange}
@@ -525,14 +532,14 @@ theme="light"
               type="file"
             />
             {url5.length==""?"":<><h4 className='font-bold'>Preview Image 5</h4><img src={url5} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded'/></>}
-            <Button mt={2} onClick={uploadImage5} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500'>
+            <button onClick={uploadImage5} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500 p-2 rounded'>
             Upload Now
-          </Button>
+          </button>
           </Stack>
           <br />
-          <Button className='bg-amber-500 text-white hover:text-black w-32' mt={2} onClick={Handlesubmit}>
+          <button className='bg-amber-500 text-white hover:text-black w-32 p-2 rounded font-bold' onClick={Handlesubmit}>
             Add Now
-          </Button>
+          </button>
         </BaseCard>
       </Grid>
     </Grid>}

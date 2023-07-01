@@ -13,12 +13,17 @@ import Slider from '../../models/Slider'
 import Gallery from '../../models/Gallery'
 import mongoose from 'mongoose'
 export default function Home({catroom,catfood,slider,gallery}) {
+
   return (
    <div className='bg-white'>
      <Head>
-      <title>Hotel Cresent -Book your dream destination now!</title>
-      <meta name="description" content='Specare is a online shopping website '/>
+      <title>Hotel DCrescent -Your Ultimate Hotel Booking and Food Delivery Destination</title>
+      <meta property="og:title" content="Hotel DCrescent -Your Ultimate Hotel Booking and Food Delivery Destination" />
+      <meta name="description" content='Find your dream hotel and enjoy delicious food delivered right to your doorstep. Book now for a delightful getaway with top-notch accommodation and mouthwatering dishes, all in one place!'/>
       <link rel='icon' href="/favicon.ico"/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+      
+      <meta property="og:description" content="Find your dream hotel and enjoy delicious food delivered right to your doorstep. Book now for a delightful getaway with top-notch accommodation and mouthwatering dishes, all in one place!"/>
      </Head>
      {/* <img src="/home1.jpg" className="absolute block w-full h-full " alt="..."/> */}
     {/* Caraseoul starts from here */}

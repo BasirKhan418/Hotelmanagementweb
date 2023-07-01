@@ -4,6 +4,7 @@ import { BsFillBagCheckFill } from "react-icons/bs";;
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinner from './components/Spinner';
+import Head from "next/head";
 import { useRouter } from "next/router";
 // import Razorpay from "razorpay";
 const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
@@ -205,6 +206,11 @@ Object.keys(cart).map((item)=>{
 })
   return (
     <>
+    <Head>
+      <title>Secure Checkout - Complete Your Order</title>
+      <meta name="description" content='Securely complete your hotel booking and food delivery on our platform. Enjoy a seamless experience as you finalize your reservation and place your food order. Trust us to provide a convenient and reliable checkout process for your ultimate comfort and satisfaction.'/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
     {loading?<Spinner/>:<div className="container px-2 sm:m-auto min-h-screen">
        <ToastContainer
 position="bottom-center"

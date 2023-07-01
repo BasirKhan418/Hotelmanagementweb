@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Link from 'next/link';
+import Head from 'next/head';
 
 const Slug = ({addToCart,product,variants,buyNow,error,topselling}) => {
     const router =useRouter()
@@ -66,6 +67,11 @@ const Slug = ({addToCart,product,variants,buyNow,error,topselling}) => {
     }
     return(
     <div>
+         <Head>
+      <title>{router.query.slug} - Book Hotel and Order Food Online | HotelDCrescent</title>
+      <meta name="description" content="Experience true luxury and culinary excellence with our Product. Book now to enjoy an unforgettable stay at our top-rated hotel, complemented by exquisite gourmet dishes delivered straight to your doorstep. Indulge in a perfect blend of comfort, convenience, and flavors for an exceptional hotel booking and food delivery experience."/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
      <section className="text-gray-600 body-font overflow-hidden bg-white">
      <ToastContainer
 position="bottom-center"

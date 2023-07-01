@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import mongoose from 'mongoose';
 import Link from 'next/link';
+import Head from 'next/head';
 import Order from '../../models/Order';
 const MyOrder = ({order,clearCart}) => {
   const [date,setDate]=useState()
+  const [modal,setModal]=useState(false)
   const [checkin,setCheckin]=useState()
   const [checkout,setCheckout]=useState()
-  const[trackorder,setTrackorder]=useState(false)
   useEffect(()=>{
     const d =new Date(order.createdAt);
     const e =new Date(order.checkin);
@@ -20,17 +21,22 @@ const MyOrder = ({order,clearCart}) => {
    }
   },[])
   const toggletrack=()=>{
-    setTrackorder(!trackorder);
+    setModal(true)
   }
   const router =useRouter();
   const products =order.products;
   return (
     <div>
+      <Head>
+      <title>Order Confirmation: Your Order is Successful!</title>
+      <meta name="description" content='Congratulations! Your order has been successfully confirmed. Sit back and relax as you await a delightful stay and mouthwatering dishes delivered straight to your doorstep. Experience the perfect blend of comfort and culinary delights with our exceptional hotel booking and food delivery service.'/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
       <section className="text-gray-600 body-font overflow-hidden bg-white min-h-screen">
   <div className="container px-5 py-6 mx-auto ">
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
       <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
-        <h2 className="text-sm title-font text-gray-500 tracking-widest"><span className='font-bold text-amber-700'>Hotelcresent.com</span></h2>
+        <h2 className="text-sm title-font text-gray-500 tracking-widest"><span className='font-bold text-amber-700'>THEDHOTELCRESCENT.COM</span></h2>
         <h1 className="text-gray-900 text-xl md:text-3xl title-font font-medium mb-2">Order Id:- <span className='font-semi-bold text-amber-700'>{order.orderID}</span></h1>
         <h1 className="text-gray-900 text-xl md:text-3xl title-font font-medium mb-4">Payment Id:- <span className='font-semi-bold text-amber-700'>{order.payment_id}</span></h1>
         <p className="leading-relaxed mb-4">Yayy! Your order has been successfully placed!</p>
@@ -60,7 +66,43 @@ const MyOrder = ({order,clearCart}) => {
       <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={'/orderconfirm.jpg'}/>
     </div>
   </div>
-  {trackorder&&<div className=' mx-8 lg:mx-60 text-xl flex justify-center flex-col mb-10 bg-blue-100 rounded p-2'>
+  {/* // */}
+  <div
+            id="updateProductModal"
+            tabIndex="-1"
+            aria-hidden="true"
+            className={` ${
+              modal ? "" : "hidden"
+            } flex h-full overflow-y-auto overflow-x-auto fixed  top-0 right-0 left-0 z-150 justify-center items-center w-full md:inset-0 h-modal md:h-full mt-10 mb-8  border-blue-400`}
+          >
+            {<div className=' mx-8 lg:mx-60 text-xl flex justify-center flex-col mb-10 bg-blue-100 rounded p-2'>
+  <h1 className='font-bold text-2xl text-center bg-white text-amber-500 p-4'>Track Your Order</h1>
+    <div className='h-2 w-40 bg-amber-500 rounded '></div>
+    <h5 className='font-semibold '>Delivery Status :- 
+{order.deliveryStatus}</h5>
+<h5 className='font-semibold  my-2'>Payment Status:- 
+{order.status}</h5>
+<h5 className='font-semibold my-2'>Room Status/No.:- 
+{order.room_no}</h5>
+<h5 className='font-semibold my-2'>Check in date :- 
+
+{checkin && checkin.toLocaleDateString("en-IN",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h5>
+<h5 className='font-semibold my-2'>Check out date :- 
+
+{checkout && checkout.toLocaleDateString("en-IN",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h5>
+
+                
+                  <button
+                    onClick={()=>{setModal(false)}}
+                    className="text-white bg-blue-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Close
+                  </button>
+                  </div>}
+          </div>
+
+  {/* // */}
+  {/* {trackorder&&<div className=' mx-8 lg:mx-60 text-xl flex justify-center flex-col mb-10 bg-blue-100 rounded p-2'>
   <h1 className='font-bold text-2xl text-center bg-white text-amber-500 p-4'>Track Your Order</h1>
     <div className='h-2 w-40 bg-amber-500 rounded '></div>
     <h5 className='font-bold '>Delivery Status :- 
@@ -75,7 +117,7 @@ const MyOrder = ({order,clearCart}) => {
 <h5 className='font-bold my-2'>Check out date :- 
 
 {checkout && checkout.toLocaleDateString("en-IN",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h5>
-</div>}
+</div>} */}
 </section>
     </div>
   )

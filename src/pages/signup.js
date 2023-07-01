@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import Image
  from 'next/image';
  import Spinner from './components/Spinner';
+ import Head from 'next/head';
 const Signup = () => {
   const[loading, setLoading]=useState(false);
   const router =useRouter();
@@ -125,6 +126,11 @@ draggable
 pauseOnHover
 theme="light"
 />
+<Head>
+      <title>Hotel DCrescent -SignUp to Access Exclusive Hotel Deals and Food Delivery Services</title>
+      <meta name="description" content='SignUp to our hotel booking and food delivery website to unlock exclusive deals on accommodations and enjoy the convenience of seamless food delivery. Discover a world of exceptional hospitality and culinary delights with our secure login process!'/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
       <div className="flex flex-col justify-center px-6 py-6 lg:px-8 bg-white min-h-screen">
   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
   <Image alt="logo" src="/cresentlogo.png" width={180} height={60} className='m-auto'/>

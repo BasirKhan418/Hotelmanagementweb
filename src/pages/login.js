@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/router';
 import Spinner from './components/Spinner';
 import Image from 'next/image';
+import Head from 'next/head';
 const Login = () => {
   const[loading,setLoading]=useState(false);
   useEffect(()=>{
@@ -101,6 +102,11 @@ pauseOnHover
 theme="light"
 />
   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+  <Head>
+      <title>Hotel DCrescent -Login to Access Exclusive Hotel Deals and Food Delivery Services</title>
+      <meta name="description" content='Login to our hotel booking and food delivery website to unlock exclusive deals on accommodations and enjoy the convenience of seamless food delivery. Discover a world of exceptional hospitality and culinary delights with our secure login process!'/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
   <Image alt="logo" src="/cresentlogo.png" width={180} height={60} className='m-auto'/>
     <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Login to your account</h2>
   </div>

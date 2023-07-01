@@ -1,8 +1,13 @@
 import React from 'react'
-
+import Head from 'next/head'
 const About = () => {
   return (
     <div >
+      <Head>
+      <title>About Us - Discover Our Hotel Booking and Food Delivery Services</title>
+      <meta name="description" content='Learn more about our exceptional hotel booking and food delivery services. Experience luxurious accommodations, delightful culinary offerings, and seamless convenience, all in one place. Discover the perfect destination for your vacation getaway and savor a memorable experience with our top-rated hospitality and delectable dishes delivered to your doorstep.'/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
             <div className='text-amber-500 bg-white h-16 flex justify-center items-center my-2'>
       <h1 className='sm:text-4xl text-xl font-bold'>About Us</h1>
      

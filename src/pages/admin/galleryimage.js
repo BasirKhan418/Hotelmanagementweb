@@ -19,6 +19,7 @@ import {
   Button,
 } from "@mui/material";
 import BaseCard from "../../../trc/components/baseCard/BaseCard";
+import Head from 'next/head';
 const Gallerys = () => {
   const router =useRouter();
   const[title,setTitle]=useState("");
@@ -171,6 +172,11 @@ const Gallerys = () => {
 
   return (
     <>
+    <Head>
+      <title>Add Gallery Image | Manage Reservations and Culinary Services</title>
+      <meta name="description" content="Effortlessly manage reservations and streamline culinary services with our Hotel Booking and Food Delivery Admin Panel. Take control of bookings, track orders, and ensure seamless operations for your hotel and food delivery services. Simplify your administrative tasks and optimize your hospitality and dining experiences with our comprehensive admin panel."/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
     <ThemeProvider theme={theme}>
        <FullLayout>
        <style jsx global>{`
@@ -212,9 +218,9 @@ theme="light"
               type="file"
             />
             {url1.length==""?"":<><h4 className='font-bold'>Preview Image 1</h4><img src={url1} alt="preview" className='w-20 h-20 object-cover border-amber-500 rounded' /></>}
-            <Button mt={2} onClick={uploadImage1} className='bg-blue-700 text-white hover:text-white hover:bg-blue-500'>
+            <button onClick={uploadImage1} className='bg-blue-700 text-white hover:text-white hover:bg-blue-500 p-2 rounded'>
             Upload Now
-          </Button>
+          </button>
           <button className='text-white bg-amber-500 hover:bg-amber-800 rounded p-2 w-40' onClick={handlesubmit}> Add Now</button>
 </Stack>
 </BaseCard>

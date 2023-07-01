@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link';
-import { render } from 'react-dom';
+import Head from 'next/head';
 const Myorders = () => {
   const [orders,setOrders]= useState([])
   const router =useRouter();
@@ -27,6 +27,11 @@ const Myorders = () => {
      },[])
   return (
     <>
+    <Head>
+      <title>Order Details | HotelDCrescent</title>
+      <meta name="description" content='View and manage your order details on HotelDCrescent. Get instant access to booking information and track your food delivery progress. Enjoy a seamless experience and stay updated with real-time updates on your order status.'/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
      <h1 className='font-semibold text-2xl text-center bg-white p-4'>My Orders({orders.length})</h1>
     <div className='h-2 w-40 bg-amber-500 rounded '></div>
     <div className=' flex justify-center items-center'>
@@ -35,7 +40,7 @@ const Myorders = () => {
 <div className="w-full max-w-md p-2 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 ">
    <div className="flow-root ">
         <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700 ">
-            {orders.map((item)=>{ return <li key={item._id} className="py-3 sm:py-4">
+            {orders.slice(0).reverse().map((item)=>{ return <li key={item._id} className="py-3 sm:py-4">
                 <div className="flex items-center space-x-4 ">
                     <div className="flex-shrink-0">
                     </div>

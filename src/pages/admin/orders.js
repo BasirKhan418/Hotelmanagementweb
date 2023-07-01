@@ -8,6 +8,7 @@ import mongoose from "mongoose";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Head from "next/head";
 const Orders = ({ orderss }) => {
   const router =useRouter();
   const [order, SetOrder] = useState([]);
@@ -102,6 +103,11 @@ setCheckout(b)
   }
   return (
     <>
+    <Head>
+      <title>All Orders | Manage Reservations and Culinary Services</title>
+      <meta name="description" content="Effortlessly manage reservations and streamline culinary services with our Hotel Booking and Food Delivery Admin Panel. Take control of bookings, track orders, and ensure seamless operations for your hotel and food delivery services. Simplify your administrative tasks and optimize your hospitality and dining experiences with our comprehensive admin panel."/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
       <ThemeProvider theme={theme}>
         <FullLayout>
           <style jsx global>{`

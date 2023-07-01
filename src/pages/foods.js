@@ -2,9 +2,16 @@ import React from 'react'
 import mongoose from 'mongoose';
 import Product from '../../models/Product';
 import Link from 'next/link';
+import Head from 'next/head';
 const Foods = ({snacks,fastfood,lunch,breakfast,dinner,other}) => {
   return (
     <div>
+      <Head>
+      <title>Delicious and Convenient Food Delivery | Hotel DCrescent</title>
+      <meta name="description" content='Savor the flavors of our exquisite cuisine with our convenient food delivery service. Experience a delightful culinary journey from the comfort of your own home. Order now from our top-rated hotel booking and food delivery website and indulge in a delectable feast delivered right to your doorstep. Enjoy a seamless dining experience like never before.'/>
+      
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
       <div className='text-black dark:text-white h-16 flex bg-white items-center'>
       <h1 className='sm:text-2xl text-xl font-bold mx-8'>Breakfast</h1>
      

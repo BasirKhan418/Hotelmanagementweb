@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/router';
 import Spinner from '../components/Spinner';
 import Image from 'next/image';
+import Head from 'next/head';
 const AdminLogin = () => {
   const[loading,setLoading]=useState(false);
   useEffect(()=>{
@@ -86,6 +87,11 @@ setPassword(e.target.value)
   }
   return (
     <>
+     <Head>
+      <title>Login into admin panel | Manage Reservations and Culinary Services</title>
+      <meta name="description" content="Effortlessly manage reservations and streamline culinary services with our Hotel Booking and Food Delivery Admin Panel. Take control of bookings, track orders, and ensure seamless operations for your hotel and food delivery services. Simplify your administrative tasks and optimize your hospitality and dining experiences with our comprehensive admin panel."/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
     {loading?<Spinner/>:
       <div className="flexl flex-col justify-center px-6 py-12 lg:px-8 bg-white min-h-screen">
       <ToastContainer

@@ -8,6 +8,7 @@ import theme from "../../../trc/theme/theme";
 import FullLayout from "../../../trc/layouts/FullLayout";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Head from "next/head";
 export default function Index() {
   const router= useRouter();
   useEffect(()=>{
@@ -18,6 +19,11 @@ export default function Index() {
   },[])
   return (
     <ThemeProvider theme={theme}>
+       <Head>
+      <title>HotelDCrescent Admin Panel | Manage Reservations and Culinary Services</title>
+      <meta name="description" content="Effortlessly manage reservations and streamline culinary services with our Hotel Booking and Food Delivery Admin Panel. Take control of bookings, track orders, and ensure seamless operations for your hotel and food delivery services. Simplify your administrative tasks and optimize your hospitality and dining experiences with our comprehensive admin panel."/>
+      <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
+     </Head>
        <style jsx global>{`
         footer {
           display:none;

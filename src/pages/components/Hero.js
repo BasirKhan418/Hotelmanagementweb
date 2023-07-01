@@ -1,12 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 const Hero = () => {
   return (
     <div>
       <section className="text-gray-600 body-font bg-white dark:text-white dark:bg-black">
   <div className="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
     <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-      <h1 className="title-font sm:text-4xl text-3xl mb-4 text-gray-900 dark:text-white font-bold">Welcome to <span className='text-amber-500'>Hotel Cresent</span></h1>
+      <h1 className="title-font sm:text-4xl text-3xl mb-4 text-gray-900 dark:text-white font-bold">Welcome to <span className='text-amber-500'>Hotel DCrescent</span></h1>
       <p className="mb-8 leading-relaxed font-semibold">Discover our inviting hotel, offering a perfect blend of comfort and elegance. Treat yourself to a memorable experience with top-notch amenities, stunning views, and friendly service. Do not miss out - reserve your stay today and create lasting memories!</p>
       <div className="flex justify-center">
         <Link href={"/rooms"}><button className=" font-semibold inline-flex text-white bg-amber-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg">Book Now</button></Link>

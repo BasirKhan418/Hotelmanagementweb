@@ -24,6 +24,7 @@ export default function Home({catroom,catfood,slider,gallery}) {
       <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
       
       <meta property="og:description" content="Find your dream hotel and enjoy delicious food delivered right to your doorstep. Book now for a delightful getaway with top-notch accommodation and mouthwatering dishes, all in one place!"/>
+      <meta name="google-site-verification" content="WqI5vc5uFwP_y5wt_nT7dYr6ZuHm0EoMOVSBeP1P_4E" />
      </Head>
      {/* <img src="/home1.jpg" className="absolute block w-full h-full " alt="..."/> */}
     {/* Caraseoul starts from here */}

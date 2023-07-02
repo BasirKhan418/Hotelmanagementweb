@@ -336,13 +336,12 @@ const Addcategory = ({ catroom, catfood }) => {
                     />
                   </>
                 )}
-                <Button
-                  mt={2}
+                <button
                   onClick={uploadImage1}
-                  className="bg-blue-700 text-white hover:text-white hover:bg-blue-500"
+                  className="bg-blue-700 text-white hover:text-white hover:bg-blue-500 p-2"
                 >
                   Upload Now
-                </Button>
+                </button>
                 <button
                   className="text-white bg-amber-500 hover:bg-amber-800 rounded p-2 w-40"
                   onClick={handlesubmit}

@@ -36,7 +36,7 @@ const MyOrder = ({order,clearCart}) => {
   <div className="container px-5 py-6 mx-auto ">
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
       <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
-        <h2 className="text-sm title-font text-gray-500 tracking-widest"><span className='font-bold text-amber-700'>THEDHOTELCRESCENT.COM</span></h2>
+        <h2 className="text-sm title-font text-gray-500 tracking-widest"><span className='font-bold text-amber-700'>Hoteldcrescent.com</span></h2>
         <h1 className="text-gray-900 text-xl md:text-3xl title-font font-medium mb-2">Order Id:- <span className='font-semi-bold text-amber-700'>{order.orderID}</span></h1>
         <h1 className="text-gray-900 text-xl md:text-3xl title-font font-medium mb-4">Payment Id:- <span className='font-semi-bold text-amber-700'>{order.payment_id}</span></h1>
         <p className="leading-relaxed mb-4">Yayy! Your order has been successfully placed!</p>
@@ -78,8 +78,8 @@ const MyOrder = ({order,clearCart}) => {
             {<div className=' mx-8 lg:mx-60 text-xl flex justify-center flex-col mb-10 bg-blue-100 rounded p-2'>
   <h1 className='font-bold text-2xl text-center bg-white text-amber-500 p-4'>Track Your Order</h1>
     <div className='h-2 w-40 bg-amber-500 rounded '></div>
-    <h5 className='font-semibold '>Delivery Status :- 
-{order.deliveryStatus}</h5>
+    <h5 className={`font-semibold `}>Delivery Status :- 
+<span className={`${order.deliveryStatus=="cancelled"?"bg-red-500 rounded-lg text-white px-1":""}${order.deliveryStatus=="confirmed"||"delivered"?"bg-green-500 rounded-lg text-white px-1":""}`}>{order.deliveryStatus}</span></h5>
 <h5 className='font-semibold  my-2'>Payment Status:- 
 {order.status}</h5>
 <h5 className='font-semibold my-2'>Room Status/No.:- 

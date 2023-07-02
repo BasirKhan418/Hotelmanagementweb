@@ -17,7 +17,7 @@ const Footer = () => {
              </p> </li>
   	 				<li className='flex flex-row items-center text-amber-500 my-2'><a className=''><MdEmail className='text-amber-500'/></a><p className='mx-2'>hoteldcrescent@gmail.com
              </p> </li>
-  	 				<li className='flex flex-row items-center text-amber-500 my-2'><a className=''><Image src={'/web.svg'} className='bg-amber-500' height={20} width={20} alt='webimg'/></a><p className='mx-2'>www.hotelcresent.com
+  	 				<li className='flex flex-row items-center text-amber-500 my-2'><a className=''><Image src={'/web.svg'} className='bg-amber-500' height={20} width={20} alt='webimg'/></a><p className='mx-2'>www.hoteldcrescent.com
              </p> </li>
   	 			</ul>
   	 		</div>
@@ -54,7 +54,7 @@ const Footer = () => {
   	 </div>
 	   <div className="bg-amber-500 text-white">
     <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-      <p className="text-white text-sm text-center">© 2023 www.hotelcresent.in — All Rights Reserved
+      <p className="text-white text-sm text-center">© 2023 www.hoteldcrescent.com — All Rights Reserved
       </p>
     </div>
   </div> 

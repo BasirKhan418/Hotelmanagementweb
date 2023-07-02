@@ -267,7 +267,7 @@ theme="light"
           Save Changes
         </button>
       <h2 className="font-bold md:text-xl text-lg mx-2">2.Update your password</h2>
-      <div className="m-auto flex my-2 mx-2">
+      <div className="m-auto flex my-2 mx-2 flex-wrap">
         <div className="px-2 w-1/2">
           <div className="mb-4">
             <label htmlFor="password" className="leading-7 text-sm text-gray-600">
@@ -282,8 +282,8 @@ theme="light"
             />
           </div>
         </div>
-        <div className="px-2 w-1/2">
-          <div className="mb-4">
+        <div className="px-2 w-1/2 ">
+          <div className="mb-4 ">
             <label htmlFor="npassword" className="leading-7 text-sm text-gray-600">
               New Password
             </label>

@@ -192,7 +192,7 @@ setCheckout(b)
                       <td className="px-6 py-4 font-semibold rounded text-center">{item.orderID}</td>
                       <td className="px-6 py-4 font-semibold rounded text-center">{item.payment_id}</td>
                       <td className={`px-6 py-4 font-semibold rounded text-center text-black ${item.status=="pending"?"text-red-500":""}${item.status=="paid"?"text-green-500":""} `}>{item.status}</td>
-                      <td className={`px-6 py-4 font-semibold rounded text-center bg-blue-50 ${item.deliveryStatus=="unshipped"?"text-green-500":"text-white"} ${item.deliveryStatus=="delivered"?"bg-green-500":""}${item.deliveryStatus=="cancelled"?"bg-red-500":""}${item.deliveryStatus=="packed"?"bg-blue-500":""} ${item.deliveryStatus=="room alorted"?"bg-blue-500":""}`}>{item.deliveryStatus}</td>
+                      <td className={`px-6 py-4 font-semibold rounded text-center bg-blue-50 ${item.deliveryStatus=="unshipped"?"text-green-500":"text-white"} ${item.deliveryStatus=="delivered"?"bg-green-500":""} ${item.deliveryStatus=="cancelled"?"bg-red-500":""} ${item.deliveryStatus=="confirmed"?"bg-blue-500":""} ${item.deliveryStatus=="room alorted"?"bg-blue-500":""}`}>{item.deliveryStatus}</td>
                       <td className="px-6 py-4 font-semibold rounded text-center">{item.name}</td>
                       <td className="px-6 py-4 font-semibold rounded text-center">{item.email}</td>
                       {/* <td className="px-6 py-4 font-semibold">{item.address}/ (District:-{item.city} Pin:-{item.pincode})<br/>Phone:-{item.phone}</td> */}
@@ -353,7 +353,7 @@ setCheckout(b)
                       <option>select</option>
                       <option>unshipped</option>
                       <option>room alorted</option>
-                      <option>packed</option>
+                      <option>confirmed</option>
                       <option>delivered</option>
                       <option>cancelled</option>
                     </select>

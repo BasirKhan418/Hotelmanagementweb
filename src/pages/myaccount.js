@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinner from './components/Spinner';
+
 import Head from 'next/head';
 //refactor passsword toast[pending]
 //display valid reason why password failed to set[pending]
@@ -253,7 +254,7 @@ theme="light"
           Save Changes
         </button>
       <h2 className="font-bold md:text-xl text-lg mx-2">2.Update your password</h2>
-      <div className="m-auto flex my-2 mx-2">
+      <div className="m-auto flex my-2 mx-2 flex-wrap">
         <div className="px-2 w-1/2">
           <div className="mb-4">
             <label htmlFor="password" className="leading-7 text-sm text-gray-600">

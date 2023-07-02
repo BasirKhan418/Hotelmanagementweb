@@ -50,7 +50,6 @@ setnPassword(e.target.value)
       },
       body: JSON.stringify(data),
     });
-
     const response=await res.json();
     setLoading(false)
     setName('');
@@ -58,6 +57,7 @@ setnPassword(e.target.value)
     setPassword('');
     setnPassword('');
     if(response.success){
+      
       toast.success('Your account has been created successfully', {
         position: "top-left",
         autoClose: 1000,

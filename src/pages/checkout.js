@@ -59,14 +59,7 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
         setCheckout(e.target.value)
       }
     else if(e.target.name=='pincode'){
-      setCity(e.target.value)
-      if(e.target.value.length==6){
-        setPincode(e.target.value)
-      }
-      else{
-        setState('')
-        setCity('')
-      }
+    setPincode(e.target.value)
       }
       else{
         setState('')

@@ -79,7 +79,7 @@ const MyOrder = ({order,clearCart}) => {
   <h1 className='font-bold text-2xl text-center bg-white text-amber-500 p-4'>Track Your Order</h1>
     <div className='h-2 w-40 bg-amber-500 rounded '></div>
     <h5 className={`font-semibold `}>Delivery Status :- 
-<span className={`${order.deliveryStatus=="cancelled"?"bg-red-500 rounded-lg text-white px-1":""}${order.deliveryStatus=="confirmed"||"delivered"?"bg-green-500 rounded-lg text-white px-1":""}`}>{order.deliveryStatus}</span></h5>
+<span className={` ${order.deliveryStatus=="cancelled"?"bg-red-500 rounded-lg text-white px-1":""}${order.deliveryStatus=="confirmed"||"delivered"?"bg-green-500 rounded-lg text-white px-1":""} `}>{order.deliveryStatus}</span></h5>
 <h5 className='font-semibold  my-2'>Payment Status:- 
 {order.status}</h5>
 <h5 className='font-semibold my-2'>Room Status/No.:- 

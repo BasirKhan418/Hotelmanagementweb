@@ -338,12 +338,22 @@ ul{
 			@media(max-width: 400px){
 				.dark{
 					margin-top: 40px;
+					justify-content: center;
+					align-items: center;
+					
 				}
 				.nav2{
 					padding: 45px;
+
 				}
 				.Navbar{
-					top: 90px;
+					top: 80px;
+					
+				}
+				.sico{
+					width: 90vw;;
+					justify-content: center;
+					
 				}
 			}
 			

@@ -13,7 +13,7 @@ const Navbar2 = () => {
     <>
  
       <div className="w-full bg-black text-white sticky top-0 z-30 overflow-hidden flex justify-center items-center flex-wrap py-6 nav2">
-      <div className="absolute left-2 top-4 overflow-hidden flex">
+      <div className="absolute left-2 top-4 overflow-hidden flex sico">
     <div className=" flex flex-row">
   	 				<a href="#"><BsFacebook className='text-xl hover:text-blue-600 mx-2 '/></a>
   	 				<a href="https://instagram.com/hoteld_crescent_mailardevpally?igshid=YmM0MjE2YWMzOA==" target='_blank'><BsInstagram className='text-xl hover:text-pink-600 mx-2'/></a>

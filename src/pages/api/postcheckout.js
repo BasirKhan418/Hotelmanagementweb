@@ -32,6 +32,7 @@ const handler = async (req, res) => {
     if(req.method=="POST"){
         order= await Order.findOneAndUpdate({orderID:req.body.orderID},{status:"offlinepayment",payment_id:"offlinepayment"});
         let products =  order.products;
+        console.log(order.products)
         for (let slug in products){
           await Product.findOneAndUpdate({slug:slug},{$inc:{"availableQty":-products[slug].qty }})
         }

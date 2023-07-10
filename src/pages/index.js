@@ -45,7 +45,7 @@ export default function Home({catroom,catfood,slider,gallery}) {
     
     <Room catroom={catroom}/>
     <div className='text-amber-500 bg-blue-50 h-16 flex justify-center items-center my-2'>
-      <h1 className='sm:text-4xl text-xl font-bold'>Features at Hotel Cresent</h1>
+      <h1 className='sm:text-4xl text-xl font-bold'>Features at HotelDCrescent</h1>
      
     </div>
     <div className='h-2 w-40 bg-amber-500 rounded'></div>

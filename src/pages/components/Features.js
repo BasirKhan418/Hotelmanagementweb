@@ -83,9 +83,9 @@ const Features = () => {
 </div>
 <div className="flex flex-col bg-white rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52">
 <span className='flex justify-center items-center'>
-<img src="/f10.png" alt="" className="h-20 m-6"/>
+<img src="/wifi.jpg" alt="" className="h-20 m-6"/>
 </span>
-<Link href="/Featurepage" className="bg-amber-500 text-white p-3 text-center hover:bg-amber-800 transition-all duration-500">Swimming Pool</Link>
+<Link href="/Featurepage" className="bg-amber-500 text-white p-3 text-center hover:bg-amber-800 transition-all duration-500">Free Wifi</Link>
 
 </div>
 

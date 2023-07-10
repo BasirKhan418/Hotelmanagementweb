@@ -11,7 +11,13 @@ let p= await Product.findByIdAndUpdate({_id:req.body.id},{
   desc:req.body.desc,
   availableQty:req.body.availableQty,
 discountp:req.body.discount,
-  size:req.body.size
+  size:req.body.size,
+  img1:req.body.url1,
+  img2:req.body.url2,
+  img3:req.body.url3,
+  img4:req.body.url4,
+  img5:req.body.url5,
+  
 }) 
    
     res.status(200).json({ success: true });

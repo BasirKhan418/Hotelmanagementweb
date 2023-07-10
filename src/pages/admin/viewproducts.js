@@ -7,6 +7,7 @@ import Spinner from "../components/Spinner";
 import { useRouter } from 'next/router'
 import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
+import { set } from "mongoose";
 const Viewproducts = () => {
   const router =useRouter();
   const [title, setTitle] = useState("");
@@ -21,7 +22,16 @@ const Viewproducts = () => {
   const [mrp, setMrp] = useState("");
   const [product, setProduct] = useState("");
   const [modal, Setmodal] = useState(false);
-
+  const[image1,setImage1]=useState("");
+  const[image2,setImage2]=useState("");
+  const[image3,setImage3]=useState("");
+  const[image4,setImage4]=useState("");
+  const[image5,setImage5]=useState("");
+  const [ url1, setUrl1 ] = useState("");
+  const [ url2, setUrl2 ] = useState("");
+  const [ url3, setUrl3 ] = useState("");
+  const [ url4, setUrl4 ] = useState("");
+  const [ url5, setUrl5 ] = useState("");
 useEffect(()=>{
   const myAdmin = localStorage.getItem('myAdmin')
     if(!myAdmin){
@@ -101,7 +111,206 @@ useEffect(()=>{
     } else if (e.target.name === "availableQty") {
       setAvailableqty(e.target.value);
     }
+    else if (e.target.name === "image1") {
+      setImage1(e.target.files[0]);
+    }
+    else if (e.target.name === "image2") {
+      setImage2(e.target.files[0]);
+    }
+    else if (e.target.name === "image3") {
+      setImage3(e.target.files[0]);
+    }
+    else if (e.target.name === "image4") {
+      setImage4(e.target.files[0]);
+    }
+    else if (e.target.name === "image5") {
+      setImage5(e.target.files[0]);
+    }
   };
+  const uploadImage1 = () => {
+    const data = new FormData()
+    data.append("file", image1)
+    data.append("upload_preset", "dgdea2n8")
+    data.append("cloud_name","dawzncoau")
+    fetch("https://api.cloudinary.com/v1_1/dawzncoau/image/upload",{
+    method:"post",
+    body: data
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      toast.success("Successfully Upload Your Image", {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    setUrl1(data.url)
+    })
+    .catch(err => {
+    toast.error("Sorry some error occured please try again after some time", {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+    })
+    }
+    const uploadImage2 = () => {
+    
+      const data = new FormData()
+      data.append("file", image2)
+      data.append("upload_preset", "dgdea2n8")
+      data.append("cloud_name","dawzncoau")
+      fetch("https://api.cloudinary.com/v1_1/dawzncoau/image/upload",{
+      method:"post",
+      body: data
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        
+        toast.success("Successfully Upload Your Image", {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      setUrl2(data.url)
+      })
+      .catch(err => {
+      
+      toast.error("Sorry some error occured please try again after some time", {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+      })
+      }
+      const uploadImage3 = () => {
+        const data = new FormData()
+        data.append("file", image3)
+        data.append("upload_preset", "dgdea2n8")
+        data.append("cloud_name","dawzncoau")
+        fetch("https://api.cloudinary.com/v1_1/dawzncoau/image/upload",{
+        method:"post",
+        body: data
+        })
+        .then(resp => resp.json())
+        .then(data => {
+          toast.success("Successfully Upload Your Image", {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+        setUrl3(data.url)
+        })
+        .catch(err => {
+        toast.error("Sorry some error occured please try again after some time", {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+        })
+        }
+        const uploadImage4 = () => {
+          const data = new FormData()
+          data.append("file", image4)
+          data.append("upload_preset", "dgdea2n8")
+          data.append("cloud_name","dawzncoau")
+          fetch("https://api.cloudinary.com/v1_1/dawzncoau/image/upload",{
+          method:"post",
+          body: data
+          })
+          .then(resp => resp.json())
+          .then(data => {
+            toast.success("Successfully Upload Your Image", {
+              position: "top-left",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
+    
+          setUrl4(data.url)
+          })
+          .catch(err => {
+          toast.error("Sorry some error occured please try again after some time", {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+          })
+          }
+          const uploadImage5 = () => {
+            const data = new FormData()
+            data.append("file", image5)
+            data.append("upload_preset", "dgdea2n8")
+            data.append("cloud_name","dawzncoau")
+            fetch("https://api.cloudinary.com/v1_1/dawzncoau/image/upload",{
+            method:"post",
+            body: data
+            })
+            .then(resp => resp.json())
+            .then(data => {
+              toast.success("Successfully Upload Your Image", {
+                position: "top-left",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+            setUrl5(data.url)
+            })
+            .catch(err => {
+            toast.error("Sorry some error occured please try again after some time", {
+              position: "top-left",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
+            })
+            }
   const updateproduct = (
     title,
     category,
@@ -112,7 +321,12 @@ useEffect(()=>{
     discount,
     desc,
     availableqty,
-    id
+    id,
+    img1,
+    img2,
+    img3,
+    img4,
+    img5
   ) => {
     setTitle(title);
     setCategory(category);
@@ -124,6 +338,13 @@ useEffect(()=>{
     setAvailableqty(availableqty);
     setDesc(desc);
     setId(id);
+   setUrl1(img1);
+    setUrl2(img2);  
+    setUrl3(img3);
+    setUrl4(img4);
+    setUrl5(img5);
+
+
   };
   const handleUpdate = async () => {
     Setmodal(false);
@@ -138,6 +359,11 @@ useEffect(()=>{
       availableQty,
        discount,
       desc,
+      url1,
+      url2,
+      url3,
+      url4,
+      url5
     };
     const resp = await fetch(
       `${process.env.NEXT_PUBLIC_HOST}/api/updateproduct`,
@@ -280,7 +506,12 @@ useEffect(()=>{
                               product[item].discountp,
                               product[item].desc,
                               product[item].availableQty,
-                              product[item]._id
+                              product[item]._id,
+                              product[item].img1,
+                              product[item].img2,
+                              product[item].img3,
+                              product[item].img4,
+                              product[item].img5
                             );
                           }}
                         >
@@ -308,7 +539,7 @@ useEffect(()=>{
             aria-hidden="true"
             className={` ${
               modal ? "" : "hidden"
-            } flex overflow-y-auto overflow-x-auto absolute  top-0 right-0 left-0 z-150 justify-center items-center w-full md:inset-0 h-modal md:h-full mt-10 mb-8  border-blue-400`}
+            } flex overflow-y-auto overflow-x-auto relative top-0  z-150 justify-center items-center w-full md:inset-0 h-modal md:h-full mt-10 mb-8  border-blue-400`}
           >
             <div className="relative p-4 w-full max-w-2xl h-full md:h-auto">
               <div className="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
@@ -505,6 +736,74 @@ useEffect(()=>{
                       placeholder="Write a description..."
                     ></textarea>
                   </div>
+                  <div className="flex flex-col justify-center items-center">
+                  <div>
+                  <label htmlFor='pass-basic1' className='font-bold'>Image 1(Required)(If new image preview appears then only hit the update product button )</label>
+            <input
+            onChange={handlechange}
+              id="pass-basic1"
+              name="image1"
+              type="file"
+            />
+            {url1.length==""?"":<><h4 className='font-bold'>Preview Image 1</h4><img src={url1} alt="preview" className='w-20 h-20 object-cover border-amber-500 rounded' /></>}
+            <button  onClick={uploadImage1} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500 p-2 rounded my-4'>
+            Upload Now
+          </button>
+          </div>
+          <div>
+          <label htmlFor='pass-basic2' className='font-bold'>Image 2</label>
+             <input
+            onChange={handlechange}
+              id="pass-basic2"
+              name="image2"
+              type="file"
+            />
+            {url2.length==""?"":<><h4 className='font-bold'>Preview Image 2</h4><img src={url2} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded'/></>}
+              <button onClick={uploadImage2} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500
+              p-2 rounded my-4'>
+            Upload Now
+          </button>
+          </div>
+          <div>
+          <label htmlFor='pass-basic3' className='font-bold'>Image 3</label>
+             <input
+            onChange={handlechange}
+              id="pass-basic3"
+              name="image3"
+              type="file"
+            />
+            {url3.length==""?"":<><h4 className='font-bold'>Preview Image 3</h4><img src={url3} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded'/></>}
+             <button  onClick={uploadImage3} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500 p-2 rounded my-4'>
+            Upload Now
+          </button>
+          </div>
+          <div>
+          <label htmlFor='pass-basic4' className='font-bold'>Image 4</label>
+             <input
+            onChange={handlechange}
+              id="pass-basic4"
+              name="image4"
+              type="file"
+            />
+            {url4.length==""?"":<><h4 className='font-bold'>Preview Image 4</h4><img src={url4} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded my-2'/></>}
+               <button onClick={uploadImage4} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500 p-2 rounded my-4'>
+            Upload Now
+          </button>
+          </div>
+          <div>
+          <label htmlFor='pass-basic5' className='font-bold'>Image 5</label>
+             <input
+            onChange={handlechange}
+              id="pass-basic5"
+              name="image5"
+              type="file"
+            />
+            {url5.length==""?"":<><h4 className='font-bold'>Preview Image 5</h4><img src={url5} alt="preview"  className='w-20 h-20 object-cover border-amber-500 rounded'/></>}
+            <button onClick={uploadImage5} className='bg-blue-700 text-white hover:text-black hover:bg-amber-500 p-2 rounded my-4'>
+            Upload Now
+          </button>
+          </div>
+          </div>
                 </div>
                 <div className="flex items-center space-x-4">
                   <button

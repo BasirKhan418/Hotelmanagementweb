@@ -44,7 +44,7 @@ const Footer = () => {
   	 			<h4>Follow us</h4>
   	 			<div className="social-links">
   	 				<Link href="#"><BsFacebook className='text-4xl hover:text-blue-600  '/></Link>
-  	 				<a href="#"><BsInstagram className='text-4xl hover:text-pink-600'/></a>
+  	 				<a href="https://instagram.com/hoteld_crescent_mailardevpally?igshid=YmM0MjE2YWMzOA==" target='_blank'><BsInstagram className='text-4xl hover:text-pink-600'/></a>
   	 				<a href="#"><BsTwitter className='text-4xl hover:text-blue-600'/></a>
   	 				<a href="#"><BsYoutube className='text-4xl hover:text-red-600'/></a>
   	 			</div>

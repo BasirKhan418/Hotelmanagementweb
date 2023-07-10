@@ -26,7 +26,7 @@ const Sliderhome = ({slider}) => {
         {slider&&slider.map((item)=>{return <SwiperSlide key={item._id}>
           <div className="flex object-cover">
             <img src={item.img} alt="slider-home-img" className="homesw opacity-90" />{" "}
-            <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold mx-4 my-4">
+            <h1 className={`absolute inset-0 flex items-center justify-center ${item.color=="white"?"text-white":""} ${item.color=="red"?"text-red-500":""} ${item.color=="blue"?"text-blue-600":""} ${item.color=="black"?"text-black":""} ${item.color=="orange"?"text-amber-600":""} ${item.color=="pink"?"text-pink-600":""} ${item.color=="green"?"text-green-600":""} text-2xl md:text-3xl font-bold mx-4 my-4`}>
             {item.title}
             </h1>
             <Link href={"/rooms"}><button  className="button bg-amber-500 font-semibold">Explore More</button></Link>

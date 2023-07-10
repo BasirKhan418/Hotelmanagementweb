@@ -94,7 +94,7 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
   }
 
  useEffect(()=>{
-  if(name.length>3 && email.length>3 && phone.length==10 && address.length>3 && pincode.length>=6 &&state.length>2&& city.length>2){
+  if(email.length>3){
     setDisabled(false);
    }
    else{

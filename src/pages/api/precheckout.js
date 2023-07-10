@@ -6,7 +6,7 @@ const handler = async (req, res) => {
   let rand=Math.floor(Math.random()*10000000);
   if(req.method=='POST'){
   
-   
+  //  console.log(req.body.cart)
 //INTIATE AN ORDER CORRESPONDING TO THIS ID
  //check if cart is tempered or not
  let product,sumtotal=0;
@@ -32,14 +32,14 @@ const handler = async (req, res) => {
   res.status(200).json({success:false,"error":"Your cart is empty please build your cart and try again",clearCart:true})
   return
  }
- if(req.body.phone.length!==10 ||!Number.isInteger(Number(req.body.phone))){
-  res.status(200).json({success:false,"error":"Please enter your 10 digit phone number",clearCart:false})
-  return
- }
- if(req.body.pincode.length!==6||!Number.isInteger(Number(req.body.pincode))){
-  res.status(200).json({success:false,"error":"Please enter your 6 digit pincode",clearCart:false})
-  return
- }
+//  if(req.body.phone.length!==10 ||!Number.isInteger(Number(req.body.phone))){
+//   res.status(200).json({success:false,"error":"Please enter your 10 digit phone number",clearCart:false})
+//   return
+//  }
+//  if(req.body.pincode.length!==6||!Number.isInteger(Number(req.body.pincode))){
+//   res.status(200).json({success:false,"error":"Please enter your 6 digit pincode",clearCart:false})
+//   return
+//  }
 //  if(!Object.keys(pincodes).includes(req.body.pincode)){
 //   res.status(200).json({success:false,"error":"Sorry! Your pin code is not serviceable",clearCart:false});
 //   return
@@ -75,13 +75,13 @@ try{
     amount:req.body.subTotal
   })
   await ordersd.save();
+  console.log(ordersd)
   res.status(200).json(ordersd)
 }
 // })}
   
 
 catch{
-alert("some error occured");
 res.status(400).json({success:false,"error":"Please give your details correctly",clearCart:false})
 }
 }   

@@ -20,12 +20,18 @@ import {
 } from "@mui/material";
 import { useRouter } from 'next/router';
 import BaseCard from "../../../trc/components/baseCard/BaseCard";
+import { set } from 'mongoose';
 const Sliderimage = () => {
   const router = useRouter();
   const[title,setTitle]=useState("");
   const[image1,setImage1]=useState("");
   const [ url1, setUrl1 ] = useState("");
   const [ slider, setSlider ] = useState("");
+  const[etitle,setEtitle]=useState("");
+  const[color,setColor]=useState("");
+  const[ecolor,seteColor]=useState("");
+  const [modal,Setmodal]=useState(false);
+  const [id, setId] = useState("");
  useEffect(()=>{
   const myAdmin = localStorage.getItem('myAdmin')
     if(!myAdmin){
@@ -47,6 +53,15 @@ const Sliderimage = () => {
     }
     else if (e.target.name === "image1") {
       setImage1(e.target.files[0]);
+    }
+    else if (e.target.name === "etitle") {
+      setEtitle(e.target.value);
+    }
+    else if (e.target.name === "color") {
+      setColor(e.target.value);
+    }
+    else if (e.target.name === "ecolor") {
+      seteColor(e.target.value);
     }
     // Handle other state updates for different fields
   };
@@ -87,7 +102,7 @@ const Sliderimage = () => {
     })
     }
     const handlesubmit=async()=>{
-      const data ={title,img:url1}
+      const data ={title,img:url1,color}
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_HOST}/api/slider`,
         {
@@ -103,6 +118,7 @@ const Sliderimage = () => {
         setTitle("");
         setImage1("")
         setUrl1("")
+        setColor("")
         toast.success("Successfully Slider Image Added", {
           position: "top-left",
           autoClose: 3000,
@@ -168,8 +184,53 @@ const Sliderimage = () => {
         }
       }
     }
-    
-
+  
+    const update = async (_id, title,color) => {
+      setEtitle(title);
+      Setmodal(true);
+      setId(_id);
+      seteColor(color);
+    }
+    const handleUpdate=async()=>{
+      const data={id,etitle,ecolor}
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_HOST}/api/updateslider`,
+        {
+          method: "POST", // or 'PUT'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      )
+        const r =await response.json()
+        if(r.success){
+          Setmodal(false)
+          toast.success("Successfully Slider updated", {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+        else{
+          toast.error("something went wrong please try again after some time", {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+    }
+  
   return (
     <>
     <Head>
@@ -210,6 +271,28 @@ theme="light"
   value={title}
   variant="outlined"
 />
+<label
+                  htmlFor="category"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Select Your Font-Colour
+                </label>
+                <select
+                  id="color"
+                  name="color"
+                  onChange={handleChange}
+                  value={color}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                >
+                  <option>select</option>
+                  <option>black</option>
+                  <option>blue</option>
+                  <option>orange</option>
+                  <option>red</option>
+                  <option>white</option>
+                  <option>green</option>
+                  <option>pink</option>
+                </select>
 <label htmlFor='pass-basic1' className='font-bold'>Image 1(Required)(If image preview appears then only hit the add product button )</label>
             <TextField
             onChange={handleChange}
@@ -240,10 +323,113 @@ theme="light"
       <h5 className="text-xl tracking-tight text-slate-900">Title:-{item.title}</h5>
   </div>
   <div className='m-2 flex justify-center'>
-    <button className='bg-red-500 text-white p-2 rounded w-full hover:bg-red-700 font-bold' onClick={()=>{handleDelete(item._id)}}>Delete Now</button>
+    <button className='bg-red-500 text-white p-2 rounded w-full hover:bg-red-700 font-bold mx-1' onClick={()=>{handleDelete(item._id)}}>Delete Now</button>
+    <button
+                        className="bg-blue-500 text-white p-2 rounded w-full hover:bg-blue-700 font-bold mx-1"
+                        onClick={() => {
+                          update(
+                            item._id,
+                            item.title,
+                            item.color
+                          );
+                        }}
+                      >
+                        Update Now
+                      </button>
   </div>
 </div>})}
 </div>
+<div
+            id="updateProductModal"
+            tabIndex="-1"
+            aria-hidden="true"
+            className={` ${
+              modal ? "" : "hidden"
+            } flex h-full overflow-y-auto overflow-x-auto fixed  top-0 right-0 left-0 z-150 justify-center items-center w-full md:inset-0 h-modal md:h-full mt-10 mb-8  border-blue-400`}
+          >
+            <div className="relative p-4 w-full max-w-2xl h-full md:h-auto">
+              <div className="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+                <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                    Update Category
+                  </h3>
+                  <button
+                    onClick={() => {
+                      Setmodal(false);
+                    }}
+                    type="button"
+                    className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-toggle="updateProductModal"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                    <span className="sr-only">Close modal</span>
+                  </button>
+                </div>
+                <div className="grid gap-4 mb-4 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="title"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Title
+                    </label>
+                    <input
+                      type="text"
+                      name="etitle"
+                      id="etitle"
+                      value={etitle}
+                      onChange={handleChange}
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      placeholder="Ex. Deluxe room"
+                    />
+                    <label
+                  htmlFor="category"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Select Your Font-Colour
+                </label>
+                <select
+                  id="ecolor"
+                  name="ecolor"
+                  onChange={handleChange}
+                  value={ecolor}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                >
+                  <option>select</option>
+                  <option>black</option>
+                  <option>blue</option>
+                  <option>orange</option>
+                  <option>red</option>
+                  <option>white</option>
+                  <option>green</option>
+                  <option>pink</option>
+                </select>
+                  </div>
+                 
+                </div>
+                <div className="flex items-center space-x-4">
+                  <button
+                    onClick={handleUpdate}
+                    className="text-white bg-blue-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Update Slider
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
     </FullLayout>
     </ThemeProvider>
     </>

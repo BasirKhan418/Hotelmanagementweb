@@ -324,4 +324,26 @@ ul{
 					left: 92px;
 				}
 			}
+			@media(max-width: 555px){
+				.dark{
+					margin-top: 50px;
+				}
+				.nav2{
+					padding: 35px;
+				}
+				.Navbar{
+					top: 70px;
+				}
+			}
+			@media(max-width: 400px){
+				.dark{
+					margin-top: 40px;
+				}
+				.nav2{
+					padding: 45px;
+				}
+				.Navbar{
+					top: 90px;
+				}
+			}
 			

@@ -4,6 +4,7 @@ import LoadingBar from 'react-top-loading-bar'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Navbar';
+import Navbar2 from './components/Navbar2';
 import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -101,7 +102,7 @@ if(localStorage.getItem("cart")){
   waitingTime={400}
   progress={progress}
   onLoaderFinished={() => setProgress(0)}
-/> {key && <Navbar logout={logout} user={user} key={key} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal}/>} <ToastContainer
+/> <Navbar2/>{key && <Navbar logout={logout} user={user} key={key} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal}/>} <ToastContainer
   position="top-left"
   autoClose={5000}
   hideProgressBar={false}

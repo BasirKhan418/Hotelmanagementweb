@@ -28,11 +28,11 @@ const Myorders = () => {
   return (
     <>
     <Head>
-      <title>Order Details | HotelDCrescent</title>
+      <title>Bookings Details | HotelDCrescent</title>
       <meta name="description" content='View and manage your order details on HotelDCrescent. Get instant access to booking information and track your food delivery progress. Enjoy a seamless experience and stay updated with real-time updates on your order status.'/>
       <meta name="keywords" content="hotel booking, food delivery, accommodation, online reservations, gourmet dining, seamless service, delightful stay, convenient hospitality, doorstep delivery, culinary experience, vacation getaway, top-rated hotel, comfortable accommodations, exquisite cuisine, memorable retreat" />
      </Head>
-     <h1 className='font-semibold text-2xl text-center bg-white p-4'>My Orders({orders.length})</h1>
+     <h1 className='font-semibold text-2xl text-center bg-white p-4'>My Bookings({orders.length})</h1>
     <div className='h-2 w-40 bg-amber-500 rounded '></div>
     <div className=' flex justify-center items-center'>
    
@@ -46,7 +46,7 @@ const Myorders = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Order Id:- {item.orderID}
+                            Booking Id:- {item.orderID}
                         </p>
                         <p className="text-sm text-gray-500 truncate dark:text-gray-400">
                             {item.email}

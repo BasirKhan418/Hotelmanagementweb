@@ -335,7 +335,7 @@ ul{
 					top: 70px;
 				}
 			}
-			@media(max-width: 400px){
+			@media(max-width: 405px){
 				.dark{
 					margin-top: 40px;
 					justify-content: center;

@@ -142,7 +142,7 @@ setCheckout(b)
                     Product Name (Qty)
                   </th> */}
                   <th scope="col" className="px-6 py-3 rounded text-center">
-                    Order Id
+                    Booking Id
                   </th>
                   <th scope="col" className="px-6 py-3 rounded text-center">
                     Payment Id

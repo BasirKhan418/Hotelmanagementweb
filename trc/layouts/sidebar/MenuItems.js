@@ -20,7 +20,7 @@ const Menuitems = [
     href: "/admin/sliderimage",
   },
   {
-    title: "Orders",
+    title: "Bookings",
     icon: "shopping-cart",
     href: "/admin/orders",
   },

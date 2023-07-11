@@ -89,7 +89,7 @@ const Navbar = ({
                   <Link href={"/orders"}>
                     <li className="py-1 text-base hover:text-pink-700 list-none font-bold flex">
                       <MdShoppingCart className="mt-1 mx-2" />
-                      My Orders
+                      My Bookings
                     </li>
                   </Link>
                   <li
@@ -341,7 +341,7 @@ const Navbar = ({
                   <Link href={"/orders"}>
                     <li className="py-1 text-base hover:text-amber-700 list-none font-bold flex">
                       <MdShoppingCart className="mt-1 mx-2" />
-                      My Orders
+                      My Bookings
                     </li>
                   </Link>
                   <li

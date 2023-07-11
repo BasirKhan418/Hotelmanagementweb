@@ -37,9 +37,9 @@ const MyOrder = ({order,clearCart}) => {
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
       <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
         <h2 className="text-sm title-font text-gray-500 tracking-widest"><span className='font-bold text-amber-700'>Hoteldcrescent.com</span></h2>
-        <h1 className="text-gray-900 text-xl md:text-3xl title-font font-medium mb-2">Order Id:- <span className='font-semi-bold text-amber-700'>{order.orderID}</span></h1>
+        <h1 className="text-gray-900 text-xl md:text-3xl title-font font-medium mb-2">Booking Id:- <span className='font-semi-bold text-amber-700'>{order.orderID}</span></h1>
         <h1 className="text-gray-900 text-xl md:text-3xl title-font font-medium mb-4">Payment Id:- <span className='font-semi-bold text-amber-700'>{order.payment_id}</span></h1>
-        <p className="leading-relaxed mb-4">Yayy! Your order has been successfully placed!</p>
+        <p className="leading-relaxed mb-4">Yayy! Your booking has been successfully placed!</p>
         <p className="leading-relaxed mb-1">Order placed on :-{date && date.toLocaleDateString("en-IN",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
         <p className='leading-relaxed mb-1'> Your Payment Status is <span className='font-bold text-amber-700'>{order.status}</span> </p>
         <div className="flex mb-4">
@@ -60,7 +60,7 @@ const MyOrder = ({order,clearCart}) => {
          
         </div>
         <div className="flex ">
-       <button onClick={toggletrack} className="flex text-white bg-amber-500 border-0 py-2 px-6 focus:outline-none hover:bg-amber-600 rounded my-4">Track Your Order</button>
+       <button onClick={toggletrack} className="flex text-white bg-amber-500 border-0 py-2 px-6 focus:outline-none hover:bg-amber-600 rounded my-4">Track Your Booking</button>
           </div>
       </div>
       <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={'/orderconfirm.jpg'}/>

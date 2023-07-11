@@ -20,7 +20,7 @@ const About = () => {
           <img src="/hotelbook.jpg" alt="image" loading="lazy" width="" height=""/>
         </div>
         <div className="md:7/12 lg:w-6/12">
-        <h2 className="text-2xl text-gray-900 font-bold md:text-4xl">HOTELDCRESCENT: Simplifying Your Hotel Booking Experience</h2>
+        <h2 className="text-2xl text-gray-900 font-bold md:text-4xl">HOTEL DCRESCENT: Simplifying Your Hotel Booking Experience</h2>
           <p className="mt-6 text-gray-600">Welcome to HotelDCrescent, where finding and booking the perfect hotel is effortless. With our extensive selection of accommodations, transparent information, and reliable customer support, we are here to simplify your travel planning. Discover exceptional stays and embark on unforgettable journeys with StayBook. Start your hassle-free booking experience now!
 
 </p>

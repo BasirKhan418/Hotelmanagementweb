@@ -16,7 +16,7 @@ const OrderSchema =new mongoose.Schema({
     checkout:{type:Date,default:""},
     amount:{type:Number,required:true},
     status:{type:String,default:"initiated",required:true},
-    deliveryStatus:{type:String,default:"unshipped",required:true}
+    deliveryStatus:{type:String,default:"pending",required:true}
 },{timestamps:true})
 mongoose.models={};
 export default mongoose.model("Order",OrderSchema);

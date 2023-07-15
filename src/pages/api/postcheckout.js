@@ -9,7 +9,7 @@ const handler = async (req, res) => {
     const transporter = await nodemailer.createTransport({
       host: "smtp-relay.brevo.com",
       port: 587,
-      secure: true,
+      secure: false,
       auth: {
         user: 'basirkhan4ukhanatoz@gmail.com',
         pass: 'O1aXMRNItUmjprkD'

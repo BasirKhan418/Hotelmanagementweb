@@ -131,12 +131,12 @@ theme="light"
       <p className='text-amber-500'>Children <span>*</span></p>
       <select value={child} onChange={handlechange} name="child" id="" className="p-2 rounded h-16 w-56" >
       <option value="1">No child</option>
-         <option value="1">1 child</option>
-         <option value="2">2 child</option>
-         <option value="3">3 child</option>
-         <option value="4">4 child</option>
-         <option value="5">5 child</option>
-         <option value="6">6 child</option>
+         <option value="2">1 child</option>
+         <option value="3">2 child</option>
+         <option value="4">3 child</option>
+         <option value="5">4 child</option>
+         <option value="6">5 child</option>
+         <option value="7">6 child</option>
       </select>
    </div>
 

@@ -3,9 +3,19 @@ import Forgot from "../../../models/Forgot";
 var CryptoJS = require("crypto-js");
 import connectDb from "../middleware/mongoose";
 import Jwt from "jsonwebtoken";
+const nodemailer = require("nodemailer");
 const handler = async (req, res) => {
   //check if the customer exists in the database or not
   if (req.body.sendMail == true) {
+    const transporter = await nodemailer.createTransport({
+      host: "smtp-relay.brevo.com",
+      port: 587,
+      secure: true,
+      auth: {
+        user: 'basirkhan4ukhanatoz@gmail.com',
+        pass: 'O1aXMRNItUmjprkD'
+      }
+    });
     try{
       let token = `tprint${Math.floor(Math.random()*1000000000)}in`;
       let f = await Forgot.findOne({ email: req.body.email });
@@ -19,28 +29,21 @@ const handler = async (req, res) => {
         token: token,
       });
       await forgot.save();
-      //after deployment
-      // const options = {
-      //   method: 'POST',
-      //   headers: {
-      //     accept: 'application/json',
-      //     'content-type': 'application/json',
-      //     authkey: process.enc.AUTH_KEY
-      //   },
-      //   body: JSON.stringify({
-      //     to: [{name: 'Mark', email:req.body.email}],
-      //     from: {name: 'Joe', email: 'khanbasir5555@gmail.com'},
-      //     domain: 'pcwytw.mailer91.com',
-      //     template_id: 'emailauthforforgot',
-      //     variables: {VAR1: token}
-      //   })
-      // };
-      
-      // fetch('https://control.msg91.com/api/v5/email/send', options)
-      //   .then(response => response.json())
-      //   .then(response => console.log(response))
-      //   .catch(err => console.error(err));
-
+      const info = await transporter.sendMail({
+        from: '<support@hoteldcrescent.com>', // sender address
+        to: `${req.body.email}`, // list of receivers
+        subject: `Password Reset`, // Subject line
+        text: "Booking ${req.body.deliveryStatus}✔", // plain text body
+        html: `We have sent you this email in response to your request to reset your password on hoteldcrescent.com. After you reset your password, please login with your new credentials.<br/>
+        To reset your password for hoteldcresent.com, please follow the link below:
+        <a href="${`https://hoteldcrescent.com/forgot?token=${token}`}" > Click Here </a><br/>
+        We recommend that you keep your password secure and not share it with anyone. If you feel your password has been compromised, you can change it by going to your My Account Page and clicking on the "Change Email Address or Password" link.<br/>
+        If you need help, or you have any other questions, feel free to email hoteldcrescent@gmail.co or call hoteldcrescent customer service toll-free at +919666252227.
+        <br/>
+        <br/>
+        Thanks For Your Bookings Team HotelDCrescent
+        `, 
+      });
       // let email = `We have sent you this email in response to your request to reset your password on Techprint.in
       // <br/><br/>
       // To reset your password for, please follow the link below:

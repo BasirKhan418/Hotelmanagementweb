@@ -47,7 +47,6 @@ if(localStorage.getItem('myAdmin')){
       const r = await response.json();
         setEmail("");
         setLoading(false)
-        router.push(`/admin/adminforgot?token=${r.forgot.token}`);
       if(r.success){
         toast.success("Successfully email sent. Please check the email for reset password related instructions ", {
           position: "top-left",

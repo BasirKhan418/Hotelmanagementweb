@@ -18,6 +18,9 @@ const Orders = ({ orderss }) => {
   const [checkout,setCheckout]=useState("")
   const [status,setStatus]=useState("")
   const [dlstatus,setDlstatus]=useState("")
+  const [name,setName]=useState("")
+  const [orderid,setOrderid]=useState("")
+  const [email,setEmail]=useState("")
   const [id,setID]=useState("")
   useEffect(()=>{
     const ref = async () => {
@@ -53,9 +56,12 @@ const Orders = ({ orderss }) => {
       setDlstatus(e.target.value)
     } 
   }
-  const updateorder=(id,room,checkin,checkout,status,dlstatus)=>{
+  const updateorder=(id,name,orderid,email,room,checkin,checkout,status,dlstatus)=>{
     setID(id)
   setRoom(room);
+  setName(name);
+  setOrderid(orderid)
+setEmail(email)
   const e =new Date(checkin);
 let a =e&&e.toLocaleDateString("en-IN",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 setCheckin(a)
@@ -66,7 +72,7 @@ setCheckout(b)
   setDlstatus(dlstatus)
   }
   const handleUpdate=async()=>{
-  const data={id,room,checkin,checkout,status,deliveryStatus:dlstatus}
+  const data={id,room,checkin,checkout,status,deliveryStatus:dlstatus,name,orderid,email}
   const pr = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updateorder`, {
     method: "POST", // or 'PUT'
     headers: {
@@ -204,6 +210,9 @@ setCheckout(b)
                             Setmodal(!modal);
                             updateorder(
                               item._id,
+                              item.name,
+                              item.orderID,
+                              item.email,
                               item.room_no,
                               item.checkin,
                               item.checkout,

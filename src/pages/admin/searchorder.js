@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import Order from "../../../models/Order";
 const Searchorder = () => {
   useEffect(()=>{
     const myAdmin = localStorage.getItem('myAdmin')
@@ -41,6 +42,8 @@ const Searchorder = () => {
   const [status,setStatus]=useState("")
   const [dlstatus,setDlstatus]=useState("")
   const [id,setID]=useState("")
+  const [email,setEmail]=useState("")
+  const [name,setName]=useState("")
   const handlechange=(e)=>{
     if(e.target.name=="roomno"){
       setRoom(e.target.value)
@@ -59,8 +62,10 @@ const Searchorder = () => {
       setDlstatus(e.target.value)
     } 
   }
-  const updateorder=(id,room,checkin,checkout,status,dlstatus)=>{
+  const updateorder=(id,room,checkin,checkout,status,dlstatus,email,name)=>{
     setID(id)
+    setEmail(email)
+    setName(name)
   setRoom(room);
   const e =new Date(checkin);
 let a =e&&e.toLocaleDateString("en-IN",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
@@ -72,7 +77,7 @@ setCheckout(b)
   setDlstatus(dlstatus)
   }
   const handleUpdate=async()=>{
-  const data={id,room,checkin,checkout,status,deliveryStatus:dlstatus}
+  const data={id,room,checkin,checkout,status,deliveryStatus:dlstatus,email,name}
   const pr = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updateorder`, {
     method: "POST", // or 'PUT'
     headers: {
@@ -136,7 +141,7 @@ setCheckout(b)
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </div>
-        <input value={sid} onChange={shandlechange} name="id" type="search" id="default-search" className=" font-semibold bock w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Your Order ID...." required />
+        <input value={sid} onChange={shandlechange} name="id" type="search" id="default-search" className=" font-semibold bock w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Your Booking ID...." required />
         <button onClick={handleSearch} type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
     </div>
 </div>
@@ -227,7 +232,9 @@ setCheckout(b)
                               order.checkin,
                               order.checkout,
                               order.status,
-                              order.deliveryStatus
+                              order.deliveryStatus,
+                              order.email,
+                              order.name
                             );
                           }}
                         >

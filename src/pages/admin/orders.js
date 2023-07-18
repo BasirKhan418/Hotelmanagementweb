@@ -157,7 +157,7 @@ setCheckout(b)
                     Status
                   </th>
                   <th scope="col" className="px-6 py-3 rounded text-center">
-                    Delivery Status
+                    Booking Status
                   </th>
                   <th scope="col" className="px-6 py-3 rounded text-center">
                     Customer Name

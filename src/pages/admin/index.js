@@ -31,6 +31,9 @@ export default function Index() {
         .Navbar{
           display:none;
         }
+        .nav2{
+          display:none;
+        }
       `}</style>
         <FullLayout>
     <Grid container spacing={0}>

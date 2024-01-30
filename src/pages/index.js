@@ -15,7 +15,7 @@ import mongoose from 'mongoose'
 export default function Home({catroom,catfood,slider,gallery}) {
 
   return (
-   <div className='bg-white'>
+   <div className=' bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-slate-900 via-purple-900 to-slate-900'>
      <Head>
       <title>Hotel DCrescent -Your Ultimate Hotel Booking and Food Delivery Destination</title>
       <meta property="og:title" content="Hotel DCrescent -Your Ultimate Hotel Booking and Food Delivery Destination" />

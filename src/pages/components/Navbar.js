@@ -18,6 +18,7 @@ import { BiLogInCircle, BiLogOut } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { MdFoodBank } from "react-icons/md";
 import {RiHotelFill} from "react-icons/ri";
+import { motion } from "framer-motion";
 
 const Navbar = ({
   logout,
@@ -74,7 +75,7 @@ const Navbar = ({
                     onClick={() => {
                       setDropdown(false);
                     }}
-                    className="absolute top-0 right-2 cursor-pointer text-2xl text-amber-500"
+                    className="absolute top-0 right-2 cursor-pointer text-2xl text-black"
                   >
                     <>
                       <AiFillCloseCircle />
@@ -120,7 +121,7 @@ const Navbar = ({
                     onClick={() => {
                       setDropdown(false);
                     }}
-                    className="absolute top-0 right-2 cursor-pointer text-2xl text-amber-500"
+                    className="absolute top-0 right-2 cursor-pointer text-2xl text-black"
                   >
                     <>
                       <AiFillCloseCircle />
@@ -138,7 +139,7 @@ const Navbar = ({
             </span>
           )}
       <div
-        className={` Navbar flex flex-col lg:flex-row  justify-start md:justify-start items-center py-2 shadow-md bg-white dark:bg-black dark:text-white text-black sticky top-12 z-10 dark:sticky dark:top:0 ${!sidebarham?"h-20":""} w-full ${
+        className={` Navbar flex flex-col lg:flex-row  justify-start md:justify-start items-center py-2 shadow-md bg-gray-900  dark:bg-black dark:text-white text-black sticky top-12 z-10 dark:sticky dark:top:0 ${!sidebarham?"h-20":""} w-full ${
           !sidebar && "overflow-hidden"
         }`}
       >
@@ -152,7 +153,7 @@ const Navbar = ({
               }`}
             ></span>
             <span
-              className={`block w-8 h-0.5 bg-black dark:bg-white ${sidebarham? "-rotate-45 translate-y-3 absolute bottom-1" : ""}`}
+              className={`block w-8 h-0.5 bg-white ${sidebarham? "-rotate-45 translate-y-3 absolute bottom-1" : ""}`}
             ></span>
             <span className={`block w-8 h-0.5 bg-amber-500 ${
                 sidebarham
@@ -173,70 +174,81 @@ const Navbar = ({
             </div>
           </Link>
         </div>
-        <div className="nav right hidden lg:flex dark:text-white dark:bg-black">
-          <ul className="flex justify-center mx-4 items-center overflow-hidden whitespace-nowrap space-x-4 ">
+        <div className="nav right hidden lg:flex bg-gray-900">
+          <motion.ul className="flex justify-center mx-4 items-center overflow-hidden whitespace-nowrap space-x-4 "
+          initial={{ opacity: 0, y: -50 }}  transition={{ duration: 1 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          >
             <hr className="h-2 w-full" />
             <Link href={"/"}>
               {" "}
-              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in ">
+              <li className="text-lg my-2 font-semibold hover:bg-gray-800 hover:rounded transition duration-150 ease-out hover:ease-in text-white ">
                 Home
               </li>
             </Link>
             <Link href={"/rooms"}>
               {" "}
-              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+              <li className="text-lg my-2 font-semibold hover:bg-gray-800 hover:rounded transition duration-150 ease-out hover:ease-in text-white ">
                 Rooms
               </li>
             </Link>
             <Link href={"/foods"}>
               {" "}
-              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+              <li className="text-lg my-2 font-semibold  hover:bg-gray-800 hover:rounded transition duration-150 ease-out hover:ease-in text-white ">
                 Foods
               </li>
             </Link>
             <Link href={"/gallery"}>
               {" "}
-              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+              <li className="text-lg my-2 font-semibold  hover:bg-gray-800 hover:rounded transition duration-150 ease-out hover:ease-in text-white">
                 Gallery
               </li>
             </Link>
             <Link href={"/about"}>
               {" "}
-              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+              <li className="text-lg my-2 font-semibold  hover:bg-gray-800 hover:rounded transition duration-150 ease-out hover:ease-in text-white">
                 About
               </li>
             </Link>
             <Link href={"/contactus"}>
               {" "}
-              <li className="text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in">
+              <li className="text-lg my-2 font-semibold  hover:bg-gray-800 hover:rounded transition duration-150 ease-out hover:ease-in text-white">
                Contact Us
               </li>
             </Link>
             {/* <Link href={"/"}> <a><li>Tshirts</li></a></Link> */}
-          </ul>
+          </motion.ul>
         </div>
 
         {/* <AiOutlineShoppingCart className="text-3xl md:text-xl"/> */}
-        <div className="cart absolute right-4 top-6 mx-5 flex justify-center">
-          <Link href={"/rooms"}><button className="text-white px-2 py-1 font-semibold bg-amber-500 rounded hover:bg-amber-600 hidden lg:block">BOOK A STAY</button></Link>
+        <motion.div className="cart absolute right-4 top-6 mx-5 flex justify-center"
+        initial={{ opacity: 0, y: -50 }}  transition={{ duration: 1 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        >
+          <Link href={"/rooms"}><motion.button className=" px-2 py-1 font-semibold bg-white rounded hover:bg-amber-600 hidden lg:block  bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text border-2 border-gray-200"
+           whileHover={{scale:1.1}} whileTap={{scale:0.9}}
+          >BOOK A STAY</motion.button></Link>
             <MdAccountCircle
               onMouseOver={() => {
                 setDropdown(true);
               }}
-              className="text-xl md:text-3xl cursor-pointer mx-4 text-amber-500 hidden lg:block"
+              className="text-xl md:text-3xl cursor-pointer mx-4 text-white hidden lg:block"
             />
-          <div className="hidden lg:block">
+          <motion.div className="hidden lg:block"
+          whileHover={{scale:1.1}} whileTap={{scale:0.9}}
+          >
             <AiOutlineShoppingCart
-              className="text-xl md:text-3xl cursor-pointer text-amber-500 "
+              className="text-xl md:text-3xl cursor-pointer text-white"
+              
               onClick={toggleCart}
             />
 
             <span className="absolute -top-2 -right-2 h-5 w-5 text-sm rounded-full bg-amber-500 text-white flex justify-center items-center items cursor-pointer">
               <span>{Object.keys(cart).length}</span>
             </span>
-          </div>
-        </div>
-        <div className="bottom fixed bottom-0 text-amber-500 bg-white w-full h-10 z-20 lg:hidden flex dark:bg-black dark:text-amber-500">
+          </motion.div>
+        </motion.div>
+        <div className="bottom fixed bottom-0 text-white bg-gray-900 w-full h-10 z-20 lg:hidden flex dark:bg-black dark:text-amber-500">
           <div className="box flex justify-center items-center w-1/4 cursor-pointer">
             <Link href="/">
               <svg
@@ -326,27 +338,27 @@ const Navbar = ({
                     onClick={() => {
                       msetDropdown(false);
                     }}
-                    className="absolute top-0 right-2 cursor-pointer text-2xl text-amber-500"
+                    className="absolute top-0 right-2 cursor-pointer text-2xl  text-black"
                   >
                     <>
                       <AiFillCloseCircle />
                     </>
                   </span>
                   <Link href={"/myaccount"}>
-                    <li className="py-1 text-base hover:text-amber-700 list-none font-bold flex">
+                    <li className="py-1 text-base hover:text-amber-700 list-none font-bold flex text-black">
                       <MdManageAccounts className="mt-1 mx-2" />
                       My Account
                     </li>
                   </Link>
                   <Link href={"/orders"}>
-                    <li className="py-1 text-base hover:text-amber-700 list-none font-bold flex">
+                    <li className="py-1 text-base hover:text-amber-700 list-none font-bold flex text-black">
                       <MdShoppingCart className="mt-1 mx-2" />
                       My Bookings
                     </li>
                   </Link>
                   <li
                     onClick={logout}
-                    className="py-1 text-base hover:text-amber-700 list-none font-bold flex"
+                    className="py-1 text-base hover:text-amber-700 list-none font-bold flex text-black"
                   >
                     <BiLogOut className="mt-1 mx-2" />
                     Logout
@@ -388,49 +400,52 @@ const Navbar = ({
           )}
         </div>
         {!sidebar&&<div
-          className={`bg-white h-[50vh] px-8 py-10 transition-all dark:bg-black
+          className={`bg-gray-900 h-[55vh] px-8 py-10 transition-all dark:bg-black
           }`}
         >
-          <ul className="flex justify-center mx-4 items-center overflow-hidden whitespace-nowrap space-x-4 flex-col">
+          <motion.ul className="flex justify-center mx-4 items-center overflow-hidden whitespace-nowrap space-x-4 flex-col"
+          initial={{ opacity: 0, y: -50 }}  transition={{ duration: 1 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          >
             <hr className="h-2 w-full" />
             <Link href={"/"}>
               {" "}
-              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in dark:text-white">
+              <li className="text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in text-white">
                 Home
               </li>
             </Link>
             <Link href={"/rooms"}>
               {" "}
-              <li className=" dark:text-white text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
+              <li className=" text-white text-lg my-2 font-semibold hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 Rooms
               </li>
             </Link>
             <Link href={"/foods"}>
               {" "}
-              <li className=" dark:text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
+              <li className=" text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 Foods
               </li>
             </Link>
             <Link href={"/gallery"}>
               {" "}
-              <li className=" dark:text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
+              <li className=" text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 Gallery
               </li>
             </Link>
             <Link href={"/about"}>
               {" "}
-              <li className="dark:text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
+              <li className="text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                 About
               </li>
             </Link>
             <Link href={"/contactus"}>
               {" "}
-              <li className="dark:text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
+              <li className="text-white text-lg my-2 font-semibold  hover:bg-amber-100 hover:rounded transition duration-150 ease-out hover:ease-in lg:hidden">
                Contact Us
               </li>
             </Link>
             {/* <Link href={"/"}> <a><li>Tshirts</li></a></Link> */}
-          </ul>
+          </motion.ul>
         </div>}
         <div
           ref={ref}

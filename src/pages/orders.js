@@ -16,6 +16,7 @@ const Myorders = () => {
 
     const response=await res.json();
     setOrders(response.orders);
+    console.log(response)
   }
   useEffect(()=>{
     if(!localStorage.getItem('myUser')){

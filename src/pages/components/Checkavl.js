@@ -102,11 +102,11 @@ pauseOnHover
 theme="light"
 />
 
-<form action="" className="flex items-center justify-center bg-black flex-wrap ">
+<form action="" className="flex items-center justify-center bg-black flex-wrap  ">
 
    <div className="font-semibold text-black p-4">
       <p className='text-amber-500'>Check in <span>*</span></p>
-      <input type="date" name="checkin" className="input p-2 rounded h-16 w-56" onChange={handlechange} value={checkin}/>
+      <input type="date" name="checkin" className="input p-2 rounded h-16 w-56 " onChange={handlechange} value={checkin}/>
    </div>
 
    <div className="box font-semibold  text-black p-4">

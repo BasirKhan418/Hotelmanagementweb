@@ -50,7 +50,7 @@ const Hero1 = () => {
                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 
-                className="inline-flex items-center px-6 py-4 mt-8 font-semibold text-white transition-all duration-200 bg-purple-600 rounded-full lg:mt-16 hover:bg-purple-800 w-auto sm:w-auto md:w-auto lg:w-auto xl:w-auto "
+                className="inline-flex items-center px-6 py-4 mt-8 font-semibold text-white transition-all duration-200 bg-purple-600 rounded-full lg:mt-16 hover:bg-purple-800 w-52 sm:w-auto md:w-auto lg:w-auto xl:w-auto mx-2"
                 role="button"
               >
                 Book A Stay
@@ -75,7 +75,7 @@ const Hero1 = () => {
               <motion.button
                  whileHover={{ scale: 1.1 }}
                  whileTap={{ scale: 0.9 }}
-                className="inline-flex items-center px-6 py-4 mt-8 font-semibold text-white transition-all duration-200 bg-yellow-600 rounded-full lg:mt-16 hover:bg-purple-800  mx-4"
+                className="inline-flex items-center px-6 py-4 mt-8 font-semibold text-white transition-all duration-200 bg-yellow-600 rounded-full lg:mt-16 hover:bg-purple-800 w-52 sm:w-auto md:w-auto lg:w-auto xl:w-auto mx-4"
                 role="button"
               >
                 Order Food

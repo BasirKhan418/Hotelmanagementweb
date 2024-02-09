@@ -3,7 +3,7 @@ import Link from 'next/link'
 const Features = () => {
   return (
     <>
-      <div className="w-full bg-blue-50 p-6">
+      <div className="w-full p-6">
 <div className="flex flex-wrap justify-center">
 
     <div className="flex flex-col bg-white rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52">

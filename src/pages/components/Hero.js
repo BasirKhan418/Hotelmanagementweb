@@ -68,7 +68,7 @@ const Hero = () => {
         </div>
         
     </section> */}
-      <section>
+      {/* <section>
         <div className="relative py-12  bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-slate-900 via-purple-900 to-slate-900 sm:py-16 lg:py-20 xl:pt-32 xl:pb-44">
           <div className="absolute hidden lg:block right-0">
             <div className="slider-container ">
@@ -201,7 +201,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

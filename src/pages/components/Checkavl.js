@@ -102,9 +102,9 @@ pauseOnHover
 theme="light"
 />
 
-<form action="" className="flex items-center justify-center bg-gray-200 flex-wrap ">
+<form action="" className="flex items-center justify-center bg-black flex-wrap ">
 
-   <div className="font-semibold bg-gray-200 text-black p-4">
+   <div className="font-semibold text-black p-4">
       <p className='text-amber-500'>Check in <span>*</span></p>
       <input type="date" name="checkin" className="input p-2 rounded h-16 w-56" onChange={handlechange} value={checkin}/>
    </div>
@@ -153,7 +153,7 @@ theme="light"
    </div>
    
 </form>
-<div className='flex justify-center bg-gray-200 h-16'>
+<div className='flex justify-center h-16 bg-black'>
    <button onClick={handlebutton} className="bg-amber-500 rounded p-2 mx-2 lg:absolute left-32 text-white font-semibold h-10 w-52 ">Check Avaibility</button>
    </div>
 

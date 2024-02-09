@@ -5,7 +5,7 @@ import {BsFacebook,BsInstagram,BsTwitter,BsYoutube,BsFillTelephoneFill} from "re
 import {MdEmail} from "react-icons/md";
 const Footer = () => {
   return (
-    <div>
+    <div className=''>
       <footer className="footer">
   	 <div className="container">
   	 	<div className="row">

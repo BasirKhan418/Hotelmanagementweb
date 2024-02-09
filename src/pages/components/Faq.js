@@ -41,7 +41,7 @@ const Faq = () => {
 
         <div>
           <img src="/faq.gif"
-            className="w-full rounded-lg shadow-lg dark:shadow-black/20 h-[80vh] object-cover" alt="" />
+            className="w-full rounded-lg shadow-lg dark:shadow-black/20 h-[80vh] object-cover bg-none" alt="" />
         </div>
       </div>
     </div>

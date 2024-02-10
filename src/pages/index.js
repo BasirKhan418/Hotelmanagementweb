@@ -11,6 +11,7 @@ import Faq from './components/Faq'
 import Category from '../../models/Category'
 import Slider from '../../models/Slider'
 import Gallery from '../../models/Gallery'
+import Contact from './contactus'
 import mongoose from 'mongoose'
 export default function Home({catroom,catfood,slider,gallery}) {
 
@@ -67,6 +68,11 @@ export default function Home({catroom,catfood,slider,gallery}) {
     </div>
     <div className='h-2 w-40 bg-amber-500 rounded '></div>
     <><Faq/></>
+    <div className='text-amber-500 h-16 flex justify-center items-center my-2'>
+      <h1 className='sm:text-4xl text-xl font-bold'>Contact Us</h1>
+    </div>
+    <div className='h-2 w-40 bg-amber-500 rounded '></div>
+    <><Contact/></>
    </div>
   )
 }

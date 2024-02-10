@@ -449,7 +449,7 @@ const Navbar = ({
         </div>}
         <div
           ref={ref}
-          className={`w-80 h-[100vh] sideCart overflow-y-scroll absolute top-0 text-black bg-amber-100 px-8 py-10 transition-all ${
+          className={`w-80 h-[100vh] sideCart overflow-y-scroll absolute top-0 text-white  px-8 py-10 transition-all bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-slate-900 via-purple-900 to-slate-900 ${
             sidebar ? "right-0" : "-right-96"
           }`}
         >
@@ -518,7 +518,7 @@ const Navbar = ({
             <Link href={"/checkout"}>
               <button
                 disabled={Object.keys(cart).length == 0}
-                className="disabled:bg-amber-200 flex mx-auto mr-2 text-black bg-amber-500 border-0 py-2 px-2 focus:outline-none hover:bg-amber-600 rounded text-sm"
+                className="disabled:bg-purple-400 flex mx-auto mr-2 text-white bg-purple-600 border-0 py-2 px-2 focus:outline-none hover:bg-amber-600 rounded text-sm"
               >
                 <>
                   {" "}
@@ -530,7 +530,7 @@ const Navbar = ({
             <button
               disabled={Object.keys(cart).length == 0}
               onClick={clearCart}
-              className="disabled:bg-amber-200 flex mx-auto mr-2 text-black bg-amber-500 border-0 py-2 px-2 focus:outline-none hover:bg-amber-600 rounded text-sm"
+              className="disabled:bg-yellow-300 flex mx-auto mr-2 text-white bg-yellow-600 border-0 py-2 px-2 focus:outline-none hover:bg-amber-600 rounded text-sm"
             >
               Clear cart
             </button>

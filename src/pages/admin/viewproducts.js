@@ -539,7 +539,7 @@ useEffect(()=>{
             aria-hidden="true"
             className={` ${
               modal ? "" : "hidden"
-            } flex overflow-y-auto overflow-x-auto relative top-0  z-150 justify-center items-center w-full md:inset-0 h-modal md:h-full mt-10 mb-8  border-blue-400`}
+            } flex overflow-y-auto  overflow-x-auto relative top-0  justify-center items-center w-full md:inset-0 h-modal md:h-full mt-10 mb-8  border-blue-400`}
           >
             <div className="relative p-4 w-full max-w-2xl h-full md:h-auto">
               <div className="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
